@@ -1,0 +1,176 @@
+@import 'bootstrap/scss/bootstrap';
+
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --first-color: #28a745;; /* Primary color */
+    --first-color-light: #5a5a5a; /* Lighter shade of primary color */
+    --white-color: #F7F6FB; /* Background and header color */
+    --body-font: 'Nunito', sans-serif; /* Font used throughout the page */
+    --normal-font-size: 1rem; /* Base font size */
+    --z-fixed: 100; /* Z-index for fixed elements */
+}
+
+*, ::before, ::after {
+    box-sizing: border-box; /* Applies border-box model to all elements */
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0; /* Adds margin equal to header height */
+    padding: 0 1rem;
+    font-family: var(--body-font); /* Applies Nunito font */
+    font-size: var(--normal-font-size);
+    transition: 0.5s; /* Smooth transitions */
+}
+
+a {
+    text-decoration: none; /* Removes underlines from links */
+}
+
+.header {
+    width: 100%; /* Full-width header */
+    height: var(--header-height); /* Dynamic height based on variable */
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    display: flex; /* Flexbox for alignment */
+    align-items: center;
+    justify-content: space-between; /* Space between elements */
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed); /* Ensures it stays on top of other elements */
+    transition: 0.5s; /* Smooth animation for changes */
+}
+
+.header_toggle {
+    color: var(--first-color); /* Primary color for toggle */
+    font-size: 1.5rem;
+    cursor: pointer; /* Indicates clickable */
+}
+
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%; /* Circular image */
+    overflow: hidden;
+}
+
+.header_img img {
+    width: 40px; /* Ensures the image fits within the container */
+}
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%; /* Initially hidden (off-screen) */
+    width: var(--nav-width); /* Dynamic width */
+    height: 100vh; /* Full height of the viewport */
+    background-color: var(--first-color); /* Primary color */
+    padding: 0.5rem 1rem 0 0;
+    transition: 0.5s; /* Smooth sliding animation */
+    z-index: var(--z-fixed); /* Stays on top of content */
+}
+
+.nav {
+    height: 100%; /* Full height container */
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: space-between; /* Distributes items evenly */
+    overflow: hidden; /* Hides overflow content */
+}
+
+.nav_logo, .nav_link {
+    display: grid; /* Grid layout for icons and text */
+    grid-template-columns: max-content max-content; /* Two columns: icon and text */
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0.5rem 0 0.5rem 1.5rem; /* Adds padding inside links */
+}
+
+.nav_logo {
+    margin-bottom: 2rem; /* Space below the logo */
+}
+
+.nav_logo-icon, .nav_icon {
+    font-size: 1.25rem;
+    color: var(--white-color);
+}
+
+.nav_logo-name {
+    color: var(--white-color); /* White text for the logo name */
+    font-weight: 700;
+}
+
+.nav_link {
+    position: relative;
+    color: var(--first-color-light); /* Lighter primary color for links */
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+}
+
+.nav_link:hover {
+    color: var(--white-color); /* Turns white when hovered */
+}
+
+
+.active {
+    color: var(--white-color); /* Active link color */
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px; /* Active link indicator */
+    height: 32px;
+    background-color: var(--white-color); /* White indicator */
+}
+
+.show {
+    left: 0; /* Makes the navbar visible */
+}
+
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem); /* Accounts for navbar width */
+}
+
+.height-100 {
+    height: 100vh; /* Full height for main content area */
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0; /* Adds margin for header */
+        padding-left: calc(var(--nav-width) + 2rem); /* Shifts content for navbar */
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    }
+
+    .header_img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header_img img {
+        width: 45px;
+    }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0; /* Adjusted padding for desktop view */
+    }
+
+    .show {
+        width: calc(var(--nav-width) + 156px); /* Expands navbar width */
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px); /* Adjusts content padding */
+    }
+}
