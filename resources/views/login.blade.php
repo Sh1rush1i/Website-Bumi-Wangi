@@ -4,14 +4,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 
-    <!-- Style -->
-    @vite(['resources/sass/login.scss', 'resources/js/app.js'])
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
     <title>Admin Login</title>
   </head>
-  <body>
+  <body class="body-login">
     <div class="container vh-100 d-flex align-items-center">
         <div class="row w-100">
             <!-- Image Column -->
