@@ -17,3 +17,11 @@ Route::get('/dashboard', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('tentang');
+
+Route::get('/product', function () {
+    return view('product');
+})->name('produk');
+
+Route::get('/wisata', function () {
+    return view('wisata');
+})->name('wisata');

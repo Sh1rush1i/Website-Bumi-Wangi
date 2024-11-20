@@ -173,4 +173,59 @@ a {
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px); /* Adjusts content padding */
     }
+
+    .package-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Pastikan tinggi seragam */
+    }
+    
+    .text-truncate-2 {
+        display: -webkit-box; /* For WebKit browsers */
+        -webkit-line-clamp: 2; /* Limit to 2 lines in WebKit */
+        -webkit-box-orient: vertical; /* Set vertical box orientation in WebKit */
+        overflow: hidden; /* Ensure content doesn't spill */
+        text-overflow: ellipsis; /* Add ellipsis for overflow */
+        height: 3rem; /* Maintain consistent height */
+        
+        /* Placeholder for future compatibility */
+        line-clamp: 2; /* Not yet widely supported, added for future-proofing */
+    }
+    
+    @media (max-width: 768px) {
+        .col-sm-6 {
+            flex: 0 0 100%; /* Kartu mengambil lebar penuh */
+            max-width: 100%;
+        }
+    }
+    
+    .card-icons a {
+        font-size: 1.2rem; /* Ukuran ikon */
+        text-decoration: none; /* Hapus underline */
+        background: rgba(255, 255, 255, 0.9); /* Latar belakang putih transparan */
+        border-radius: 50%; /* Bentuk lingkaran */
+        width: 40px; /* Ukuran lebar lingkaran */
+        height: 40px; /* Ukuran tinggi lingkaran */
+        display: flex; /* Gunakan flexbox untuk sentralisasi ikon */
+        align-items: center; /* Sentralisasi secara vertikal */
+        justify-content: center; /* Sentralisasi secara horizontal */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow di balik ikon */
+        transition: all 0.3s ease-in-out; /* Animasi saat hover */
+    }
+    
+    .card-icons a:hover {
+        background: rgba(0, 0, 0, 0.1); /* Latar belakang saat hover */
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Shadow lebih besar saat hover */
+    }
+    
+
+    .card-icons {
+        display: flex;
+        gap: 0.5rem; /* Jarak antar ikon */
+        z-index: 10; /* Pastikan ikon berada di atas konten lainnya */
+        right: 0; /* Posisikan ikon di kanan */
+        top: 0; /* Posisikan ikon di atas */
+        margin: 0.5rem; /* Tambahkan margin di sekitar ikon */
+    }  
 }

@@ -38,6 +38,7 @@
   }
   
   html {
+    scroll-behavior: smooth;
     font-family: sans-serif;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -260,8 +261,10 @@
   [type="button"],
   [type="reset"],
   [type="submit"] {
-    -webkit-appearance: button;
+      -webkit-appearance: button; /* For WebKit browsers */
+      appearance: button; /* Standard property for broader compatibility */
   }
+  
   
   button:not(:disabled),
   [type="button"]:not(:disabled),
@@ -324,9 +327,11 @@
   }
   
   [type="search"] {
-    outline-offset: -2px;
-    -webkit-appearance: none;
-  }
+    outline-offset: -2px; /* Adjusts the outline position */
+    -webkit-appearance: none; /* For WebKit browsers */
+    appearance: none; /* Standard property for broader compatibility */
+}
+
   
   [type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -3479,8 +3484,9 @@
     display: block;
     min-height: 1.5rem;
     padding-left: 1.5rem;
-    color-adjust: exact;
-  }
+    print-color-adjust: exact; /* Replaces color-adjust for compatibility */
+}
+
   
   .custom-control-inline {
     display: inline-flex;
@@ -9566,7 +9572,6 @@
   }
   
   .page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.jpg), no-repeat center center;
     background-size: cover;
   }
   
@@ -9806,3 +9811,15 @@
      60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
     100% { transform: rotate( 0.0deg) }
   }
+
+  .text-truncate-2 {
+    display: -webkit-box; /* For WebKit browsers */
+    -webkit-line-clamp: 2; /* Limit to 2 lines in WebKit */
+    -webkit-box-orient: vertical; /* Set vertical box orientation in WebKit */
+    overflow: hidden; /* Ensure content doesn't spill */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    height: 3rem; /* Maintain consistent height */
+    
+    /* Placeholder for future compatibility */
+    line-clamp: 2; /* Not yet widely supported, added for future-proofing */
+}

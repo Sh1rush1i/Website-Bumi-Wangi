@@ -76,10 +76,9 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="{{ route('index') }}" class="nav-item nav-link">Beranda</a>
-                        <a href="{{ route(name: 'tentang') }}" class="nav-item nav-link active">Tentang</a>
+                        <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
-                        <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
-
+                        <a href="{{ route('wisata') }}" class="nav-item nav-link active">Wisata</a>
                         <!--
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -101,46 +100,70 @@
     </div>
     <!-- Navbar End -->
 
-
     <!-- Header Start -->
     <div class="container-fluid page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Tentang Kami</h3>
+                <h3 class="display-4 text-white text-uppercase">Wisata</h3>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
-    <!-- About Start -->
+    <!-- Packages Start -->
     <div class="container-fluid py-5">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-lg-6" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
-                        <h1 class="mb-3">Kami menyediakan pengalaman wisata asri</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
-                        <div class="row mb-4">
-                            <div class="col-6">
-                                <img class="img-fluid" src="img/carousel-1.webp" alt="">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">PAKET WISATA</h6>
+                <h1>Paket Wisata Yang Kami Tawarkan</h1>
+            </div>
+            <!-- Ini item 1 wak -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="package-item bg-white mb-2">
+                        <img class="img-fluid" src="img/wisata.webp" alt="">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
+                                <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>1 Malam</small>
                             </div>
-                            <div class="col-6">
-                                <img class="img-fluid" src="img/carousel-2.webp" alt="">
+                            <div class="product-item">
+                                <a class="h5 text-decoration-none" href="#">Wisata 1</a>
+                                <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">Ini deskripsi Wisata</a>
+                            </div>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="m-0">IDR 350.000</h5>
+                                </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
                     </div>
                 </div>
+                <!-- Ini item 2 wak -->     
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="package-item bg-white mb-2">
+                        <img class="img-fluid" src="img/wisata.webp" alt="">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
+                                <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>1 Malam</small>
+                            </div>
+                            <div class="product-item">
+                                <a class="h5 text-decoration-none" href="#">Wisata 1</a>
+                                <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">Ini deskripsi Wisata yang panjang bla bla bla bla dan seterusnya awawa awawa awawa awawa</a>
+                            </div>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="m-0">IDR 350.000</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Packages End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">

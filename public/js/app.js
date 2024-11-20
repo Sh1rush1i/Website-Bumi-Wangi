@@ -3,7 +3,6 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
 document.addEventListener("DOMContentLoaded", function(event) {
-   
     const showNavbar = (toggleId, navId, bodyId, headerId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
@@ -56,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	fullHeight();
 
 	$('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-  });
+    $('#sidebar').toggleClass('active');
+});
 
     
     // Dropdown on mouse hover
