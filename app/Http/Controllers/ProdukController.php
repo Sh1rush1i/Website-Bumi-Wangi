@@ -33,17 +33,17 @@ class ProdukController extends Controller
     {
         $validated = $request->validated();
 
-        if($request->hasFile('gambar')){
+        if ($request->hasFile('gambar')) {
             $validated['gambar'] = $request->file('gambar')->store('images/produk', 'public');
         }
 
-        if($request->hasFile('video')){
+        if ($request->hasFile('video')) {
             $validated['video'] = $request->file('video')->store('videos/produk', 'public');
         }
 
         $produk = Produk::create($validated);
 
-        return response()->json($produk);
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil ditambahkan');
     }
 
     /**

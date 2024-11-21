@@ -12,7 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -152,7 +152,9 @@
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
                         <h1 class="mb-3">Kami menyediakan pengalaman wisata asri</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore
+                            sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
+                            erat sed diam duo</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/carousel-1.webp" alt="">
@@ -175,7 +177,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -186,7 +189,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -197,7 +201,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3"
+                            style="height: 100px; width: 100px;">
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
@@ -223,14 +228,16 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-tree mx-auto mb-4"></i>
                         <h5 class="mb-2">Wisata Alam</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem
+                            est amet labore</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-gift mx-auto mb-4"></i>
                         <h5 class="mb-2">Produk UMKM</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem
+                            est amet labore</p>
                     </div>
                 </div>
 
@@ -249,8 +256,8 @@
     </div>
     <!-- Service End -->
 
-     <!-- Paket Wisata Start -->
-     <div class="container-fluid py-5">
+    <!-- Paket Wisata Start -->
+    <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Paket Wisata</h6>
@@ -272,7 +279,7 @@
             </div>
         </div>
     </div>
-    <!-- Paket Wisata End -->   
+    <!-- Paket Wisata End -->
 
     <!-- Produk Start -->
     <div class="container-fluid py-5">
@@ -300,7 +307,7 @@
     <!-- Produk End -->
 
     <!-- Team Start -->
-<!-- 
+    <!--
     <div class="container-fluid py-5">
         <div class="container 5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -390,12 +397,16 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">BUMI</span>WANGI</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
+                    vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -406,7 +417,8 @@
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Produk</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="#"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
@@ -417,7 +429,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
@@ -433,7 +446,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+            class="fa fa-angle-double-up"></i></a>
 
 
     @yield('content')
@@ -448,4 +462,5 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>

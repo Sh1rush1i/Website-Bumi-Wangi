@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('satuan');
             $table->string('gambar');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }

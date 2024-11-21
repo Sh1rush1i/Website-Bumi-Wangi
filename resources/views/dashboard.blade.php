@@ -129,7 +129,8 @@
                 <h3>Input Produk</h3>
             </div>
             <div class="container-fluid">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('produk-post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <!-- Nama -->
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
@@ -160,17 +161,16 @@
 
                     <!-- Upload Photo -->
                     <div class="mb-3">
-                        <label for="uploadPhoto" class="form-label">Upload Photo</label>
-                        <input type="file" class="form-control" id="uploadPhoto" name="uploadPhoto"
+                        <label for="gambar" class="form-label">Upload Photo</label>
+                        <input type="file" class="form-control" id="gambar" name="gambar"
                             accept=".jpeg, .jpg, .png" required>
                         <small class="form-text text-muted">Max size: 10 MB | Format: jpeg, jpg, png</small>
                     </div>
 
                     <!-- Upload Video -->
                     <div class="mb-3">
-                        <label for="uploadVideo" class="form-label">Upload Video</label>
-                        <input type="file" class="form-control" id="uploadVideo" name="uploadVideo"
-                            accept=".mp4">
+                        <label for="video" class="form-label">Upload Video</label>
+                        <input type="file" class="form-control" id="video" name="video" accept=".mp4">
                         <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                     </div>
 
@@ -218,17 +218,16 @@
 
                     <!-- Upload Photo -->
                     <div class="mb-3">
-                        <label for="uploadPhoto" class="form-label">Upload Photo</label>
-                        <input type="file" class="form-control" id="uploadPhoto" name="uploadPhoto"
+                        <label for="gambar" class="form-label">Upload Photo</label>
+                        <input type="file" class="form-control" id="gambar" name="gambar"
                             accept=".jpeg, .jpg, .png" required>
                         <small class="form-text text-muted">Max size: 10 MB | Format: jpeg, jpg, png</small>
                     </div>
 
                     <!-- Upload Video -->
                     <div class="mb-3">
-                        <label for="uploadVideo" class="form-label">Upload Video</label>
-                        <input type="file" class="form-control" id="uploadVideo" name="uploadVideo"
-                            accept=".mp4">
+                        <label for="video" class="form-label">Upload Video</label>
+                        <input type="file" class="form-control" id="video" name="video" accept=".mp4">
                         <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                     </div>
 
