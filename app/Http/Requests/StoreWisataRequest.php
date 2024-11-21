@@ -27,7 +27,7 @@ class StoreWisataRequest extends FormRequest
             'harga' => 'required|integer|min:0',
             'satuan' => 'required|string|max:100',
             'gambar' => 'required|image|mimes:jpg,jpeg,png|max:10240', // Max size: 2MB
-            'video' => 'nullable|mimes:mp4,mov,avi,mkv|max:51200', // Max size: 50MB
+            'video' => 'nullable|mimes:mp4|max:51200', // Max size: 50MB
         ];
     }
 
@@ -42,7 +42,7 @@ class StoreWisataRequest extends FormRequest
             'gambar.image' => 'Gambar harus berupa file gambar.',
             'gambar.mimes' => 'Gambar harus berupa file dengan format jpg, jpeg, atau png.',
             'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 10MB.',
-            'video.mimes' => 'Video harus berupa file dengan format mp4, mov, avi, atau mkv.',
+            'video.mimes' => 'Video harus berupa file dengan format mp4',
             'video.max' => 'Ukuran video tidak boleh lebih dari 50MB.',
         ];
     }

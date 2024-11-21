@@ -40,7 +40,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user = User::where('username', $validated['username'])->first();
+        $user = User::where('username', $request->username)->first();
 
         if (!$user) {
             return response()->json([
@@ -50,21 +50,15 @@ class AuthController extends Controller
 
         if (Hash::check($validated['password'], $user->password)) {
             Auth::login($user);
-            return response()->json([
-                'message' => 'Login successful'
-            ], 200);
+            return redirect()->route('dashboard');
         } else {
-            return response()->json([
-                'message' => 'Invalid password'
-            ], 401);
+            return redirect()->back()->with('error', 'Invalid credentials');
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return response()->json([
-            'message' => 'Logout successful'
-        ], 200);
+        return redirect()->route('login');
     }
 }

@@ -8,11 +8,17 @@ Route::get('/', function () {
 
 Route::get('/admin', function () {
     return view('login');
-})->name('admin');
+})->middleware('guest')->name('login');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 Route::get('/about', function () {
     return view('about');
