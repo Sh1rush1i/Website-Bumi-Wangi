@@ -265,15 +265,17 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="destination-item position-relative overflow-hidden mb-2">
-                            <img class="img-fluid" src="img/wisata.webp" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="">
-                                <h5 class="text-white">Wisata 1</h5>
-                                <span>deksripsi singkat</span>
-                            </a>
+                    @foreach ($wisata->take(6) as $item)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="destination-item position-relative overflow-hidden mb-2">
+                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                <a class="destination-overlay text-white text-decoration-none" href="">
+                                    <h5 class="text-white">{{ $item->nama }}</h5>
+                                    <span>{{ $item->deskripsi }}</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                     <!-- Nambah produk di sini ntar -->
                 </div>
             </div>
@@ -290,15 +292,17 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="destination-item position-relative overflow-hidden mb-2">
-                            <img class="img-fluid" src="img/produk.webp" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="">
-                                <h5 class="text-white">Produk 1</h5>
-                                <span>deksripsi singkat</span>
-                            </a>
+                    @foreach ($produk->take(6) as $item)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="destination-item position-relative overflow-hidden mb-2">
+                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                <a class="destination-overlay text-white text-decoration-none" href="">
+                                    <h5 class="text-white">{{ $item->nama }}</h5>
+                                    <span>{{ $item->deskripsi }}</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                     <!-- Nambah produk di sini ntar -->
                 </div>
             </div>

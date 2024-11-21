@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [DashboardController::class, 'homepage'])->name('index');
 
 Route::get('/admin', function () {
     return view('login');
@@ -16,7 +14,7 @@ Route::get('/admin', function () {
 // })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 });
 
 Route::get('/about', function () {
