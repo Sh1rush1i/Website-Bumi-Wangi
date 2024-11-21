@@ -10,6 +10,14 @@ use App\Http\Requests\UpdateProdukRequest;
 class ProdukController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $produk = Produk::all();
+        return view('product', compact('produk'));
+    }
+    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreProdukRequest $request)
@@ -26,7 +34,7 @@ class ProdukController extends Controller
 
         $produk = Produk::create($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Produk berhasil ditambahkan');
+        return redirect()->route('dashboard')->with();
     }
 
     /**

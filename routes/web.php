@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\WisataController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/', [DashboardController::class, 'homepage'])->name('index');
@@ -21,10 +23,6 @@ Route::get('/about', function () {
     return view('about');
 })->name('tentang');
 
-Route::get('/product', function () {
-    return view('product');
-})->name('produk');
+Route::get('/product', [ProdukController::class, 'index'])->name('produk');
 
-Route::get('/wisata', function () {
-    return view('wisata');
-})->name('wisata');
+Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');

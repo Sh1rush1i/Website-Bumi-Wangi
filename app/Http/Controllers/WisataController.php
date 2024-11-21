@@ -10,6 +10,14 @@ use App\Http\Requests\UpdateWisataRequest;
 class WisataController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $wisata = Wisata::all();
+        return view('wisata', compact('wisata'));
+    }
+    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreWisataRequest $request)

@@ -12,7 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -102,7 +102,8 @@
     <!-- Navbar End -->
 
     <!-- Header Start -->
-    <div class="container-fluid page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.webp), no-repeat center center;">
+    <div class="container-fluid page-header"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.webp), no-repeat center center;">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Produk</h3>
@@ -119,51 +120,33 @@
                 <h1>Produk Andalan Kami</h1>
             </div>
             <!-- Ini item 1 wak -->
-            <div class="row d-flex justify-content-center   ">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/produk.webp" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
-                                <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>1 Pcs</small>
-                            </div>
-                            <div class="product-item">
-                                <a class="h5 text-decoration-none" href="#">Produk 1</a>
-                                <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">Ini deskripsi produk</a>
-                            </div>
+            <div class="row d-flex justify-content-center">
+                @foreach ($produk as $item)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
+                                    <small class="m-0"><i
+                                            class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
+                                </div>
+                                <div class="product-item">
+                                    <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
+                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2"
+                                        href="#">{{ $item->deskripsi }}</a>
+                                </div>
 
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="m-0">IDR 350.000</h5>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="m-0">IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Ini item 2 wak -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/produk.webp" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
-                                <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>1 Pcs</small>
-                            </div>
-                            <div class="product-item">
-                                <a class="h5 text-decoration-none" href="#">Produk 1</a>
-                                <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">Ini deskripsi produk yang panjang kek mana yagesya awawaw awawawa awawa</a>
-                            </div>
+                @endforeach
 
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="m-0">IDR 350.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>
@@ -176,12 +159,16 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">BUMI</span>WANGI</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
+                    vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -192,7 +179,8 @@
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Produk</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="#"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
@@ -203,7 +191,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
@@ -219,7 +208,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+            class="fa fa-angle-double-up"></i></a>
 
     @yield('content')
 
