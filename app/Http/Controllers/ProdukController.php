@@ -34,7 +34,7 @@ class ProdukController extends Controller
 
         $produk = Produk::create($validated);
 
-        return redirect()->route('dashboard')->with();
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil ditambahkan');
     }
 
     /**
