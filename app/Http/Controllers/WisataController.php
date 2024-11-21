@@ -43,7 +43,7 @@ class WisataController extends Controller
 
         $wisata = Wisata::create($validated);
 
-        return response()->json($wisata);
+        return redirect()->route('dashboard')->with('success', 'Wisata berhasil ditambahkan');
     }
 
     /**
@@ -67,7 +67,7 @@ class WisataController extends Controller
      */
     public function update(UpdateWisataRequest $request, Wisata $wisata)
     {
-        
+
     }
 
     /**

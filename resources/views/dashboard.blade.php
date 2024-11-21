@@ -187,7 +187,8 @@
                 <h3>Input Wisata</h3>
             </div>
             <div class="container-fluid">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('wisata-post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <!-- Nama -->
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
