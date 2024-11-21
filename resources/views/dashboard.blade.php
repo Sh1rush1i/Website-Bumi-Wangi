@@ -55,69 +55,80 @@
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">PRODUK</h6>
                 <h3>List Produk</h3>
             </div>
+            {{-- List Produk --}}
             <div class="row">
                 <!-- Item 1 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3">
-                    <div class="package-item bg-white shadow position-relative">
-                        <!-- Icon Section -->
-                        <div class="card-icons position-absolute top-0 end-0 m-2">
-                            <a href="#" class="text-primary mx-1" title="Read"><i class="bx bx-show"></i></a>
-                            <a href="#" class="text-warning mx-1" title="Update"><i class="bx bx-edit"></i></a>
-                            <a href="#" class="text-danger mx-1" title="Delete"><i class="bx bx-trash"></i></a>
-                        </div>
-                        <!-- Card Content -->
-                        <img class="img-fluid" src="img/produk.webp" alt="Product Image">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small><i class="bx bx-tag text-primary"></i> Brand New</small>
-                                <small><i class="bx bx-box text-primary"></i> 1 Pcs</small>
+                @foreach ($produk as $item)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="package-item bg-white shadow position-relative">
+                            <!-- Icon Section -->
+                            <div class="card-icons position-absolute top-0 end-0 m-2">
+                                <a href="#" class="text-primary mx-1" title="Read"><i
+                                        class="bx bx-show"></i></a>
+                                <a href="#" class="text-warning mx-1" title="Update"><i
+                                        class="bx bx-edit"></i></a>
+                                <a href="#" class="text-danger mx-1" title="Delete"><i
+                                        class="bx bx-trash"></i></a>
                             </div>
-                            <div class="product-item">
-                                <a class="h5 text-decoration-none" href="#">Produk 1</a>
-                                <a class="h6 text-muted text-truncate-2 d-block mt-2" href="#">Ini deskripsi
-                                    produk yang panjang</a>
-                            </div>
-                            <div class="border-top mt-4 pt-4">
-                                <h5>IDR 350.000</h5>
+                            <!-- Card Content -->
+                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="Product Image">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small><i class="bx bx-tag text-primary"></i> Brand New</small>
+                                    <small><i class="bx bx-box text-primary"></i> {{ $item->satuan }}</small>
+                                </div>
+                                <div class="product-item">
+                                    <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
+                                    <a class="h6 text-muted text-truncate-2 d-block mt-2"
+                                        href="#">{{ $item->deskripsi }}</a>
+                                </div>
+                                <div class="border-top mt-4 pt-4">
+                                    <h5>IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="mt-4 mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Wisata</h6>
                 <h3>List Wisata</h3>
             </div>
+            {{-- List Wisata --}}
             <div class="row">
                 <!-- Item 1 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3">
-                    <div class="package-item bg-white shadow position-relative">
-                        <!-- Icon Section -->
-                        <div class="card-icons position-absolute top-0 end-0 m-2">
-                            <a href="#" class="text-primary mx-1" title="Read"><i class="bx bx-show"></i></a>
-                            <a href="#" class="text-warning mx-1" title="Update"><i class="bx bx-edit"></i></a>
-                            <a href="#" class="text-danger mx-1" title="Delete"><i
-                                    class="bx bx-trash"></i></a>
-                        </div>
-                        <!-- Card Content -->
-                        <img class="img-fluid" src="img/produk.webp" alt="Product Image">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small><i class="bx bx-tag text-primary"></i> Brand New</small>
-                                <small><i class="bx bx-box text-primary"></i> 1 Pcs</small>
+                @foreach ($wisata as $item)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="package-item bg-white shadow position-relative">
+                            <!-- Icon Section -->
+                            <div class="card-icons position-absolute top-0 end-0 m-2">
+                                <a href="#" class="text-primary mx-1" title="Read"><i
+                                        class="bx bx-show"></i></a>
+                                <a href="#" class="text-warning mx-1" title="Update"><i
+                                        class="bx bx-edit"></i></a>
+                                <a href="#" class="text-danger mx-1" title="Delete"><i
+                                        class="bx bx-trash"></i></a>
                             </div>
-                            <div class="product-item">
-                                <a class="h5 text-decoration-none" href="#">Produk 1</a>
-                                <a class="h6 text-muted text-truncate-2 d-block mt-2" href="#">Ini deskripsi
-                                    produk yang panjang</a>
-                            </div>
-                            <div class="border-top mt-4 pt-4">
-                                <h5>IDR 350.000</h5>
+                            <!-- Card Content -->
+                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="Product Image">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small><i class="bx bx-tag text-primary"></i> Brand New</small>
+                                    <small><i class="bx bx-box text-primary"></i> {{ $item->satuan }}</small>
+                                </div>
+                                <div class="product-item">
+                                    <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
+                                    <a class="h6 text-muted text-truncate-2 d-block mt-2"
+                                        href="#">{{ $item->deskripsi }}</a>
+                                </div>
+                                <div class="border-top mt-4 pt-4">
+                                    <h5>IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             <div class="spacer" style="height: 50px;"></div>
         </div>
