@@ -123,17 +123,17 @@
                 @foreach ($wisata as $item)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
-                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                            <div class="image-container" style="height: 200px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
-                                    <small class="m-0"><i
-                                            class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
+                                    <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
                                 </div>
                                 <div class="product-item">
                                     <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
-                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2"
-                                        href="#">{{ $item->deskripsi }}</a>
+                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">{{ $item->deskripsi }}</a>
                                 </div>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">

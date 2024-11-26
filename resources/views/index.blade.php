@@ -268,7 +268,9 @@
                     @foreach ($wisata->take(6) as $item)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                <div class="d-flex justify-content-center align-items-center img-display">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                </div>
                                 <a class="destination-overlay text-white text-decoration-none" href="">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
                                     <span>{{ $item->deskripsi }}</span>
@@ -295,14 +297,16 @@
                     @foreach ($produk->take(6) as $item)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                <div class="d-flex justify-content-center align-items-center img-display">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                </div>
                                 <a class="destination-overlay text-white text-decoration-none" href="">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
                                     <span>{{ $item->deskripsi }}</span>
                                 </a>
                             </div>
                         </div>
-                    @endforeach
+                        @endforeach
                     <!-- Nambah produk di sini ntar -->
                 </div>
             </div>
