@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     @vite(['resources/sass/app.scss', 'resources/js/dashboard.js'])
 
@@ -65,8 +67,9 @@
                             <div class="card-icons position-absolute top-0 end-0 m-2">
                                 <a href="#" class="text-primary mx-1" title="Read"><i
                                         class="bx bx-show"></i></a>
-                                <a href="#" class="text-warning mx-1" title="Update"><i
-                                        class="bx bx-edit"></i></a>
+                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal" data-bs-target="#updateModal">
+                                <i class="bx bx-edit"></i>
+                                </a>
                                 <a href="#" class="text-danger mx-1" title="Delete"><i
                                         class="bx bx-trash"></i></a>
                             </div>
@@ -257,6 +260,62 @@
     </div>
     <!--Container Main end-->
     @include('sweetalert::alert')
+
+    <!-- Update Modal -->
+    <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="updateForm" action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <!-- ID (Hidden) -->
+                        <input type="hidden" id="update-id" name="id">
+
+                        <!-- Nama -->
+                        <div class="mb-3">
+                            <label for="update-nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="update-nama" name="nama" required>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="mb-3">
+                            <label for="update-deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="update-deskripsi" name="deskripsi" rows="3" required></textarea>
+                        </div>
+
+                        <!-- Harga -->
+                        <div class="mb-3">
+                            <label for="update-harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="update-harga" name="harga" required>
+                        </div>
+
+                        <!-- Satuan -->
+                        <div class="mb-3">
+                            <label for="update-satuan" class="form-label">Satuan</label>
+                            <input type="text" class="form-control" id="update-satuan" name="satuan" required>
+                        </div>
+
+                        <!-- Gambar -->
+                        <div class="mb-3">
+                            <label for="update-gambar" class="form-label">Upload Gambar</label>
+                            <input type="file" class="form-control" id="update-gambar" name="gambar" accept=".jpeg, .jpg, .png">
+                            <small class="form-text text-muted">Max size: 10 MB | Format: jpeg, jpg, png</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

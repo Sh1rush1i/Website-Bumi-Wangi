@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
         <div class="container">
@@ -74,7 +75,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
+                    <div class="navbar-nav ml-auto ">
                         <a href="{{ route('index') }}" class="nav-item nav-link">Beranda</a>
                         <a href="{{ route(name: 'tentang') }}" class="nav-item nav-link active">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
