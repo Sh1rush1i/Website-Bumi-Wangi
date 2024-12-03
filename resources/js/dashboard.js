@@ -25,11 +25,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const menuInputProduk = document.getElementById("menu-input-produk");
     const menuInputWisata = document.getElementById("menu-input-wisata");
     const menuPembelian = document.getElementById("menu-pembelian");
+    const menuInputTentang = document.getElementById("menu-input-tentang");
+    const menuInfo = document.getElementById("menu-input-info");
 
     // Select all content sections
     const dashboardContent = document.getElementById("dashboard-content");
     const produkContent = document.getElementById("produk-content");
     const wisataContent = document.getElementById("wisata-content");
+    const aboutContent = document.getElementById("about-content");
+    const infoContent = document.getElementById("info-content");
     const pembelianContent = document.getElementById("pembelian");
 
     // Group all content sections in an array
@@ -37,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         dashboardContent,
         produkContent,
         wisataContent,
+        aboutContent,
         pembelianContent,
+        infoContent,
     ];
 
     // Function to handle visibility
@@ -65,6 +71,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     menuInputWisata.addEventListener("click", (event) => {
         event.preventDefault();
         showContent(wisataContent);
+    });
+
+    menuInputTentang.addEventListener("click", (event) => {
+        event.preventDefault();
+        showContent(aboutContent);
+    });
+
+    menuInfo.addEventListener("click", (event) => {
+        event.preventDefault();
+        showContent(infoContent);
     });
 
     menuPembelian.addEventListener("click", (event) => {

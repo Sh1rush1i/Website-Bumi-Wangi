@@ -10,9 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Icon tab -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/thmb.svg') }}" />
+
     @vite(['resources/sass/app.scss', 'resources/js/dashboard.js'])
 
-    <title>Admin BW</title>
+    <title>Admin Bumi Wangi</title>
 </head>
 
 <body id="body-pd">
@@ -24,8 +27,11 @@
     <!-- Navbar -->
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
-            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                        class="nav_logo-name">Bumi Wangi</span> </a>
+            <div> 
+                <a href="/" class="nav_logo d-flex align-items-center">
+                    <img src="{{ asset('img/atmin.png') }}" alt="Bumi Wangi Logo" class="logo-img" style="width: 25px; height: auto;">
+                    <span class="nav_logo-name">Bumi Wangi</span>
+                </a>
                 <div class="nav_list">
                     <a href="" id="menu-dashboard" class="nav_link active"> <i
                             class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span></a>
@@ -34,6 +40,10 @@
                     </a>
                     <a href="" id="menu-input-wisata" class="nav_link"> <i class='bx bx-leaf nav_icon'></i></i>
                         <span class="nav_name">Input Wisata</span> </a>
+                    <a href="" id="menu-input-tentang" class="nav_link"> <i class='bx bx-info-circle nav_icon'></i></i>
+                        <span class="nav_name">Input About</span> </a>
+                    <a href="" id="menu-input-info" class="nav_link"> <i class='bx bx-phone-call nav_icon'></i></i>
+                        <span class="nav_name">Input Informasi</span> </a>
                     <a href="" id="menu-pembelian"class="nav_link"> <i
                             class='bx bxs-shopping-bag-alt nav_icon'></i></i> <span class="nav_name">Pesanan</span> </a>
                 </div>
@@ -182,11 +192,13 @@
                     </div>
 
                     <!-- Upload Video -->
+                    <!--
                     <div class="mb-3">
                         <label for="video" class="form-label">Upload Video</label>
                         <input type="file" class="form-control" id="video" name="video" accept=".mp4">
                         <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                     </div>
+                    -->
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -207,28 +219,28 @@
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama"
-                            placeholder="Masukkan nama produk" required>
+                            placeholder="Masukkan nama wisata" required>
                     </div>
 
                     <!-- Deskripsi -->
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"
-                            placeholder="Masukkan deskripsi produk" required></textarea>
+                            placeholder="Masukkan deskripsi wisata" required></textarea>
                     </div>
 
                     <!-- Harga -->
                     <div class="mb-3">
                         <label for="harga" class="form-label">Harga</label>
                         <input type="number" class="form-control" id="harga" name="harga"
-                            placeholder="Masukkan harga produk" required>
+                            placeholder="Masukkan harga wisata" required>
                     </div>
 
                     <!-- Satuan -->
                     <div class="mb-3">
                         <label for="satuan" class="form-label">Satuan</label>
                         <input type="text" class="form-control" id="satuan" name="satuan"
-                            placeholder="Masukkan satuan produk" required>
+                            placeholder="Masukkan satuan wisata" required>
                     </div>
 
                     <!-- Upload Photo -->
@@ -240,14 +252,163 @@
                     </div>
 
                     <!-- Upload Video -->
+                    <!--
                     <div class="mb-3">
                         <label for="video" class="form-label">Upload Video</label>
                         <input type="file" class="form-control" id="video" name="video" accept=".mp4">
                         <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                     </div>
+                    -->
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- About Content -->
+        <div id="about-content" class="d-none">
+            <div class="mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About</h6>
+                <h3>Display Teks Halaman About</h3>
+            </div>
+            <div class="container-fluid">
+                <!-- Display Current About Text -->
+                <div class="mb-4">
+                    <h5>About Text Sekarang:</h5>
+                    <p id="current-about-text" class="bg-light p-3 border rounded">
+                        Ini About le
+                    </p>
+                </div>
+
+                <!-- Update About Text Form -->
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label for="about-text" class="form-label">Update About Text</label>
+                        <textarea class="form-control" id="about-text" name="text" rows="5"
+                            placeholder="Masukkan teks baru untuk halaman About"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Media Information -->
+        <div id="info-content" class="d-none">
+            <div class="mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Informasi Sosial Media</h6>
+                <h3>Input Informasi Media</h3>
+            </div>
+            <div class="container-fluid">
+                <!-- Display Current Social Media Links -->
+                <div class="mb-4">
+                    <h5>Informasi Media Saat Ini:</h5>
+                    <ul id="current-social-media-list" class="list-group">
+                        <li class="list-group-item">
+                            <i class='bx bxl-facebook-circle text-primary'></i>
+                            Facebook:
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bxl-twitter text-primary me-2'></i>
+                            Twitter:
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bxl-instagram text-danger me-2'></i>
+                            Instagram: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bxl-tiktok text-dark me-2'></i>
+                            TikTok: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bxl-youtube text-danger me-2'></i>
+                            Youtube: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-phone-call text-primary me-2'></i>
+                            Telepon: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-envelope text-primary me-2'></i>
+                            Email: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-map text-danger me-2'></i>
+                            Alamat: <span></span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bxl-whatsapp text-success me-2'></i>
+                            Link Chat Whatsapp: <span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Form to Update Social Media Links -->
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-facebook-circle text-primary'></i>
+                            <label for="facebook" class="form-label ms-3">Facebook</label>
+                        </div>
+                        <input type="url" class="form-control" id="facebook" name="facebook" placeholder="Masukkan link Facebook">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-twitter text-info'></i>
+                            <label for="twitter" class="form-label ms-3">Twitter</label>
+                        </div>
+                        <input type="url" class="form-control" id="twitter" name="twitter" placeholder="Masukkan link Twitter">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-instagram text-danger'></i>
+                            <label for="instagram" class="form-label ms-3">Instagram</label>
+                        </div>
+                        <input type="url" class="form-control" id="instagram" name="instagram" placeholder="Masukkan link Instagram">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-tiktok text-dark'></i>
+                            <label for="tiktok" class="form-label ms-3">TikTok</label>
+                        </div>
+                        <input type="url" class="form-control" id="tiktok" name="tiktok" placeholder="Masukkan link TikTok">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-youtube text-danger'></i>
+                            <label for="youtube" class="form-label ms-3">Youtube</label>
+                        </div>
+                        <input type="url" class="form-control" id="youtube" name="youtube" placeholder="Masukkan link Youtube">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxs-phone text-success'></i>
+                            <label for="telpon" class="form-label ms-3">Telepon</label>
+                        </div>
+                        <input type="text" class="form-control" id="telpon" name="telpon" placeholder="Masukkan nomor telepon">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxs-envelope text-primary'></i>
+                            <label for="email" class="form-label ms-3">Email</label>
+                        </div>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxs-map text-danger'></i>
+                            <label for="email" class="form-label ms-3">Alamat</label>
+                        </div>
+                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class='bx bxl-whatsapp text-success'></i>
+                            <label for="email" class="form-label ms-3">Link Chat Whatsapp</label>
+                        </div>
+                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Masukkan alamat">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-5">Update Informasi</button>
                 </form>
             </div>
         </div>
@@ -270,8 +431,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="updateForm" action="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
                     <div class="modal-body">
                         <!-- ID (Hidden) -->
                         <input type="hidden" id="update-id" name="id">

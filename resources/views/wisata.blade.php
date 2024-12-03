@@ -9,13 +9,16 @@
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    
+    <!-- Icon tab -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/thmb.svg') }}" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
@@ -47,7 +50,7 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a class="text-primary px-3" href="">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-tiktok"></i>
                         </a>
                         <a class="text-primary px-3" href="">
                             <i class="fab fa-instagram"></i>
@@ -79,20 +82,7 @@
                         <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
                         <a href="{{ route('wisata') }}" class="nav-item nav-link active">Wisata</a>
-                        <!--
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
-                                <a href="guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        -->
-
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -145,6 +135,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="button-container mt-4">
+                <button class="hover-button">Pesan Sekarang</button>
+            </div>
         </div>
     </div>
     <!-- Packages End -->
@@ -156,8 +149,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">BUMI</span>WANGI</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
-                    vero lorem dolor dolor</p>
+                <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
@@ -165,7 +157,7 @@
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
-                            class="fab fa-linkedin-in"></i></a>
+                            class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -176,8 +168,6 @@
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Produk</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
-                    <a class="text-white-50 mb-2" href="#"><i
-                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
@@ -202,10 +192,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-            class="fa fa-angle-double-up"></i></a>
 
     @yield('content')
 

@@ -10265,3 +10265,96 @@ h6,
     /* Placeholder for future compatibility */
     line-clamp: 2; /* Not yet widely supported, added for future-proofing */
 }
+
+.link-hover-green {
+    color: black !important; /* Warna hijau sesuai tema Bootstrap */
+    text-decoration: none; /* Opsional: Menghilangkan underline saat hover */
+}
+
+.link-hover-green:hover {
+    color: #28a745 !important; /* Warna hijau sesuai tema Bootstrap */
+    text-decoration: none; /* Opsional: Menghilangkan underline saat hover */
+}
+
+.button-container {
+    text-align: center;
+}
+
+.hover-button {
+    background-color: transparent;
+    color: green;
+    border: 2px solid green;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0; /* Lancip */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hover-button:hover {
+    background-color: green;
+    color: white;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 0 auto 10px;
+}
+.social-card {
+    text-align: center;
+}
+.social-card h5 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.card-custom {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.btn-custom {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary);
+}

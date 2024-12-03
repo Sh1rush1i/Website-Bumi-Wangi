@@ -11,6 +11,10 @@ Route::get('/admin', function () {
     return view('login');
 })->middleware('guest')->name('login');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');

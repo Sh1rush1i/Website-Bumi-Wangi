@@ -10,12 +10,15 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="icon">
 
+    <!-- Icon tab -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/thmb.svg') }}" />
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
@@ -47,7 +50,7 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a class="text-primary px-3" href="">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-tiktok"></i>
                         </a>
                         <a class="text-primary px-3" href="">
                             <i class="fab fa-instagram"></i>
@@ -78,21 +81,7 @@
                         <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
-
-                        <!--
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
-                                <a href="guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        -->
-
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -163,7 +152,7 @@
                                 <img class="img-fluid" src="img/carousel-2.webp" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
+                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -183,7 +172,7 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="">Competitive Pricing</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <p class="m-0">Kami memberikan harga terbaik tanpa mengurangi kualitas layanan</p>
                         </div>
                     </div>
                 </div>
@@ -195,7 +184,7 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="">Best Services</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <p class="m-0">Layanan kami siap memenuhi kebutuhan Anda dengan sempurna</p>
                         </div>
                     </div>
                 </div>
@@ -206,8 +195,8 @@
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Worldwide Coverage</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Wide Coverage</h5>
+                            <p class="m-0">Layanan kami menjangkau berbagai wilayah, memastikan kemudahan</p>
                         </div>
                     </div>
                 </div>
@@ -221,36 +210,29 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Desa Wisata Bumi Wangi</h6>
-                <h1>Jelajahi Pengalaman Unik di Wisata Bumi wangi</h1>
+                <h1>Jelajahi Pengalaman Unik di Wisata Bumi Wangi</h1>
             </div>
             <div class="row d-flex justify-content-center">
+                <!-- Wisata Alam -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-tree mx-auto mb-4"></i>
-                        <h5 class="mb-2">Wisata Alam</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem
-                            est amet labore</p>
-                    </div>
+                    <a href="{{ route('wisata') }}" class="text-decoration-none">
+                        <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                            <i class="fa fa-2x fa-tree mx-auto mb-4"></i>
+                            <h5 class="mb-2 text-dark">Wisata Alam</h5>
+                            <p class="m-0 text-dark">Nikmati keindahan alam yang menenangkan dengan berbagai destinasi wisata yang asri dan menakjubkan</p>
+                        </div>
+                    </a>
                 </div>
+                <!-- Produk UMKM -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-gift mx-auto mb-4"></i>
-                        <h5 class="mb-2">Produk UMKM</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem
-                            est amet labore</p>
-                    </div>
+                    <a href="{{ route('produk') }}" class="text-decoration-none">
+                        <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                            <i class="fa fa-2x fa-gift mx-auto mb-4"></i>
+                            <h5 class="mb-2 text-dark">Produk UMKM</h5>
+                            <p class="m-0 text-dark">Nikmati pilihan produk unik dan berkualitas dari pelaku UMKM terpercaya</p>
+                        </div>
+                    </a>
                 </div>
-
-                <!--
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
-                    </div>
-                </div>
-                -->
-
             </div>
         </div>
     </div>
@@ -282,6 +264,7 @@
                 </div>
             </div>
         </div>
+        <a class="d-block text-center link-hover-green" href="{{ route(name: 'wisata') }}">Lihat lebih banyak >>></a>
     </div>
     <!-- Paket Wisata End -->
 
@@ -311,92 +294,9 @@
                 </div>
             </div>
         </div>
+        <a class="d-block text-center link-hover-green" href="{{ route(name: 'produk') }}">Lihat lebih banyak >>></a>
     </div>
     <!-- Produk End -->
-
-    <!-- Team Start -->
-    <!--
-    <div class="container-fluid py-5">
-        <div class="container 5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
-                <h1>Our Travel Guides</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-    <!-- Team End -->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
@@ -405,8 +305,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">BUMI</span>WANGI</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
-                    vero lorem dolor dolor</p>
+                <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
@@ -414,7 +313,7 @@
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
-                            class="fab fa-linkedin-in"></i></a>
+                            class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -425,8 +324,6 @@
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Produk</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
-                    <a class="text-white-50 mb-2" href="#"><i
-                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
@@ -451,12 +348,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-            class="fa fa-angle-double-up"></i></a>
-
 
     @yield('content')
 
