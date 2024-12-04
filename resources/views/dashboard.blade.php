@@ -75,11 +75,11 @@
                         <div class="package-item bg-white shadow position-relative">
                             <!-- Icon Section -->
                             <div class="card-icons position-absolute top-0 end-0 m-2">
-                                <a href="#" class="text-primary mx-1" title="Read"><i
-                                        class="bx bx-show"></i></a>
+                                <!-- Update data icon -->
                                 <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal" data-bs-target="#updateModal">
                                 <i class="bx bx-edit"></i>
                                 </a>
+                                <!-- Delete data icon -->
                                 <a href="#" class="text-danger mx-1" title="Delete"><i
                                         class="bx bx-trash"></i></a>
                             </div>
@@ -87,7 +87,7 @@
                             <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="Product Image">
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <small><i class="bx bx-tag text-primary"></i> Brand New</small>
+                                    <small><i class="bx bx-tag text-primary"></i> Produk</small>
                                     <small><i class="bx bx-box text-primary"></i> {{ $item->satuan }}</small>
                                 </div>
                                 <div class="product-item">
@@ -116,10 +116,11 @@
                         <div class="package-item bg-white shadow position-relative">
                             <!-- Icon Section -->
                             <div class="card-icons position-absolute top-0 end-0 m-2">
-                                <a href="#" class="text-primary mx-1" title="Read"><i
-                                        class="bx bx-show"></i></a>
-                                <a href="#" class="text-warning mx-1" title="Update"><i
-                                        class="bx bx-edit"></i></a>
+                                <!-- Update data icon -->
+                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal" data-bs-target="#updateModal">
+                                <i class="bx bx-edit"></i>
+                                </a>
+                                <!-- Delete data icon -->
                                 <a href="#" class="text-danger mx-1" title="Delete"><i
                                         class="bx bx-trash"></i></a>
                             </div>
@@ -127,7 +128,7 @@
                             <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="Product Image">
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <small><i class="bx bx-tag text-primary"></i> Brand New</small>
+                                    <small><i class="bx bx-tag text-primary"></i> Wisata</small>
                                     <small><i class="bx bx-box text-primary"></i> {{ $item->satuan }}</small>
                                 </div>
                                 <div class="product-item">
@@ -422,7 +423,7 @@
     <!--Container Main end-->
     @include('sweetalert::alert')
 
-    <!-- Update Modal -->
+    <!-- Update data pop up -->
     <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

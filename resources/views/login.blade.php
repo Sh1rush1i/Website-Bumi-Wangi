@@ -13,7 +13,10 @@
     <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @vite(['resources/sass/app.scss', 'resources/js/dashboard.js'])
+
+    <!-- Icon tab -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/thmb.svg') }}" />
 
     <title>Admin Login</title>
 </head>

@@ -10199,61 +10199,6 @@ h6,
 
 @import "bootstrap/scss/bootstrap";
 
-.body-login {
-    background-color: #20c997;
-}
-
-.btn-custom {
-    padding: 1rem;
-    background-color: #0bb884;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-custom:hover {
-    background-color: #28a745; /* Background color on hover */
-}
-
-.custom-card {
-    background-color: #d4f7e5;
-}
-
-.wave {
-    animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-    animation-duration: 2.5s; /* Change to speed up or slow down */
-    animation-iteration-count: infinite; /* Never stop waving :) */
-    transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-    display: inline-block;
-    font-size: 2rem;
-}
-
-@keyframes wave-animation {
-    0% {
-        transform: rotate(0deg);
-    }
-    10% {
-        transform: rotate(14deg);
-    } /* The following five values can be played with to make the waving more or less extreme */
-    20% {
-        transform: rotate(-8deg);
-    }
-    30% {
-        transform: rotate(14deg);
-    }
-    40% {
-        transform: rotate(-4deg);
-    }
-    50% {
-        transform: rotate(10deg);
-    }
-    60% {
-        transform: rotate(0deg);
-    } /* Reset for the last half to pause */
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
 .text-truncate-2 {
     display: -webkit-box; /* For WebKit browsers */
     -webkit-line-clamp: 2; /* Limit to 2 lines in WebKit */
@@ -10282,8 +10227,8 @@ h6,
 
 .hover-button {
     background-color: transparent;
-    color: green;
-    border: 2px solid green;
+    color: var(--primary);
+    border: 2px solid var(--primary);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -10293,7 +10238,7 @@ h6,
 }
 
 .hover-button:hover {
-    background-color: green;
+    background-color: var(--primary);
     color: white;
 }
 
@@ -10353,6 +10298,10 @@ h6,
     display: flex;
     align-items: center;
     gap: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .btn-custom:hover {
