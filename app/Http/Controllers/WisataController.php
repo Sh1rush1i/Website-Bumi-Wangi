@@ -58,7 +58,19 @@ class WisataController extends Controller
      */
     public function update(UpdateWisataRequest $request, Wisata $wisata)
     {
+        $validated = $request->validated();
 
+        if ($request->hasFile('gambar')) {
+            $validated['gambar'] = $request->file('gambar')->store('images/wisata', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $validated['video'] = $request->file('video')->store('videos/wisata', 'public');
+        }
+
+        $wisata->update($validated);
+
+        return redirect()->route('dashboard')->with('success', 'Wisata berhasil diubah');
     }
 
     /**

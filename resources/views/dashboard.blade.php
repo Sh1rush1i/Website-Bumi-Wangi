@@ -27,9 +27,10 @@
     <!-- Navbar -->
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
-            <div> 
+            <div>
                 <a href="/" class="nav_logo d-flex align-items-center">
-                    <img src="{{ asset('img/atmin.png') }}" alt="Bumi Wangi Logo" class="logo-img" style="width: 25px; height: auto;">
+                    <img src="{{ asset('img/atmin.png') }}" alt="Bumi Wangi Logo" class="logo-img"
+                        style="width: 25px; height: auto;">
                     <span class="nav_logo-name">Bumi Wangi</span>
                 </a>
                 <div class="nav_list">
@@ -40,9 +41,11 @@
                     </a>
                     <a href="" id="menu-input-wisata" class="nav_link"> <i class='bx bx-leaf nav_icon'></i></i>
                         <span class="nav_name">Input Wisata</span> </a>
-                    <a href="" id="menu-input-tentang" class="nav_link"> <i class='bx bx-info-circle nav_icon'></i></i>
+                    <a href="" id="menu-input-tentang" class="nav_link"> <i
+                            class='bx bx-info-circle nav_icon'></i></i>
                         <span class="nav_name">Input About</span> </a>
-                    <a href="" id="menu-input-info" class="nav_link"> <i class='bx bx-phone-call nav_icon'></i></i>
+                    <a href="" id="menu-input-info" class="nav_link"> <i
+                            class='bx bx-phone-call nav_icon'></i></i>
                         <span class="nav_name">Input Informasi</span> </a>
                     <a href="" id="menu-pembelian"class="nav_link"> <i
                             class='bx bxs-shopping-bag-alt nav_icon'></i></i> <span class="nav_name">Pesanan</span> </a>
@@ -76,8 +79,11 @@
                             <!-- Icon Section -->
                             <div class="card-icons position-absolute top-0 end-0 m-2">
                                 <!-- Update data icon -->
-                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal" data-bs-target="#updateModal">
-                                <i class="bx bx-edit"></i>
+                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal"
+                                    data-bs-target="#updateModal" data-type="produk" data-id="{{ $item->id }}"
+                                    data-nama="{{ $item->nama }}" data-deskripsi="{{ $item->deskripsi }}"
+                                    data-harga="{{ $item->harga }}" data-satuan="{{ $item->satuan }}">
+                                    <i class="bx bx-edit"></i>
                                 </a>
                                 <!-- Delete data icon -->
                                 <a href="#" class="text-danger mx-1" title="Delete"><i
@@ -117,15 +123,19 @@
                             <!-- Icon Section -->
                             <div class="card-icons position-absolute top-0 end-0 m-2">
                                 <!-- Update data icon -->
-                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal" data-bs-target="#updateModal">
-                                <i class="bx bx-edit"></i>
+                                <a href="#" class="text-warning mx-1" title="Update" data-bs-toggle="modal"
+                                    data-bs-target="#updateModal" data-type="wisata" data-id="{{ $item->id }}"
+                                    data-nama="{{ $item->nama }}" data-deskripsi="{{ $item->deskripsi }}"
+                                    data-harga="{{ $item->harga }}" data-satuan="{{ $item->satuan }}">
+                                    <i class="bx bx-edit"></i>
                                 </a>
                                 <!-- Delete data icon -->
                                 <a href="#" class="text-danger mx-1" title="Delete"><i
                                         class="bx bx-trash"></i></a>
                             </div>
                             <!-- Card Content -->
-                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="Product Image">
+                            <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                alt="Product Image">
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     <small><i class="bx bx-tag text-primary"></i> Wisata</small>
@@ -351,63 +361,72 @@
                             <i class='bx bxl-facebook-circle text-primary'></i>
                             <label for="facebook" class="form-label ms-3">Facebook</label>
                         </div>
-                        <input type="url" class="form-control" id="facebook" name="facebook" placeholder="Masukkan link Facebook">
+                        <input type="url" class="form-control" id="facebook" name="facebook"
+                            placeholder="Masukkan link Facebook">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-twitter text-info'></i>
                             <label for="twitter" class="form-label ms-3">Twitter</label>
                         </div>
-                        <input type="url" class="form-control" id="twitter" name="twitter" placeholder="Masukkan link Twitter">
+                        <input type="url" class="form-control" id="twitter" name="twitter"
+                            placeholder="Masukkan link Twitter">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-instagram text-danger'></i>
                             <label for="instagram" class="form-label ms-3">Instagram</label>
                         </div>
-                        <input type="url" class="form-control" id="instagram" name="instagram" placeholder="Masukkan link Instagram">
+                        <input type="url" class="form-control" id="instagram" name="instagram"
+                            placeholder="Masukkan link Instagram">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-tiktok text-dark'></i>
                             <label for="tiktok" class="form-label ms-3">TikTok</label>
                         </div>
-                        <input type="url" class="form-control" id="tiktok" name="tiktok" placeholder="Masukkan link TikTok">
+                        <input type="url" class="form-control" id="tiktok" name="tiktok"
+                            placeholder="Masukkan link TikTok">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-youtube text-danger'></i>
                             <label for="youtube" class="form-label ms-3">Youtube</label>
                         </div>
-                        <input type="url" class="form-control" id="youtube" name="youtube" placeholder="Masukkan link Youtube">
+                        <input type="url" class="form-control" id="youtube" name="youtube"
+                            placeholder="Masukkan link Youtube">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxs-phone text-success'></i>
                             <label for="telpon" class="form-label ms-3">Telepon</label>
                         </div>
-                        <input type="text" class="form-control" id="telpon" name="telpon" placeholder="Masukkan nomor telepon">
+                        <input type="text" class="form-control" id="telpon" name="telpon"
+                            placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxs-envelope text-primary'></i>
                             <label for="email" class="form-label ms-3">Email</label>
                         </div>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email">
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Masukkan email">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxs-map text-danger'></i>
                             <label for="email" class="form-label ms-3">Alamat</label>
                         </div>
-                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
+                        <input type="text" class="form-control" id="alamat" name="alamat"
+                            placeholder="Masukkan alamat">
                     </div>
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-whatsapp text-success'></i>
                             <label for="email" class="form-label ms-3">Link Chat Whatsapp</label>
                         </div>
-                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Masukkan alamat">
+                        <input type="text" class="form-control" id="whatsapp" name="whatsapp"
+                            placeholder="Masukkan alamat">
                     </div>
                     <button type="submit" class="btn btn-primary mb-5">Update Informasi</button>
                 </form>
@@ -424,7 +443,8 @@
     @include('sweetalert::alert')
 
     <!-- Update data pop up -->
-    <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -432,6 +452,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="updateForm" action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="modal-body">
                         <!-- ID (Hidden) -->
                         <input type="hidden" id="update-id" name="id">
@@ -463,7 +485,8 @@
                         <!-- Gambar -->
                         <div class="mb-3">
                             <label for="update-gambar" class="form-label">Upload Gambar</label>
-                            <input type="file" class="form-control" id="update-gambar" name="gambar" accept=".jpeg, .jpg, .png">
+                            <input type="file" class="form-control" id="update-gambar" name="gambar"
+                                accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 10 MB | Format: jpeg, jpg, png</small>
                         </div>
                     </div>

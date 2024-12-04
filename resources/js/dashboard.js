@@ -124,3 +124,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // Your code to run since DOM is loaded and ready
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const updateModal = document.getElementById("updateModal");
+    const updateForm = document.getElementById("updateForm");
+
+    updateModal.addEventListener("show.bs.modal", function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract data attributes
+        const type = button.getAttribute("data-type");
+        const id = button.getAttribute("data-id");
+        const nama = button.getAttribute("data-nama");
+        const deskripsi = button.getAttribute("data-deskripsi");
+        const harga = button.getAttribute("data-harga");
+        const satuan = button.getAttribute("data-satuan");
+
+        // Populate the form fields
+        document.getElementById("update-id").value = id;
+        document.getElementById("update-nama").value = nama;
+        document.getElementById("update-deskripsi").value = deskripsi;
+        document.getElementById("update-harga").value = harga;
+        document.getElementById("update-satuan").value = satuan;
+
+        // Set the form's action dynamically based on type
+        if (type === "wisata") {
+            updateForm.action = `/api/update-wisata/${id}`;
+        } else if (type === "produk") {
+            updateForm.action = `/api/update-produk/${id}`;
+        }
+    });
+});

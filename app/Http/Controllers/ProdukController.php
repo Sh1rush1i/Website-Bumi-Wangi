@@ -58,7 +58,19 @@ class ProdukController extends Controller
      */
     public function update(UpdateProdukRequest $request, Produk $produk)
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('gambar')) {
+            $validated['gambar'] = $request->file('gambar')->store('images/produk', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $validated['video'] = $request->file('video')->store('videos/produk', 'public');
+        }
+
+        $produk->update($validated);
+
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil diubah');
     }
 
     /**

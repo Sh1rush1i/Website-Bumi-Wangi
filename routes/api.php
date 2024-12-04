@@ -17,9 +17,11 @@ Route::middleware('auth')->group(function () {
 
     // Wisata
     Route::post('/postWisata', [WisataController::class, 'store'])->name('wisata-post');
+    Route::put('/update-wisata/{wisata}', [WisataController::class, 'update'])->name('wisata-update');
 
     // Produk UMKM
     Route::post('/postProduk', [ProdukController::class, 'store'])->name('produk-post');
+    Route::put('/update-produk/{produk}', [ProdukController::class, 'update'])->name('produk-update');
 
     // Auth
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
