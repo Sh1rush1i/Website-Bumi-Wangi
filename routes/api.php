@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -25,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
     // Auth
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    //About
+    Route::post('/postAbout', [DashboardController::class, 'about'])->name('about-post');
 });
 
 Route::post('/register', [AuthController::class, 'store']);

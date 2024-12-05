@@ -288,15 +288,16 @@
                 <div class="mb-4">
                     <h5>About Text Sekarang:</h5>
                     <p id="current-about-text" class="bg-light p-3 border rounded">
-                        Ini About le
+                        {{ $about->text ?? 'No data available' }}
                     </p>
                 </div>
 
                 <!-- Update About Text Form -->
-                <form action="" method="POST">
+                <form action="{{ route('about-post') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="about-text" class="form-label">Update About Text</label>
-                        <textarea class="form-control" id="about-text" name="text" rows="5"
+                        <textarea class="form-control" id="text" name="text" rows="5"
                             placeholder="Masukkan teks baru untuk halaman About"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
