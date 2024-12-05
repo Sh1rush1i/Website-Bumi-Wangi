@@ -318,45 +318,46 @@
                     <ul id="current-social-media-list" class="list-group">
                         <li class="list-group-item">
                             <i class='bx bxl-facebook-circle text-primary'></i>
-                            Facebook:
+                            Facebook: {{ $media->facebook ?? 'Tidak ada data' }}
                         </li>
                         <li class="list-group-item">
                             <i class='bx bxl-twitter text-primary me-2'></i>
-                            Twitter:
+                            Twitter: {{ $media->twitter ?? 'Tidak ada data' }}
                         </li>
                         <li class="list-group-item">
                             <i class='bx bxl-instagram text-danger me-2'></i>
-                            Instagram: <span></span>
+                            Instagram: {{ $media->instagram ?? 'Tidak ada data' }} <span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bxl-tiktok text-dark me-2'></i>
-                            TikTok: <span></span>
+                            TikTok: {{ $media->tiktok ?? 'Tidak ada data' }}<span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bxl-youtube text-danger me-2'></i>
-                            Youtube: <span></span>
+                            Youtube: {{ $media->youtube ?? 'Tidak ada data' }}<span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bx-phone-call text-primary me-2'></i>
-                            Telepon: <span></span>
+                            Telepon: {{ $media->telepon ?? 'Tidak ada data' }} <span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bx-envelope text-primary me-2'></i>
-                            Email: <span></span>
+                            Email: {{ $media->email ?? 'Tidak ada data' }} <span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bx-map text-danger me-2'></i>
-                            Alamat: <span></span>
+                            Alamat: {{ $media->alamat ?? 'Tidak ada data' }} <span></span>
                         </li>
                         <li class="list-group-item">
                             <i class='bx bxl-whatsapp text-success me-2'></i>
-                            Link Chat Whatsapp: <span></span>
+                            Link Chat Whatsapp: {{ $media->whatsapp ?? 'Tidak ada data' }} <span></span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Form to Update Social Media Links -->
-                <form action="" method="POST">
+                <form action="{{ route('media-post') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-facebook-circle text-primary'></i>
@@ -402,7 +403,7 @@
                             <i class='bx bxs-phone text-success'></i>
                             <label for="telpon" class="form-label ms-3">Telepon</label>
                         </div>
-                        <input type="text" class="form-control" id="telpon" name="telpon"
+                        <input type="text" class="form-control" id="telepon" name="telepon"
                             placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="mb-3">

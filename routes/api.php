@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
 
     //About
     Route::post('/postAbout', [DashboardController::class, 'about'])->name('about-post');
+
+    //Media
+    Route::post('/postMedia', [DashboardController::class, 'media'])->name('media-post');
 });
 
 Route::post('/register', [AuthController::class, 'store']);
