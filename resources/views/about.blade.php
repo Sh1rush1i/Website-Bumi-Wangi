@@ -15,7 +15,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    
+
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
         <div class="container fade-in">
@@ -85,9 +85,15 @@
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
-                        <div class="button-login">
-                            <a href="{{ route(name: 'login') }}">Login</a>
-                        </div>
+                        @if (Auth::check())
+                            <div class="nav-item nav-link">
+                                <span>Halo, {{ Auth::user()->name }}</span>
+                            </div>
+                        @else
+                            <div class="button-login">
+                                <a href="{{ route('user-login') }}">Login</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </nav>
@@ -97,7 +103,8 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
+    <div class="container-fluid page-header"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center fade-in" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Tentang Kami</h3>
@@ -119,7 +126,9 @@
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
                         <h1 class="mb-3">Kami menyediakan pengalaman wisata asri</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore
+                            sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
+                            erat sed diam duo</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/carousel-1.webp" alt="">
@@ -191,9 +200,12 @@
                 <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -214,7 +226,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>

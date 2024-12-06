@@ -84,9 +84,15 @@
                         <a href="{{ route('wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
-                        <div class="button-login">
-                            <a href="{{ route(name: 'login') }}">Login</a>
-                        </div>
+                        @if (Auth::check())
+                            <div class="nav-item nav-link">
+                                <span>Halo, {{ Auth::user()->name }}</span>
+                            </div>
+                        @else
+                            <div class="button-login">
+                                <a href="{{ route('user-login') }}">Login</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </nav>

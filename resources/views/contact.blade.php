@@ -15,7 +15,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    
+
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
         <div class="container fade-in">
@@ -84,9 +84,15 @@
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="contact.html" class="nav-item nav-link active">Contact</a>
                         <span class="spacer-navbar"></span>
-                        <div class="button-login">
-                            <a href="{{ route(name: 'login') }}">Login</a>
-                        </div>
+                        @if (Auth::check())
+                            <div class="nav-item nav-link">
+                                <span>Halo, {{ Auth::user()->name }}</span>
+                            </div>
+                        @else
+                            <div class="button-login">
+                                <a href="{{ route('user-login') }}">Login</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </nav>
