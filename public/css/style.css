@@ -10307,3 +10307,67 @@ h6,
 .btn-custom:hover {
     background-color: var(--primary);
 }
+
+/* Center the Button */
+.button-login {
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Horizontally center the button */
+    align-items: center; /* Vertically align (if needed) */
+    margin: auto; /* Add space and ensure it's centered */
+}
+
+/* Button Styling */
+.button-login a {
+    display: inline-block;
+    padding: 10px 20px;
+    /*Adjustpaddingforbuttonsize*/
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    /*Textcolor*/
+    text-decoration: none;
+    /*Removeunderline*/
+    background-color: var(--primary);
+    /*Backgroundcolor*/
+    border: 2px solid var(--primary);
+    /*Bordercolor*/
+    border-radius: 5px;
+    /*Roundedcorners*/
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+/* Hover Effect */
+.button-login a:hover {
+    background-color: #fff; /* Invert background on hover */
+    color: var(--primary); /* Text color change on hover */
+    border-color: var(--primary); /* Border remains consistent */
+}
+
+.spacer-navbar {
+    margin-right: 1rem;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slight downward movement */
+    animation: fadeIn 1s ease-out forwards; /* 1s fade-in animation */
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(
+            20px
+        ); /* Start slightly below the original position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in the original position */
+    }
+}

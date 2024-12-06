@@ -15,6 +15,18 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/booking', function () {
+    return view('book');
+})->name('book');
+
+Route::get('/login', function () {
+    return view('userlogin');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('userregist');
+})->name('regist');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');

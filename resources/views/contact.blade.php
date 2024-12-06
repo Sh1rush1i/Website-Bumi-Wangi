@@ -33,7 +33,7 @@
     
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
-        <div class="container">
+        <div class="container fade-in">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
@@ -70,19 +70,23 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="" class="navbar-brand fade-in">
                     <h1 class="m-0 text-primary"><span class="text-dark">BUMI</span>WANGI</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto ">
+                    <div class="navbar-nav ml-auto fade-in">
                         <a href="{{ route('index') }}" class="nav-item nav-link">Beranda</a>
                         <a href="{{ route(name: 'tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                        <span class="spacer-navbar"></span>
+                        <div class="button-login">
+                            <a href="{{ route(name: 'login') }}"><strong>Login</strong></a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -93,7 +97,7 @@
     <!-- Header Start -->
     <div class="container-fluid page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
         <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <div class="d-flex flex-column align-items-center justify-content-center fade-in" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Hubungi Kami</h3>
             </div>
         </div>
@@ -101,7 +105,7 @@
     <!-- Header End -->
 
     <!-- Contact Start -->
-    <div class="container mt-5">
+    <div class="container mt-5 fade-in">
         <div class="row">
             <!-- Facebook -->
             <div class="col-md-4 social-card">
@@ -154,7 +158,7 @@
     </div>
 
     <!-- Card kontak langsung -->
-    <div class="container mt-5">
+    <div class="container mt-5 fade-in">
         <div class="row align-items-stretch">
             <!-- Telpon -->
             <div class="col-md-6 d-flex">

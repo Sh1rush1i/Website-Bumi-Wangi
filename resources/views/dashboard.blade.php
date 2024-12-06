@@ -417,7 +417,7 @@
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxs-map text-danger'></i>
-                            <label for="email" class="form-label ms-3">Alamat</label>
+                            <label for="alamat" class="form-label ms-3">Alamat</label>
                         </div>
                         <input type="text" class="form-control" id="alamat" name="alamat"
                             placeholder="Masukkan alamat">
@@ -425,7 +425,7 @@
                     <div class="mb-3">
                         <div class="d-flex">
                             <i class='bx bxl-whatsapp text-success'></i>
-                            <label for="email" class="form-label ms-3">Link Chat Whatsapp</label>
+                            <label for="whatsapp" class="form-label ms-3">Link Chat Whatsapp</label>
                         </div>
                         <input type="text" class="form-control" id="whatsapp" name="whatsapp"
                             placeholder="Masukkan alamat">

@@ -32,7 +32,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
-        <div class="container">
+        <div class="container fade-in">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
@@ -69,19 +69,23 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="" class="navbar-brand fade-in">
                     <h1 class="m-0 text-primary"><span class="text-dark">BUMI</span>WANGI</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
+                    <div class="navbar-nav ml-auto py-0 fade-in">
                         <a href="/" class="nav-item nav-link active">Beranda</a>
                         <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
+                        <span class="spacer-navbar"></span>
+                        <div class="button-login">
+                            <a href="{{ route(name: 'login') }}"><strong>Login</strong></a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -97,9 +101,9 @@
                     <img class="w-100" src="img/carousel-1.webp" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
+                            <h4 class="text-white text-uppercase mb-md-3 fade-in">Tours & Travel</h4>
+                            <h1 class="display-3 text-white mb-md-4 fade-in">Let's Discover The World Together</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2 fade-in">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -212,11 +216,11 @@
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Desa Wisata Bumi Wangi</h6>
                 <h1>Jelajahi Pengalaman Unik di Wisata Bumi Wangi</h1>
             </div>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center align-items-stretch">
                 <!-- Wisata Alam -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <a href="{{ route('wisata') }}" class="text-decoration-none">
-                        <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <a href="{{ route('wisata') }}" class="text-decoration-none w-100">
+                        <div class="service-item bg-white text-center mb-2 py-5 px-4 h-100">
                             <i class="fa fa-2x fa-tree mx-auto mb-4"></i>
                             <h5 class="mb-2 text-dark">Wisata Alam</h5>
                             <p class="m-0 text-dark">Nikmati keindahan alam yang menenangkan dengan berbagai destinasi wisata yang asri dan menakjubkan</p>
@@ -224,9 +228,9 @@
                     </a>
                 </div>
                 <!-- Produk UMKM -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <a href="{{ route('produk') }}" class="text-decoration-none">
-                        <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <a href="{{ route('produk') }}" class="text-decoration-none w-100">
+                        <div class="service-item bg-white text-center mb-2 py-5 px-4 h-100">
                             <i class="fa fa-2x fa-gift mx-auto mb-4"></i>
                             <h5 class="mb-2 text-dark">Produk UMKM</h5>
                             <p class="m-0 text-dark">Nikmati pilihan produk unik dan berkualitas dari pelaku UMKM terpercaya</p>

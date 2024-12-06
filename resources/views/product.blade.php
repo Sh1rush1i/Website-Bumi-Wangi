@@ -32,7 +32,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
-        <div class="container">
+        <div class="container fade-in">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
@@ -70,19 +70,23 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="" class="navbar-brand fade-in">
                     <h1 class="m-0 text-primary"><span class="text-dark">BUMI</span>WANGI</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
+                    <div class="navbar-nav ml-auto py-0 fade-in">
                         <a href="{{ route('index') }}" class="nav-item nav-link">Beranda</a>
                         <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <a href="{{ route('produk') }}" class="nav-item nav-link active">Produk</a>
                         <a href="{{ route('wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
+                        <span class="spacer-navbar"></span>
+                        <div class="button-login">
+                            <a href="{{ route(name: 'login') }}"><strong>Login</strong></a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -94,7 +98,7 @@
     <div class="container-fluid page-header"
         style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.webp), no-repeat center center;">
         <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <div class="d-flex flex-column align-items-center justify-content-center fade-in" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Produk</h3>
             </div>
         </div>
@@ -103,7 +107,7 @@
 
     <!-- Packages Start -->
     <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
+        <div class="container pt-5 pb-3 fade-in">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">PRODUK</h6>
                 <h1>Produk Andalan Kami</h1>

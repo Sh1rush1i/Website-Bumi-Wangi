@@ -1,1 +1,206 @@
 @import "bootstrap/scss/bootstrap";
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #7ab730;
+    --secondary: #f4faec;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #ffffff;
+    --dark: #212121;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Poppins", sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* General Styles for Full-Height */
+.login,
+.image {
+    min-height: 100vh;
+}
+
+/* Background Image Styling */
+.bg-image {
+    background-image: url("https://i.ibb.co.com/Cn92b8t/login-bg.webp");
+    background-size: cover;
+    background-position: center center;
+}
+
+/* General Button Styling */
+.btn {
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    display: block;
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50px; /* Rounded-pill effect */
+    transition: transform 0.3s ease, font-size 0.3s ease,
+        background-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover Effect */
+.btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button */
+    font-size: 18px; /* Increase text size */
+    color: var(--white); /* Ensure text stays white */
+}
+
+h1 {
+    color: var(--primary);
+}
+
+/* General styling for label */
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+    padding-left: 35px; /* Space for the custom checkbox */
+    user-select: none;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkbox appearance */
+.custom-checkbox .checkmark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Checkbox checked state */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Add a tick icon when checked */
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Show the tick icon when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark:after {
+    display: block;
+}
+
+/* Hover effect */
+.custom-checkbox:hover .checkmark {
+    background-color: #e6f7fc;
+    border-color: var(--primary);
+}
+
+/* Back Button Container */
+.back-button {
+    position: absolute; /* Place it relative to the page */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Back Button Styling */
+.btn-back {
+    display: inline-flex;
+    align-items: center; /* Align text and arrow vertically */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    background-color: var(--primary); /* Button background color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Arrow Styling */
+.btn-back .arrow {
+    margin-left: 8px; /* Add some space between text and arrow */
+    font-size: 16px; /* Make the arrow slightly larger */
+    transition: margin-left 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect */
+.btn-back:hover {
+    background-color: var(--primary); /* Darker shade for hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    color: white;
+}
+
+.btn-back:hover .arrow {
+    margin-left: 12px; /* Move the arrow slightly to the right */
+    color: white;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slight downward movement */
+    animation: fadeIn 1s ease-out forwards; /* 1s fade-in animation */
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(
+            20px
+        ); /* Start slightly below the original position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in the original position */
+    }
+}
