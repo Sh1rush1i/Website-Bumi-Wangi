@@ -85,7 +85,7 @@
                         <a href="contact.html" class="nav-item nav-link active">Contact</a>
                         <span class="spacer-navbar"></span>
                         <div class="button-login">
-                            <a href="{{ route(name: 'login') }}"><strong>Login</strong></a>
+                            <a href="{{ route(name: 'login') }}">Login</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
     <!-- Header End -->
 
     <!-- Contact Start -->
-    <div class="container mt-5 fade-in">
+    <div class="container fade-in con-ct">
         <div class="row">
             <!-- Facebook -->
             <div class="col-md-4 social-card">
