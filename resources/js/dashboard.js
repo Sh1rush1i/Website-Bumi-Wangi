@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const menuInputWisata = document.getElementById("menu-input-wisata");
     const menuPembelian = document.getElementById("menu-pembelian");
     const menuInputTentang = document.getElementById("menu-input-tentang");
+    const menuInputBayar = document.getElementById("menu-input-bayar");
     const menuInfo = document.getElementById("menu-input-info");
 
     // Select all content sections
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const wisataContent = document.getElementById("wisata-content");
     const aboutContent = document.getElementById("about-content");
     const infoContent = document.getElementById("info-content");
+    const infoAlamatPembayaran = document.getElementById("info-bayar");
     const pembelianContent = document.getElementById("pembelian");
 
     // Group all content sections in an array
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         wisataContent,
         aboutContent,
         pembelianContent,
+        infoAlamatPembayaran,
         infoContent,
     ];
 
@@ -81,6 +84,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     menuInfo.addEventListener("click", (event) => {
         event.preventDefault();
         showContent(infoContent);
+    });
+
+    menuInputBayar.addEventListener("click", (event) => {
+        event.preventDefault();
+        showContent(infoAlamatPembayaran);
     });
 
     menuPembelian.addEventListener("click", (event) => {

@@ -85,8 +85,11 @@
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
                         @if (Auth::check())
-                            <div class="nav-item nav-link">
-                                <span>Halo, {{ Auth::user()->name }}</span>
+                            <div class="nav-item nav-link dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown">Halo, {{ Auth::user()->name }}</span>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Log out</a>
+                                </div>
                             </div>
                         @else
                             <div class="button-login">

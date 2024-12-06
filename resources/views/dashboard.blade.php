@@ -47,6 +47,9 @@
                     <a href="" id="menu-input-info" class="nav_link"> <i
                             class='bx bx-phone-call nav_icon'></i></i>
                         <span class="nav_name">Input Informasi</span> </a>
+                    <a href="" id="menu-input-bayar" class="nav_link"> <i
+                            class='bx bx-transfer nav_icon'></i></i>
+                        <span class="nav_name">Input Pembayaran</span> </a>
                     <a href="" id="menu-pembelian"class="nav_link"> <i
                             class='bx bxs-shopping-bag-alt nav_icon'></i></i> <span class="nav_name">Pesanan</span> </a>
                 </div>
@@ -433,6 +436,67 @@
                     <button type="submit" class="btn btn-primary mb-5">Update Informasi</button>
                 </form>
             </div>
+        </div>
+
+        <!-- Input Pembayaran -->
+        <div id="info-bayar" class="d-none mt-4 mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Input alamat pembayaran</h6>
+
+                <!-- Item Pembayaran -->
+                <div class="row mb-3">
+                    <!-- Card 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Nama Pembayaran</h5>
+                                <span class="card-text d-block">Atas Nama</span>
+                                <span class="card-text d-block">Nomor</span>
+                                <div class="mt-3">
+                                    <!-- Tombol Update -->
+                                    <button class="btn btn-primary btn-sm mr-2">Update</button>
+                                    <!-- Tombol Delete -->
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                </div>
+
+                <form>
+                    <!-- Dropdown Pilih Bank atau Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="paymentType">Pilih Jenis Pembayaran</label>
+                        <select class="form-control mt-2" id="paymentType" required>
+                            <option value="" disabled selected>Pilih...</option>
+                            <option value="bank">Bank</option>
+                            <option value="wallet">Wallet</option>
+                        </select>
+                    </div>
+
+                    <!-- Input Nama Bank/Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="paymentName">Nama Bank/Wallet</label>
+                        <input type="text" class="form-control mt-2" id="paymentName" placeholder="Masukkan Nama Bank atau Wallet" required>
+                    </div>
+
+                    <!-- Input Atas Nama -->
+                    <div class="form-group mb-4">
+                        <label for="accountName">Atas Nama</label>
+                        <input type="text" class="form-control mt-2" id="accountName" placeholder="Masukkan Nama Pemilik" required>
+                    </div>
+
+                    <!-- Input Nomor Rekening/Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="accountNumber">Nomor Rekening/Wallet</label>
+                        <input type="text" class="form-control mt-2" id="accountNumber" placeholder="Masukkan Nomor Rekening atau Wallet" required>
+                    </div>
+
+                    <!-- Tombol Submit -->
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+
         </div>
 
         <!-- tabel Pembelian -->

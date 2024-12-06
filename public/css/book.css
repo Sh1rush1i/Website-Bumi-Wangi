@@ -184,14 +184,39 @@ body {
     box-shadow: none;
 }
 
-#imagePreview img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+#imagePreview {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #6c757d;
 }
 
 textarea {
     height: 150px; /* Tinggi awal */
     width: 100%; /* Lebar */
+}
+
+.card-img-top {
+    width: 100%; /* Pastikan gambar mengisi lebar penuh card */
+    height: 200px; /* Tetapkan tinggi yang konsisten untuk semua gambar */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+    object-position: center; /* Fokus pada bagian tengah gambar */
+    border-top-left-radius: 0.25rem; /* Sesuaikan dengan card border radius */
+    border-top-right-radius: 0.25rem; /* Sesuaikan dengan card border radius */
+}
+
+/* Untuk Chrome, Safari, Edge, dan Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Vendor-specific */
+    appearance: none; /* Standard property */
+    margin: 0;
+}
+
+/* Untuk Firefox */
+input[type="number"] {
+    -moz-appearance: textfield; /* Vendor-specific */
+    appearance: textfield; /* Standard property */
 }

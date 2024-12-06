@@ -22,7 +22,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/book.css') }}" rel="stylesheet">
 
-    <title>Admin Bumi Wangi</title>
+    <title>Booking</title>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                 <div class="container mt-5">
                     <div class="row">
                         <!-- Form Section -->
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <form id="uploadForm">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama</label>
@@ -103,31 +103,76 @@
                                     <label for="phone" class="form-label">Nomor Telepon</label>
                                     <input type="tel" id="phone" class="form-control" placeholder="Masukkan Nomor Telepon" required>
                                 </div>
+
                                 <div class="mb-3">
-                                    <label for="pesanan" class="form-label">Pesanan</label>
-                                    <textarea id="pesanan" class="form-control" placeholder="Masukkan Pesanan" rows="5" required></textarea>
+                                    <label for="" class="form-label">Pesanan</label>
                                 </div>
+
+                                <!-- Item Produk -->
+                                <p><span class="fw-bold">Produk</p>
+                                <div class="row mb-3">
+                                    <!-- Card 1 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card h-100">
+                                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Nama Produk 1</h5>
+                                                <p class="card-text">Harga: Rp50,000</p>
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="decreaseQuantity(this)">-</button>
+                                                    <input type="number" class="form-control text-center mx-2" value="0" min="0" style="max-width: 60px;">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="increaseQuantity(this)">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item Wisata -->
+                                <p><span class="fw-bold">Wisata</p>
+                                <div class="row mb-3">
+                                    <!-- Card 1 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card h-100">
+                                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Nama Wisata 1</h5>
+                                                <p class="card-text">Harga: Rp50,000</p>
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="decreaseQuantity(this)">-</button>
+                                                    <input type="number" class="form-control text-center mx-2" value="0" min="0" style="max-width: 60px;">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="increaseQuantity(this)">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p><span class="fw-bold">Total yang harus di bayar</span></p>
+                                <div class="mb-3 fw-bold fs-1">
+                                    <p>Rp <span>1.000.000</span></p>
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Upload Bukti Pembayaran</label>
                                     <input type="file" id="image" class="form-control" accept="image/*" required>
                                 </div>
-
+                                <div class="mb-3">
+                                    <!-- Image Preview Section -->
+                                    <label class="form-label">Preview File Bukti Pembayaran</label>
+                                    <div id="imagePreview" class="border border-secondary rounded" style="width: 100%; height: 300px; display: flex; align-items: center; justify-content: center;">
+                                        <span class="text-muted">Preview Gambar</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary payment">
+                                    Upload Bukti Pembayaran
+                                </button>
                             </form>
-                        </div>
-
-                        <!-- Image Preview Section -->
-                        <div class="col-md-6 d-flex align-items-center justify-content-center">
-                            <div id="imagePreview" class="border border-secondary rounded" style="width: 300px; height: 300px; display: flex; align-items: center; justify-content: center;">
-                                <span class="text-muted">Preview Gambar</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-
-                <button class="btn btn-primary payment">
-                    Upload Bukti Pembayaran
-                </button>
             </div>
+
         </div>
     </div>
 

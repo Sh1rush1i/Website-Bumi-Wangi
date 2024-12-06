@@ -26,3 +26,15 @@ document.getElementById("image").addEventListener("change", function (event) {
             '<span class="text-muted">Preview Gambar</span>';
     }
 });
+
+function increaseQuantity(button) {
+    const input = button.previousElementSibling; // Ambil input yang berada sebelum tombol +
+    input.value = parseInt(input.value) + 1; // Tambah nilai
+}
+
+function decreaseQuantity(button) {
+    const input = button.nextElementSibling; // Ambil input yang berada setelah tombol -
+    if (parseInt(input.value) > 0) {
+        input.value = parseInt(input.value) - 1; // Kurangi nilai jika lebih dari 0
+    }
+}
