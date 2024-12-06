@@ -83,9 +83,15 @@
                         <a href="{{ route(name: 'wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
-                        <div class="button-login">
-                            <a href="{{ route(name: 'login') }}">Login</a>
-                        </div>
+                        @if (Auth::check())
+                            <div class="nav-item nav-link">
+                                <span>Halo, {{ Auth::user()->name }}</span>
+                            </div>
+                        @else
+                            <div class="button-login">
+                                <a href="{{ route('user-login') }}">Login</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </nav>
@@ -223,7 +229,8 @@
                         <div class="service-item bg-white text-center mb-2 py-5 px-4 h-100">
                             <i class="fa fa-2x fa-tree mx-auto mb-4"></i>
                             <h5 class="mb-2 text-dark">Wisata Alam</h5>
-                            <p class="m-0 text-dark">Nikmati keindahan alam yang menenangkan dengan berbagai destinasi wisata yang asri dan menakjubkan</p>
+                            <p class="m-0 text-dark">Nikmati keindahan alam yang menenangkan dengan berbagai destinasi
+                                wisata yang asri dan menakjubkan</p>
                         </div>
                     </a>
                 </div>
@@ -233,7 +240,8 @@
                         <div class="service-item bg-white text-center mb-2 py-5 px-4 h-100">
                             <i class="fa fa-2x fa-gift mx-auto mb-4"></i>
                             <h5 class="mb-2 text-dark">Produk UMKM</h5>
-                            <p class="m-0 text-dark">Nikmati pilihan produk unik dan berkualitas dari pelaku UMKM terpercaya</p>
+                            <p class="m-0 text-dark">Nikmati pilihan produk unik dan berkualitas dari pelaku UMKM
+                                terpercaya</p>
                         </div>
                     </a>
                 </div>
@@ -255,7 +263,8 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
                                 <div class="d-flex justify-content-center align-items-center img-display">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                        alt="">
                                 </div>
                                 <a class="destination-overlay text-white text-decoration-none" href="">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
@@ -285,7 +294,8 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
                                 <div class="d-flex justify-content-center align-items-center img-display">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt="">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                        alt="">
                                 </div>
                                 <a class="destination-overlay text-white text-decoration-none" href="">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
@@ -293,7 +303,7 @@
                                 </a>
                             </div>
                         </div>
-                        @endforeach
+                    @endforeach
                     <!-- Nambah produk di sini ntar -->
                 </div>
             </div>

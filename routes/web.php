@@ -20,11 +20,19 @@ Route::get('/booking', function () {
 })->name('book');
 
 Route::get('/login', function () {
-    return view('userlogin');
-})->name('login');
+    if (auth()->check()) {
+        return redirect()->route('index');
+    } else {
+        return view('userlogin');
+    }
+})->name('user-login');
 
 Route::get('/register', function () {
-    return view('userregist');
+    if (auth()->check()) {
+        return redirect()->route('index');
+    } else {
+        return view('userregist');
+    }
 })->name('regist');
 
 // Route::get('/dashboard', function () {
