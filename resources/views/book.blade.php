@@ -86,13 +86,53 @@
                 </div>
             </div>
             <div class="col-12 pt-4">
-                <h3>Ini formnya di sini ntar</h3>
+                <div class="container mt-5">
+                    <div class="row">
+                        <!-- Form Section -->
+                        <div class="col-md-6">
+                            <form id="uploadForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nama</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Masukkan Nama" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Alamat</label>
+                                    <textarea id="address" class="form-control" placeholder="Masukkan Alamat" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Nomor Telepon</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="Masukkan Nomor Telepon" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pesanan" class="form-label">Pesanan</label>
+                                    <textarea id="pesanan" class="form-control" placeholder="Masukkan Pesanan" rows="5" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Upload Bukti Pembayaran</label>
+                                    <input type="file" id="image" class="form-control" accept="image/*" required>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- Image Preview Section -->
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <div id="imagePreview" class="border border-secondary rounded" style="width: 300px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <span class="text-muted">Preview Gambar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <button class="btn btn-primary payment">
-                    Make Payment
+                    Upload Bukti Pembayaran
                 </button>
             </div>
         </div>
     </div>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('js/book.js') }}"></script>
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

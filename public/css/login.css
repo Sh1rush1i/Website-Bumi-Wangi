@@ -147,7 +147,7 @@ h1 {
 .back-button {
     position: absolute; /* Place it relative to the page */
     top: 20px; /* Distance from the top */
-    right: 20px; /* Distance from the right */
+    left: 20px; /* Distance from the left */
     z-index: 1000; /* Ensure it appears above other elements */
 }
 
@@ -155,7 +155,7 @@ h1 {
 .btn-back {
     display: inline-flex;
     align-items: center; /* Align text and arrow vertically */
-    padding: 10px 20px;
+    padding: 12px;
     font-size: 14px;
     font-weight: bold;
     color: #fff; /* White text color */

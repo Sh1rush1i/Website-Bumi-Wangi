@@ -36,8 +36,8 @@
                 <!-- Button balik ke Beranda -->
                 <div class="back-button">
                     <a href="{{ route('index') }}" class="btn-back">
+                        <span class="arrow me-3"> ←</span>
                         Kembali ke Beranda
-                        <span class="arrow">→</span>
                     </a>
                 </div>
                 <!-- Isi konten -->

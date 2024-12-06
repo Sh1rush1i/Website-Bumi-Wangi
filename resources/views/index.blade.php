@@ -84,7 +84,7 @@
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
                         <div class="button-login">
-                            <a href="{{ route(name: 'login') }}"><strong>Login</strong></a>
+                            <a href="{{ route(name: 'login') }}">Login</a>
                         </div>
                     </div>
                 </div>
