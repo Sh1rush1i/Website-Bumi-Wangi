@@ -128,7 +128,9 @@
         <div class="row">
             <!-- Facebook -->
             <div class="col-md-4 social-card">
-                <a href="" target="_blank" class="text-decoration-none text-dark">
+                <a href="{{ $media->facebook ?? 'javascript:void(0);' }}"
+                    onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');" target="_blank"
+                    class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-facebook"></i>
                     </div>
@@ -137,7 +139,9 @@
             </div>
             <!-- Twitter -->
             <div class="col-md-4 social-card">
-                <a href="" target="_blank" class="text-decoration-none text-dark">
+                <a href="{{ $media->twitter ?? 'javascript:void(0);' }}"
+                    onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');" target="_blank"
+                    class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-twitter"></i>
                     </div>
@@ -146,7 +150,9 @@
             </div>
             <!-- Instagram -->
             <div class="col-md-4 social-card">
-                <a href="" target="_blank" class="text-decoration-none text-dark">
+                <a href="{{ $media->instagram ?? 'javascript:void(0);' }}"
+                    onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');" target="_blank"
+                    class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-instagram"></i>
                     </div>
@@ -157,7 +163,9 @@
         <div class="row mt-5 justify-content-center">
             <!-- TikTok -->
             <div class="col-md-4 social-card">
-                <a href="" target="_blank" class="text-decoration-none text-dark">
+                <a href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
+                    onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');" target="_blank"
+                    class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-tiktok"></i>
                     </div>
@@ -166,7 +174,9 @@
             </div>
             <!-- YouTube -->
             <div class="col-md-4 social-card">
-                <a href="" target="_blank" class="text-decoration-none text-dark">
+                <a href="{{ $media->youtube ?? 'javascript:void(0);' }}"
+                    onclick="if(!'{{ $media->youtube }}') alert('Belum tersedia');" target="_blank"
+                    class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-youtube"></i>
                     </div>
@@ -189,7 +199,8 @@
                         <h5>Contact Person</h5>
                         <p>Hubungi kami langsung melalui WhatsApp</p>
                     </div>
-                    <button class="btn btn-custom mt-auto" href="">
+                    <button class="btn btn-custom mt-auto" href="{{ $media->whatsapp ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->whatsapp }}') alert('Belum tersedia');">
                         <i class="fas fa-phone-alt"></i> Hubungi
                     </button>
                 </div>
@@ -204,9 +215,12 @@
                         <h5>Email Support</h5>
                         <p>Butuh bantuan? Hubungi kami melalui dukungan email.</p>
                     </div>
-                    <button class="btn btn-custom mt-auto" href="">
-                        <i class="fas fa-envelope-open-text"></i> Hubungi
-                    </button>
+                    <a href="{{ $media->email ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->email }}') alert('Belum tersedia');"><button
+                            class="btn btn-custom mt-auto">
+                            <i class="fas fa-envelope-open-text"></i> Hubungi
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
