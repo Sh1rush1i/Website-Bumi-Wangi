@@ -69,7 +69,7 @@ class AuthController extends Controller
 
         alert()->success('Logged Out', 'You have been successfully logged out.');
 
-        return redirect()->route('index');
+        return redirect()->route('login');
     }
 
     public function userRegister(Request $request)
@@ -141,5 +141,14 @@ class AuthController extends Controller
             alert()->error('Login Failed', 'Invalid email or password');
             return redirect()->back()->withInput();
         }
+    }
+
+    public function userLogout(Request $request)
+    {
+        Auth::logout();
+
+        alert()->success('Logged Out', 'You have been successfully logged out.');
+
+        return redirect()->route('index');
     }
 }

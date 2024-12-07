@@ -25,7 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/update-produk/{produk}', [ProdukController::class, 'update'])->name('produk-update');
 
     // Auth
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('admin-logout');
+    Route::post('/logout-user', [AuthController::class, 'userLogout'])->name('logout');
 
     //About
     Route::post('/postAbout', [DashboardController::class, 'about'])->name('about-post');

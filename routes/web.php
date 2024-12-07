@@ -10,7 +10,7 @@ Route::get('/', [DashboardController::class, 'homepage'])->name('index');
 
 Route::get('/admin', function () {
     if (auth()->check() && auth()->user()->role === 'admin') {
-        return view('dashboard');
+        return redirect()->route('dashboard');
     } else {
         return view('login');
     }
