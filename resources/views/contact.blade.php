@@ -89,7 +89,10 @@
                                 <span class="dropdown-toggle" data-toggle="dropdown">Halo,
                                     {{ Auth::user()->name }}</span>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Log out</button>
+                                    </form>
                                 </div>
                             </div>
                         @else
