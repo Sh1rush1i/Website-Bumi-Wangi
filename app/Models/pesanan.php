@@ -9,6 +9,7 @@ class pesanan extends Model
     protected $fillable = [
         'id_user',
         'id_produk',
+        'nama_produk',
         'type',
         'name',
         'alamat',
