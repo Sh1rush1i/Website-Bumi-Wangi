@@ -6,7 +6,6 @@
     --first-color: #28a745; /* Primary color */
     --first-color-light: #5a5a5a; /* Lighter shade of primary color */
     --white-color: #f7f6fb; /* Background and header color */
-    --body-font: "Nunito", sans-serif; /* Font used throughout the page */
     --normal-font-size: 1rem; /* Base font size */
     --z-fixed: 100; /* Z-index for fixed elements */
 }
@@ -17,7 +16,7 @@
     box-sizing: border-box; /* Applies border-box model to all elements */
 }
 
-body {
+.body {
     position: relative;
     margin: var(--header-height) 0 0 0; /* Adds margin equal to header height */
     padding: 0 1rem;
@@ -132,7 +131,7 @@ a {
     background-color: var(--white-color); /* White indicator */
 }
 
-.show {
+.show2 {
     left: 0; /* Makes the navbar visible */
 }
 
@@ -145,7 +144,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-    body {
+    .body {
         margin: calc(var(--header-height) + 1rem) 0 0 0; /* Adds margin for header */
         padding-left: calc(
             var(--nav-width) + 2rem
@@ -171,7 +170,7 @@ a {
         padding: 1rem 1rem 0 0; /* Adjusted padding for desktop view */
     }
 
-    .show {
+    .show2 {
         width: calc(var(--nav-width) + 156px); /* Expands navbar width */
     }
 
@@ -238,35 +237,6 @@ a {
         right: 0; /* Posisikan ikon di kanan */
         top: 0; /* Posisikan ikon di atas */
         margin: 0.5rem; /* Tambahkan margin di sekitar ikon */
-    }
-
-    .modal-dialog {
-        position: fixed !important; /* Ensure fixed positioning */
-        top: 50% !important; /* Center vertically */
-        left: 50% !important; /* Center horizontally */
-        transform: translate(-50%, -50%) !important; /* Proper centering */
-        margin: 0 !important; /* Reset margins */
-    }
-
-    body.modal-open {
-        position: fixed !important; /* Prevent body scroll */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: hidden !important; /* Hide scrollbars */
-        margin: 0 !important; /* Remove conflicting margins */
-    }
-
-    .modal {
-        z-index: 1050 !important; /* Bootstrap default */
-    }
-    .modal-backdrop {
-        z-index: 1040 !important; /* Ensure backdrop is behind modal */
-    }
-
-    .modal-backdrop {
-        display: none !important;
     }
 
     .body-login {
