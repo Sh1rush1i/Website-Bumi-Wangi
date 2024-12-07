@@ -164,9 +164,6 @@
                     </div>
                 @endforeach
             </div>
-            <div class="button-container mt-4">
-                <button class="hover-button">Pesan Sekarang</button>
-            </div>
         </div>
     </div>
     <!-- Packages End -->

@@ -1,4 +1,3 @@
-import Swal from "sweetalert2";
 import "./bootstrap";
 
 document.querySelector("form").addEventListener("submit", function (e) {
@@ -165,46 +164,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const updateModal = document.getElementById("updateModalPembayaran");
-    const updateForm = document.getElementById("updateFormPembayaran");
-
-    updateModal.addEventListener("show.bs.modal", function (event) {
-        // Button that triggered the modal
-        const button = event.relatedTarget;
-
-        // Extract data attributes
-        const id = button.getAttribute("data-id");
-        const nama = button.getAttribute("data-name");
-        const pemilik = button.getAttribute("data-pemilik");
-        const no_rek = button.getAttribute("data-no_rek");
-
-        // Populate the form fields
-        document.getElementById("update-id").value = id;
-        document.getElementById("update-nama").value = nama;
-        document.getElementById("update-pemilik").value = pemilik;
-        document.getElementById("update-no_rek").value = no_rek;
-
-        // Set the form's action dynamically based on type
-        updateForm.action = `/api/metode/update/${id}`;
-    });
-});
-
-document
-    .getElementById("deletePembayaran")
-    .addEventListener("click", function (event) {
-        Swal.fire({
-            title: "Apakah Anda Yakin?",
-            text: "Data akan dihapus secara permanen!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Ya, Hapus!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById("deleteFormPembayaran").submit();
-            }
-        });
-    });

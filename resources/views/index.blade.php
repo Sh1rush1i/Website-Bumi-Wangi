@@ -116,7 +116,6 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3 fade-in">Tours & Travel</h4>
                             <h1 class="display-3 text-white mb-md-4 fade-in">Let's Discover The World Together</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2 fade-in">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +125,6 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Wisata Alam</h4>
                             <h1 class="display-3 text-white mb-md-4">Temukan Pengalaman Unik Bersama Kami</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>

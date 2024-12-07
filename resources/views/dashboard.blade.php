@@ -63,7 +63,8 @@
                     </form>
                     <a href="#" class="nav_link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i
-                            class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+                        class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> 
+                    </a>
             </nav>
         </div>
 
@@ -479,13 +480,9 @@
                                 </div>
                             </div>
                     @endforeach
-
                 </div>
-
                 <!-- Card 2 -->
-            </div>
-
-            <form method="POST" action="{{ route('metode-post') }}">
+                <form method="POST" action="{{ route('metode-post') }}">
                 @csrf
                 <!-- Dropdown Pilih Bank atau Wallet -->
                 <div class="form-group mb-4">
@@ -521,6 +518,83 @@
                 <!-- Tombol Submit -->
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
+            </div>
+            <!-- tabel Pembelian -->
+            <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
+                <h3>Pembelian</h3>
+                <div class="container-fluid mt-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <div class="table-responsive">
+                                    <table id="pesanan-table" class="table table-striped table-bordered table-hover w-100 text-center align-middle">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Nama Produk</th>
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>No HP</th>
+                                                <th>Jumlah</th>
+                                                <th>Harga</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        var table = $("#pesanan-table").DataTable({
+                            processing: true,
+                            serverSide: true,
+                            ajax: "{{ route('dashboard') }}",
+                            columns: [{
+                                    data: "nama_produk",
+                                    name: "nama_produk"
+                                },
+                                {
+                                    data: "name",
+                                    name: "name"
+                                },
+                                {
+                                    data: "alamat",
+                                    name: "alamat"
+                                },
+                                {
+                                    data: "no_hp",
+                                    name: "no_hp"
+                                },
+                                {
+                                    data: "jumlah",
+                                    name: "jumlah"
+                                },
+                                {
+                                    data: "harga",
+                                    name: "harga",
+                                    render: function(data, type, row) {
+                                        return 'Rp. ' + new Intl.NumberFormat('id-ID').format(data);
+                                    }
+                                },
+                                {
+                                    data: 'action',
+                                    name: 'action',
+                                    orderable: false,
+                                    searchable: false,
+                                    render: function(data, type, row) {
+                                        var imageUrl = "{{ asset('storage') }}/" + row
+                                            .bukti_pembayaran; // Modify this as per your image path
+                                        return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="viewImage('${imageUrl}')">View Image</button>`;
+                                    }
+                                }
+                            ],
+                        });
+                    });
+                </script>
+            </div>
         </div>
 
         <!-- tabel Pembelian -->
@@ -590,9 +664,6 @@
                 });
             </script>
         </div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
-            View Image
-        </button>
     </div>
     </div>
     <!--Container Main end-->
