@@ -199,10 +199,12 @@
                         <h5>Contact Person</h5>
                         <p>Hubungi kami langsung melalui WhatsApp</p>
                     </div>
-                    <button class="btn btn-custom mt-auto" href="{{ $media->whatsapp ?? 'javascript:void(0);' }}"
+                    <a href="{{ $media->whatsapp ?? 'javascript:void(0);' }}"
                         onclick="if(!'{{ $media->whatsapp }}') alert('Belum tersedia');">
-                        <i class="fas fa-phone-alt"></i> Hubungi
-                    </button>
+                        <button class="btn btn-custom mt-auto">
+                            <i class="fas fa-phone-alt"></i> Hubungi
+                        </button>
+                    </a>
                 </div>
             </div>
             <!-- Email -->
@@ -215,7 +217,7 @@
                         <h5>Email Support</h5>
                         <p>Butuh bantuan? Hubungi kami melalui dukungan email.</p>
                     </div>
-                    <a href="{{ $media->email ?? 'javascript:void(0);' }}"
+                    <a href="mailto:{{ $media->email ?? 'javascript:void(0);' }}"
                         onclick="if(!'{{ $media->email }}') alert('Belum tersedia');"><button
                             class="btn btn-custom mt-auto">
                             <i class="fas fa-envelope-open-text"></i> Hubungi
