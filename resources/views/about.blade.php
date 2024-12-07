@@ -240,7 +240,6 @@
                             class="fa fa-angle-right mr-2"></i>Produk</a>
                     <a class="text-white-50 mb-2" href="{{ route('wisata') }}"><i
                             class="fa fa-angle-right mr-2"></i>Wisata</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
