@@ -140,8 +140,8 @@
                         <h1 class="mb-3">Kami menyediakan pengalaman wisata asri</h1>
                         <p>{{ $about->text ??
                             'Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore
-                                                    sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
-                                                    erat sed diam duo' }}
+                                                                            sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
+                                                                            erat sed diam duo' }}
                         </p>
                         <div class="row mb-4">
                             <div class="col-6">
