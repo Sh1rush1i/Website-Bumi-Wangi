@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\About;
 use App\Models\Media;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
@@ -51,7 +52,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/about', function () {
     $media = Media::first();
-    return view('about', compact('media'));
+    $about = About::first();
+    return view('about', compact('media', 'about'));
 })->name('tentang');
 
 Route::get('/product', [ProdukController::class, 'index'])->name('produk');
