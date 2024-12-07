@@ -8,8 +8,12 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [DashboardController::class, 'homepage'])->name('index');
 
 Route::get('/admin', function () {
-    return view('login');
-})->middleware('guest')->name('login');
+    if (auth()->check() && auth()->user()->role === 'admin') {
+        return view('dashboard');
+    } else {
+        return view('login');
+    }
+})->name('login');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -20,7 +24,7 @@ Route::get('/booking', function () {
 })->name('book');
 
 Route::get('/login', function () {
-    if (auth()->check()) {
+    if (auth()->check() && auth()->user()->role === 'user') {
         return redirect()->route('index');
     } else {
         return view('userlogin');
@@ -28,7 +32,7 @@ Route::get('/login', function () {
 })->name('user-login');
 
 Route::get('/register', function () {
-    if (auth()->check()) {
+    if (auth()->check() && auth()->user()->role === 'user') {
         return redirect()->route('index');
     } else {
         return view('userregist');
