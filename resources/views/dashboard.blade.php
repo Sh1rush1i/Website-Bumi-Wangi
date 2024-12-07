@@ -453,7 +453,7 @@
                                     <span class="card-text d-block">Nomor</span>
                                     <div class="mt-3">
                                         <!-- Tombol Update -->
-                                        <button class="btn btn-primary btn-sm mr-2">Update</button>
+                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal" data-bs-target="#updateModalPembayaran">Update</button>
                                         <!-- Tombol Delete -->
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </div>
@@ -508,7 +508,7 @@
     </div>
     <!--Container Main end-->
 
-    <!-- Update data pop up -->
+    <!-- Update data Wisata Produk pop up -->
     <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -552,6 +552,57 @@
                             <input type="file" class="form-control" id="update-gambar" name="gambar"
                                 accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 10 MB | Format: jpeg, jpg, png</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Pembayaran pop up -->
+    <div class="modal fade shadow p-3" id="updateModalPembayaran" tabindex="-1" aria-labelledby="updateModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Pembayaran</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="updateFormPembayaran" action="" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <!-- ID (Hidden) -->
+                        <input type="hidden" id="update-id" name="id">
+                        <!-- Nama Pembayaran-->
+                        <!-- Dropdown Pilih Bank atau Wallet -->
+                        <div class="form-group mb-4">
+                            <label for="paymentType">Pilih Jenis Pembayaran</label>
+                            <select class="form-control mt-2" id="paymentType" required>
+                                <option value="" disabled selected>Pilih...</option>
+                                <option value="bank">Bank</option>
+                                <option value="wallet">Wallet</option>
+                            </select>
+                        </div>
+
+                        <!-- Input Nama Bank/Wallet -->
+                        <div class="form-group mb-4">
+                            <label for="paymentName">Nama Bank/Wallet</label>
+                            <input type="text" class="form-control mt-2" id="paymentName" placeholder="Masukkan Nama Bank atau Wallet" required>
+                        </div>
+
+                        <!-- Input Atas Nama -->
+                        <div class="form-group mb-4">
+                            <label for="accountName">Atas Nama</label>
+                            <input type="text" class="form-control mt-2" id="accountName" placeholder="Masukkan Nama Pemilik" required>
+                        </div>
+
+                        <!-- Input Nomor Rekening/Wallet -->
+                        <div class="form-group mb-4">
+                            <label for="accountNumber">Nomor Rekening/Wallet</label>
+                            <input type="text" class="form-control mt-2" id="accountNumber" placeholder="Masukkan Nomor Rekening atau Wallet" required>
                         </div>
                     </div>
                     <div class="modal-footer">
