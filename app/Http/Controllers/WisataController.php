@@ -26,17 +26,24 @@ class WisataController extends Controller
     {
         $validated = $request->validated();
 
+        // Handle image upload
         if ($request->hasFile('gambar')) {
             $validated['gambar'] = $request->file('gambar')->store('images/wisata', 'public');
         }
 
+        // Handle video upload
         if ($request->hasFile('video')) {
             $validated['video'] = $request->file('video')->store('videos/wisata', 'public');
         }
 
+        // Create a new Wisata entry
         $wisata = Wisata::create($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Wisata berhasil ditambahkan');
+        // Add SweetAlert success message
+        alert()->success('Success', 'Wisata berhasil ditambahkan');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -62,17 +69,24 @@ class WisataController extends Controller
     {
         $validated = $request->validated();
 
+        // Handle image upload
         if ($request->hasFile('gambar')) {
             $validated['gambar'] = $request->file('gambar')->store('images/wisata', 'public');
         }
 
+        // Handle video upload
         if ($request->hasFile('video')) {
             $validated['video'] = $request->file('video')->store('videos/wisata', 'public');
         }
 
+        // Update the Wisata entry
         $wisata->update($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Wisata berhasil diubah');
+        // Add SweetAlert success message
+        alert()->success('Success', 'Wisata berhasil diubah');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 
     /**

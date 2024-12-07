@@ -26,17 +26,24 @@ class ProdukController extends Controller
     {
         $validated = $request->validated();
 
+        // Handle image upload
         if ($request->hasFile('gambar')) {
             $validated['gambar'] = $request->file('gambar')->store('images/produk', 'public');
         }
 
+        // Handle video upload
         if ($request->hasFile('video')) {
             $validated['video'] = $request->file('video')->store('videos/produk', 'public');
         }
 
+        // Create a new Produk entry
         $produk = Produk::create($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Produk berhasil ditambahkan');
+        // Add SweetAlert success message
+        alert()->success('Success', 'Produk berhasil ditambahkan');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -62,17 +69,24 @@ class ProdukController extends Controller
     {
         $validated = $request->validated();
 
+        // Handle image upload
         if ($request->hasFile('gambar')) {
             $validated['gambar'] = $request->file('gambar')->store('images/produk', 'public');
         }
 
+        // Handle video upload
         if ($request->hasFile('video')) {
             $validated['video'] = $request->file('video')->store('videos/produk', 'public');
         }
 
+        // Update the Produk entry
         $produk->update($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Produk berhasil diubah');
+        // Add SweetAlert success message
+        alert()->success('Success', 'Produk berhasil diubah');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 
     /**
