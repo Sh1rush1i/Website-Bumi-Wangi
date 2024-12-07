@@ -144,6 +144,7 @@
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="m-0">IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
+                                        <button class="btn btn-primary btn-sm">Pesan</button>
                                     </div>
                                 </div>
                             </div>
