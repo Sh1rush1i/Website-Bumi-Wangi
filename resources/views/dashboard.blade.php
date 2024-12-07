@@ -519,6 +519,7 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
+        </div>
             <!-- tabel Pembelian -->
             <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
