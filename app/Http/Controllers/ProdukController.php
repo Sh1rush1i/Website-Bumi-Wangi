@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Produk;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProdukRequest;
@@ -15,7 +16,8 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::all();
-        return view('product', compact('produk'));
+        $media = Media::first();
+        return view('product', compact('produk', 'media'));
     }
     /**
      * Store a newly created resource in storage.

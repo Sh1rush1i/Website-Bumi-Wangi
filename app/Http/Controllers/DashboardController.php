@@ -29,8 +29,8 @@ class DashboardController extends Controller
     {
         $wisata = Wisata::all();
         $produk = Produk::all();
-        $about = About::first();
-        return view('index', compact('wisata', 'produk', 'about'));
+        $media = Media::first();
+        return view('index', compact('wisata', 'produk', 'media'));
     }
 
     public function about(Request $request)

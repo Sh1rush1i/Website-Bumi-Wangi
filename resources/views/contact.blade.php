@@ -37,9 +37,9 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>greennature.bmw@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>{{ $media->email }}</p>
                         <p class="text-body px-3">|</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+62 812-2434-8484</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->telepon }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -86,7 +86,8 @@
                         <span class="spacer-navbar"></span>
                         @if (Auth::check())
                             <div class="nav-item nav-link dropdown">
-                                <span class="dropdown-toggle" data-toggle="dropdown">Halo, {{ Auth::user()->name }}</span>
+                                <span class="dropdown-toggle" data-toggle="dropdown">Halo,
+                                    {{ Auth::user()->name }}</span>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Log out</a>
                                 </div>
@@ -104,7 +105,8 @@
     <!-- Navbar End -->
 
     <!-- Header Start -->
-    <div class="container-fluid page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
+    <div class="container-fluid page-header"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.webp), no-repeat center center;">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center fade-in" style="min-height: 400px">
                 <h3 class="display-4 text-white text-uppercase">Hubungi Kami</h3>
@@ -213,9 +215,12 @@
                 <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                            class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -236,7 +241,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>

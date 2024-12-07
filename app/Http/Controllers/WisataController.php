@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Wisata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWisataRequest;
@@ -15,7 +16,8 @@ class WisataController extends Controller
     public function index()
     {
         $wisata = Wisata::all();
-        return view('wisata', compact('wisata'));
+        $media = Media::first();
+        return view('wisata', compact('wisata' , 'media'));
     }
     /**
      * Store a newly created resource in storage.

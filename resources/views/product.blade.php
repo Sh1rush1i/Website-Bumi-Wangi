@@ -36,9 +36,9 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>greennature.bmw@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>{{ $media->email }}</p>
                         <p class="text-body px-3">|</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+62 812-2434-8484</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->telepon }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -86,7 +86,8 @@
                         <span class="spacer-navbar"></span>
                         @if (Auth::check())
                             <div class="nav-item nav-link dropdown">
-                                <span class="dropdown-toggle" data-toggle="dropdown">Halo, {{ Auth::user()->name }}</span>
+                                <span class="dropdown-toggle" data-toggle="dropdown">Halo,
+                                    {{ Auth::user()->name }}</span>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Log out</a>
                                 </div>
@@ -126,17 +127,21 @@
                 @foreach ($produk as $item)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
-                            <div class="d-flex justify-content-center align-items-center" style="height: 250px; overflow: hidden;">
-                                <img src="{{ asset('storage/' . $item->gambar) }}" alt="" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="height: 250px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . $item->gambar) }}" alt="" class="img-fluid"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div class="p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
-                                    <small class="m-0"><i class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
+                                    <small class="m-0"><i
+                                            class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
                                 </div>
                                 <div class="product-item">
                                     <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
-                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2" href="#">{{ $item->deskripsi }}</a>
+                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2"
+                                        href="#">{{ $item->deskripsi }}</a>
                                 </div>
 
                                 <div class="border-top mt-4 pt-4">

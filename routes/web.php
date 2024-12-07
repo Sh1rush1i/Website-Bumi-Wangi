@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Media;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WisataController;
@@ -16,7 +17,8 @@ Route::get('/admin', function () {
 })->name('login');
 
 Route::get('/contact', function () {
-    return view('contact');
+    $media = Media::first();
+    return view('contact', compact('media'));
 })->name('contact');
 
 Route::get('/booking', function () {
@@ -48,7 +50,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    $media = Media::first();
+    return view('about', compact('media'));
 })->name('tentang');
 
 Route::get('/product', [ProdukController::class, 'index'])->name('produk');

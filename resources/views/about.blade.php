@@ -37,9 +37,9 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>greennature.bmw@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>{{ $media->email }}</p>
                         <p class="text-body px-3">|</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+62 812-2434-8484</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->telepon }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -87,7 +87,8 @@
                         <span class="spacer-navbar"></span>
                         @if (Auth::check())
                             <div class="nav-item nav-link dropdown">
-                                <span class="dropdown-toggle" data-toggle="dropdown">Halo, {{ Auth::user()->name }}</span>
+                                <span class="dropdown-toggle" data-toggle="dropdown">Halo,
+                                    {{ Auth::user()->name }}</span>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Log out</a>
                                 </div>
