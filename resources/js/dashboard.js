@@ -164,3 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.getElementById("alertButton").addEventListener("click", function () {
+    Swal.fire({
+        title: "Success!",
+        text: "Your action was successful.",
+        icon: "success",
+        confirmButtonText: "OK",
+    });
+});

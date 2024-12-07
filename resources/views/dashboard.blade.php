@@ -73,6 +73,8 @@
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">PRODUK</h6>
                     <h3>List Produk</h3>
                 </div>
+                <button id="alertButton" class="btn btn-primary">Show Alert</button>
+
                 {{-- List Produk --}}
                 <div class="row">
                     <!-- Item 1 -->
@@ -614,6 +616,7 @@
         </div>
     </div>
         @include('sweetalert::alert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
