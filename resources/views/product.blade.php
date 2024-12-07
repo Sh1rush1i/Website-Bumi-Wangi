@@ -172,7 +172,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">BUMI</span>WANGI</h1>
                 </a>
-                <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesiar</p>
+                <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
@@ -187,17 +187,17 @@
             <div class="col-lg-6 col-md-6 mb-5 order-lg-3 text-lg-right">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start align-items-lg-end">
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Produk</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
+                    <a class="text-white-50 mb-2" href="{{ route('tentang') }}"><i class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="{{ route('produk') }}"><i class="fa fa-angle-right mr-2"></i>Produk</a>
+                    <a class="text-white-50 mb-2" href="{{ route('wisata') }}"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>Alamatnya di sini</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+62 812-2434-8484</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>{{ $media->alamat }}</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->email }}</p>
+                <p><i class="fa fa-envelope mr-2"></i>{{ $media->telepon }}</p>
             </div>
         </div>
     </div>
