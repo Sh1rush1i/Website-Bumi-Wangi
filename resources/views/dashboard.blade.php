@@ -454,138 +454,148 @@
 
                 <!-- Item Pembayaran -->
                 <div class="row mb-3">
-                    <!-- Card 1 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Nama Pembayaran</h5>
-                                <span class="card-text d-block">Atas Nama</span>
-                                <span class="card-text d-block">Nomor</span>
-                                <div class="mt-3">
-                                    <!-- Tombol Update -->
-                                    <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
-                                        data-bs-target="#updateModalPembayaran">Update</button>
-                                    <!-- Tombol Delete -->
-                                    <button class="btn btn-danger btn-sm">Delete</button>
+                    @foreach ($metode as $item)
+                        <!-- Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $item->nama }}</h5>
+                                    <span class="card-text d-block">Atas Nama : {{ $item->pemilik }}</span>
+                                    <span class="card-text d-block">Nomor : {{ $item->no_rek }}</span>
+                                    <div class="mt-3">
+                                        <!-- Tombol Update -->
+                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
+                                            data-bs-target="#updateModalPembayaran" data-id="{{ $item->id }}"
+                                            data-name="{{ $item->nama }}" data-pemilik="{{ $item->pemilik }}"
+                                            data-no_rek="{{ $item->no_rek }}">Update</button>
+                                        <!-- Tombol Delete -->
+                                        <button class="btn btn-danger btn-sm" id="deletePembayaran">Delete</button>
+                                        <form id="deleteFormPembayaran"
+                                            action="{{ route('metode-delete', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    @endforeach
 
-                    <!-- Card 2 -->
                 </div>
 
-                <form>
-                    <!-- Dropdown Pilih Bank atau Wallet -->
-                    <div class="form-group mb-4">
-                        <label for="paymentType">Pilih Jenis Pembayaran</label>
-                        <select class="form-control mt-2" id="paymentType" required>
-                            <option value="" disabled selected>Pilih...</option>
-                            <option value="bank">Bank</option>
-                            <option value="wallet">Wallet</option>
-                        </select>
-                    </div>
-
-                    <!-- Input Nama Bank/Wallet -->
-                    <div class="form-group mb-4">
-                        <label for="paymentName">Nama Bank/Wallet</label>
-                        <input type="text" class="form-control mt-2" id="paymentName"
-                            placeholder="Masukkan Nama Bank atau Wallet" required>
-                    </div>
-
-                    <!-- Input Atas Nama -->
-                    <div class="form-group mb-4">
-                        <label for="accountName">Atas Nama</label>
-                        <input type="text" class="form-control mt-2" id="accountName"
-                            placeholder="Masukkan Nama Pemilik" required>
-                    </div>
-
-                    <!-- Input Nomor Rekening/Wallet -->
-                    <div class="form-group mb-4">
-                        <label for="accountNumber">Nomor Rekening/Wallet</label>
-                        <input type="text" class="form-control mt-2" id="accountNumber"
-                            placeholder="Masukkan Nomor Rekening atau Wallet" required>
-                    </div>
-
-                    <!-- Tombol Submit -->
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
+                <!-- Card 2 -->
             </div>
 
-            <!-- tabel Pembelian -->
-            <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
-                <h3>Pembelian?</h3>
-                <table id="pesanan-table" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nama Produk</th>
-                            <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>No HP</th>
-                            <th>Jumlah</th>
-                            <th>Harga</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                </table>
+            <form method="POST" action="{{ route('metode-post') }}">
+                @csrf
+                <!-- Dropdown Pilih Bank atau Wallet -->
+                <div class="form-group mb-4">
+                    <label for="paymentType">Pilih Jenis Pembayaran</label>
+                    <select name="jenis" class="form-control mt-2" id="paymentType" required>
+                        <option value="" disabled selected>Pilih...</option>
+                        <option value="bank">Bank</option>
+                        <option value="wallet">Wallet</option>
+                    </select>
+                </div>
 
-                <script type="text/javascript">
-                    $(function() {
-                        var table = $("#pesanan-table").DataTable({
-                            processing: true,
-                            serverSide: true,
-                            ajax: "{{ route('dashboard') }}",
-                            columns: [{
-                                    data: "nama_produk",
-                                    name: "nama_produk"
-                                },
-                                {
-                                    data: "name",
-                                    name: "name"
-                                },
-                                {
-                                    data: "alamat",
-                                    name: "alamat"
-                                },
-                                {
-                                    data: "no_hp",
-                                    name: "no_hp"
-                                },
-                                {
-                                    data: "jumlah",
-                                    name: "jumlah"
-                                },
-                                {
-                                    data: "harga",
-                                    name: "harga",
-                                    render: function(data, type, row) {
-                                        return 'Rp. ' + new Intl.NumberFormat('id-ID').format(data);
-                                    }
-                                },
-                                {
-                                    data: 'action',
-                                    name: 'action',
-                                    orderable: false,
-                                    searchable: false,
-                                    render: function(data, type, row) {
-                                        var imageUrl = "{{ asset('storage') }}/" + row
-                                            .bukti_pembayaran; // Modify this as per your image path
-                                        return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="viewImage('${imageUrl}')">View Image</button>`;
-                                    }
-                                }
-                            ],
-                        });
-                    });
-                </script>
-            </div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
-                View Image
-            </button>
+                <!-- Input Nama Bank/Wallet -->
+                <div class="form-group mb-4">
+                    <label for="paymentName">Nama Bank/Wallet</label>
+                    <input name="nama" type="text" class="form-control mt-2" id="paymentName"
+                        placeholder="Masukkan Nama Bank atau Wallet" required>
+                </div>
+
+                <!-- Input Atas Nama -->
+                <div class="form-group mb-4">
+                    <label for="accountName">Atas Nama</label>
+                    <input name="pemilik" type="text" class="form-control mt-2" id="accountName"
+                        placeholder="Masukkan Nama Pemilik" required>
+                </div>
+
+                <!-- Input Nomor Rekening/Wallet -->
+                <div class="form-group mb-4">
+                    <label for="accountNumber">Nomor Rekening/Wallet</label>
+                    <input name="no_rek" type="text" class="form-control mt-2" id="accountNumber"
+                        placeholder="Masukkan Nomor Rekening atau Wallet" required>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
         </div>
+
+        <!-- tabel Pembelian -->
+        <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
+            <h3>Pembelian?</h3>
+            <table id="pesanan-table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nama Produk</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>No HP</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <script type="text/javascript">
+                $(function() {
+                    var table = $("#pesanan-table").DataTable({
+                        processing: true,
+                        serverSide: true,
+                        ajax: "{{ route('dashboard') }}",
+                        columns: [{
+                                data: "nama_produk",
+                                name: "nama_produk"
+                            },
+                            {
+                                data: "name",
+                                name: "name"
+                            },
+                            {
+                                data: "alamat",
+                                name: "alamat"
+                            },
+                            {
+                                data: "no_hp",
+                                name: "no_hp"
+                            },
+                            {
+                                data: "jumlah",
+                                name: "jumlah"
+                            },
+                            {
+                                data: "harga",
+                                name: "harga",
+                                render: function(data, type, row) {
+                                    return 'Rp. ' + new Intl.NumberFormat('id-ID').format(data);
+                                }
+                            },
+                            {
+                                data: 'action',
+                                name: 'action',
+                                orderable: false,
+                                searchable: false,
+                                render: function(data, type, row) {
+                                    var imageUrl = "{{ asset('storage') }}/" + row
+                                        .bukti_pembayaran; // Modify this as per your image path
+                                    return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="viewImage('${imageUrl}')">View Image</button>`;
+                                }
+                            }
+                        ],
+                    });
+                });
+            </script>
+        </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
+            View Image
+        </button>
+    </div>
     </div>
     <!--Container Main end-->
-
 
     <!-- Image Bukti Pop up -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
@@ -677,6 +687,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="updateFormPembayaran" action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="modal-body">
                         <!-- ID (Hidden) -->
                         <input type="hidden" id="update-id" name="id">
@@ -684,7 +696,7 @@
                         <!-- Dropdown Pilih Bank atau Wallet -->
                         <div class="form-group mb-4">
                             <label for="paymentType">Pilih Jenis Pembayaran</label>
-                            <select class="form-control mt-2" id="paymentType" required>
+                            <select name="jenis" class="form-control mt-2" id="paymentType" required>
                                 <option value="" disabled selected>Pilih...</option>
                                 <option value="bank">Bank</option>
                                 <option value="wallet">Wallet</option>
@@ -694,21 +706,21 @@
                         <!-- Input Nama Bank/Wallet -->
                         <div class="form-group mb-4">
                             <label for="paymentName">Nama Bank/Wallet</label>
-                            <input type="text" class="form-control mt-2" id="paymentName"
+                            <input name="nama" type="text" class="form-control mt-2" id="update-nama"
                                 placeholder="Masukkan Nama Bank atau Wallet" required>
                         </div>
 
                         <!-- Input Atas Nama -->
                         <div class="form-group mb-4">
                             <label for="accountName">Atas Nama</label>
-                            <input type="text" class="form-control mt-2" id="accountName"
+                            <input name="pemilik" type="text" class="form-control mt-2" id="update-pemilik"
                                 placeholder="Masukkan Nama Pemilik" required>
                         </div>
 
                         <!-- Input Nomor Rekening/Wallet -->
                         <div class="form-group mb-4">
                             <label for="accountNumber">Nomor Rekening/Wallet</label>
-                            <input type="text" class="form-control mt-2" id="accountNumber"
+                            <input name="no_rek" type="text" class="form-control mt-2" id="update-no_rek"
                                 placeholder="Masukkan Nomor Rekening atau Wallet" required>
                         </div>
                     </div>

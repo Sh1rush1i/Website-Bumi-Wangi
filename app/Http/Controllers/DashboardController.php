@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Media;
+use App\Models\payment_method;
 use App\Models\Produk;
 use App\Models\Wisata;
 use App\Models\pesanan;
@@ -21,6 +22,7 @@ class DashboardController extends Controller
         $about = About::first();
         $media = Media::first();
         $pesanan = pesanan::all();
+        $metode = payment_method::all();
 
         if (request()->ajax()) {
             return DataTables::of($pesanan)
@@ -50,7 +52,8 @@ class DashboardController extends Controller
             'produk',
             'about',
             'media',
-            'pesanan'
+            'pesanan',
+            'metode'
         ));
     }
 
@@ -153,5 +156,46 @@ class DashboardController extends Controller
             // Redirect back with input and error
             return redirect()->back()->withInput();
         }
+    }
+
+    public function storeMetode(Request $request)
+    {
+        $validated = $request->validate([
+            'jenis' => 'required',
+            'nama' => 'required',
+            'pemilik' => 'required',
+            'no_rek' => 'required',
+        ]);
+
+        payment_method::create($validated);
+
+        alert()->success('Success', 'Metode pembayaran berhasil ditambahkan');
+
+        return redirect()->route('dashboard');
+    }
+
+    public function updateMetode(Request $request, payment_method $metode)
+    {
+        $validated = $request->validate([
+            'jenis' => 'required',
+            'nama' => 'required',
+            'pemilik' => 'required',
+            'no_rek' => 'required',
+        ]);
+
+        $metode->update($validated);
+
+        alert()->success('Success', 'Metode pembayaran berhasil diupdate');
+
+        return redirect()->route('dashboard');
+    }
+
+    public function deleteMetode(payment_method $metode)
+    {
+        $metode->delete();
+
+        alert()->success('Success', 'Metode pembayaran berhasil dihapus');
+
+        return redirect()->route('dashboard');
     }
 }

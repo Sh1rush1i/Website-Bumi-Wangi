@@ -37,6 +37,11 @@ Route::middleware('auth')->group(function () {
 
     //Pesanan
     Route::post('/booking/post', [pesananController::class, 'store'])->name('pesanan-post');
+
+    //Metode Pembayaran
+    Route::post('/metode/post', [DashboardController::class, 'storeMetode'])->name('metode-post');
+    Route::put('/metode/update/{metode}', [DashboardController::class, 'updateMetode'])->name('metode-update');
+    Route::delete('/metode/delete/{metode}', [DashboardController::class, 'deleteMetode'])->name('metode-delete');
 });
 
 Route::post('/register', [AuthController::class, 'store']);
