@@ -46,7 +46,12 @@ Route::get('/register', function () {
 // })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('index');
+        }
+        return app(DashboardController::class)->dashboard();
+    })->name('dashboard');
 });
 
 Route::get('/about', function () {
