@@ -73,8 +73,6 @@
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">PRODUK</h6>
                     <h3>List Produk</h3>
                 </div>
-                <button id="alertButton" class="btn btn-primary">Show Alert</button>
-
                 {{-- List Produk --}}
                 <div class="row">
                     <!-- Item 1 -->
@@ -442,7 +440,10 @@
 
             <!-- Input Pembayaran -->
             <div id="info-bayar" class="d-none mt-4 mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Input alamat pembayaran</h6>
+                <div class="mt-4 mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Input Alamat Pembayaran</h6>
+                    <h3>Alamat Pembayaran</h3>
+                </div>
 
                     <!-- Item Pembayaran -->
                     <div class="row mb-3">
@@ -498,7 +499,6 @@
                         <!-- Tombol Submit -->
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
-
             </div>
 
             <!-- tabel Pembelian -->

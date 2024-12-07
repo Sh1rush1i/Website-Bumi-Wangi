@@ -7,6 +7,7 @@ use App\Models\Media;
 use App\Models\Produk;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -35,25 +36,46 @@ class DashboardController extends Controller
 
     public function about(Request $request)
     {
-        $validated = $request->validate([
-            'text' => 'required',
-        ]);
+        try {
+            // Validate the input
+            $validated = $request->validate([
+                'text' => 'required',
+            ], [
+                'text.required' => 'Field "text" harus diisi.', // Custom error message
+            ]);
 
-        $about = About::first();
+            // Check if an 'About' record already exists
+            $about = About::first();
 
-        if ($about) {
-            $about->update($validated);
+            if ($about) {
+                // Update the existing record
+                $about->update($validated);
 
-            return redirect()->route('dashboard')->with('success', 'About berhasil diupdate');
-        } else {
-            About::create($validated);
+                // SweetAlert success message for update
+                alert()->success('Success', 'About berhasil diupdate');
+            } else {
+                // Create a new record
+                About::create($validated);
 
-            return redirect()->route('dashboard')->with('success', 'About berhasil ditambahkan');
+                // SweetAlert success message for creation
+                alert()->success('Success', 'About berhasil ditambahkan');
+            }
+
+            // Redirect to the dashboard
+            return redirect()->route('dashboard');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // SweetAlert error for validation failure
+            alert()->error('Error', 'Field "text" harus diisi.');
+
+            // Redirect back with input and validation errors
+            return redirect()->back()->withErrors($e->validator)->withInput();
         }
     }
 
     public function media(Request $request)
-    {
+{
+    try {
+        // Validate the input
         $validated = $request->validate([
             'facebook' => 'nullable',
             'instagram' => 'nullable',
@@ -63,20 +85,45 @@ class DashboardController extends Controller
             'telepon' => 'required',
             'email' => 'required',
             'alamat' => 'nullable',
-            'whatsapp' => 'nullable',
+            'whatsapp' => 'required',
         ]);
 
+        // Check if a Media record already exists
         $media = Media::first();
 
         if ($media) {
+            // Update the existing record
             $media->update($validated);
 
-            return redirect()->route('dashboard')->with('success', 'Media sosial berhasil diupdate');
+            // SweetAlert success message for update
+            alert()->success('Success', 'Media sosial berhasil diupdate');
         } else {
+            // Create a new record
             Media::create($validated);
 
-            return redirect()->route('dashboard')->with('success', 'Media sosial berhasil ditambahkan');
+            // SweetAlert success message for creation
+            alert()->success('Success', 'Media sosial berhasil ditambahkan');
         }
 
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
+
+    } catch (QueryException $e) {
+        // Log the error (optional for debugging)
+
+        // SweetAlert error message for failure
+        alert()->error('Error', 'Terjadi kesalahan saat menyimpan data media sosial');
+
+        // Redirect back with input and error
+        return redirect()->back()->withInput();
+    } catch (\Exception $e) {
+        // Log the error (optional for debugging)
+
+        // SweetAlert error message for unexpected failures
+        alert()->error('Error', 'Nomor Telepon, email, dan link chat whatsapp harus diisi');
+
+        // Redirect back with input and error
+        return redirect()->back()->withInput();
     }
+}
 }

@@ -273,7 +273,7 @@
                                     <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
                                         alt="">
                                 </div>
-                                <a class="destination-overlay text-white text-decoration-none" href="">
+                                <a class="destination-overlay text-white text-decoration-none">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
                                     <span>{{ $item->deskripsi }}</span>
                                 </a>
@@ -304,7 +304,7 @@
                                     <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
                                         alt="">
                                 </div>
-                                <a class="destination-overlay text-white text-decoration-none" href="">
+                                <a class="destination-overlay text-white text-decoration-none">
                                     <h5 class="text-white">{{ $item->nama }}</h5>
                                     <span>{{ $item->deskripsi }}</span>
                                 </a>
@@ -380,6 +380,8 @@
     <script src="{{ asset('lib/tempusdominus/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
+     @include('sweetalert::alert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

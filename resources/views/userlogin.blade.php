@@ -56,19 +56,16 @@
                                             required autofocus
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
-
                                     <!-- Password Input -->
                                     <div class="form-group mb-3">
                                         <input id="password" name="password" type="password" placeholder="Password"
                                             required
-                                            class="form-control rounded-pill border-0 shadow-sm px-4 text-danger">
+                                            class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
-
                                     <!-- Submit Button -->
                                     <button type="submit" class="btn  text-uppercase mb-2 rounded-pill shadow-sm">
                                         Login</button>
-
                                     <!-- Create Account Link -->
                                     <div class="d-flex mt-4">
                                         <p class="text-muted font-italic mb-0">Belum punya akun? </p>
@@ -90,6 +87,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @include('sweetalert::alert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

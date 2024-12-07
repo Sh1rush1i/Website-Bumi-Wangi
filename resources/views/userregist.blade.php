@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -34,14 +33,12 @@
 
             <!-- Right Login Section -->
             <div class="col-md-6 bg-light">
-                <!-- Button balik ke Beranda -->
                 <div class="back-button">
                     <a href="{{ route('index') }}" class="btn-back">
                         <span class="arrow me-3">← </span>
                         Kembali ke Beranda
                     </a>
                 </div>
-                <!-- Isi konten -->
                 <div class="login d-flex align-items-center py-5">
                     <div class="container fade-in">
                         <div class="row">
@@ -50,47 +47,35 @@
                                 <br>
                                 <form method="POST" action="{{ route('user-register-api') }}">
                                     @csrf
-                                    <!-- Nama Input -->
                                     <div class="form-group mb-3">
                                         <input id="name" name="name" type="text"
                                             placeholder="Masukkan Nama Pengguna" required autofocus
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
-
-                                    <!-- Email Input -->
                                     <div class="form-group mb-3">
                                         <input id="email" name="email" type="email"
                                             placeholder="Masukkan Alamat Email" required autofocus
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
-
-                                    <!-- Nomor Hape Input -->
                                     <div class="form-group mb-3">
                                         <input id="phoneNumber" name="phoneNumber" type="text"
                                             placeholder="Masukkan Nomor HP" required autofocus
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
-
-                                    <!-- Password Input -->
                                     <div class="form-group mb-3">
                                         <input id="password" name="password" type="password"
                                             placeholder="Masukkan Password" required autofocus
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
-
-                                    <!-- Password Input -->
                                     <div class="form-group mb-3">
                                         <input id="confirmPassword" name="confirmPassword" type="password"
                                             placeholder="Masukkan Kembali Password" required
-                                            class="form-control rounded-pill border-0 shadow-sm px-4 text-danger">
+                                            class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
-
-                                    <!-- Submit Button -->
-                                    <button type="submit" class="btn  text-uppercase mb-2 rounded-pill shadow-sm">Sign
-                                        Up</button>
-
-                                    <!-- Create Account Link -->
+                                    <button type="submit" class="btn text-uppercase mb-2 rounded-pill shadow-sm">
+                                        Sign Up
+                                    </button>
                                     <div class="d-flex mt-4">
                                         <p class="text-muted font-italic mb-0">Sudah punya akun? </p>
                                         <a href="{{ route('user-login') }}"
@@ -107,10 +92,24 @@
         </div>
     </div>
 
+    <!-- Display Validation Errors with SweetAlert -->
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                title: 'Validation Errors!',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
+
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    @include('sweetalert::alert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

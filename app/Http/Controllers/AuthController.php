@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -44,72 +45,101 @@ class AuthController extends Controller
         $user = User::where('username', $request->username)->first();
 
         if (!$user) {
-            return response()->json([
-                'message' => 'Invalid username'
-            ], 401);
+            // If the username is invalid
+            alert()->error('Login Failed', 'Invalid username');
+            return redirect()->back();
         }
 
         if (Hash::check($validated['password'], $user->password)) {
+            // If the login is successful
             Auth::login($user);
+            alert()->success('Login Successful', 'Welcome back!');
             return redirect()->route('dashboard');
         } else {
-            return redirect()->back()->with('error', 'Invalid credentials');
+            // If the password is incorrect
+            alert()->error('Login Failed', 'Invalid credentials');
+            return redirect()->back();
         }
     }
+
 
     public function logout(Request $request)
     {
         Auth::logout();
+
+        alert()->success('Logged Out', 'You have been successfully logged out.');
+
         return redirect()->route('index');
     }
 
     public function userRegister(Request $request)
     {
+        // Check if email already exists and show a SweetAlert
         if (User::where('email', $request->email)->exists()) {
-            return redirect()->back()->with('error', 'Email already exists')->withInput();
+            alert()->error('Registration Failed', 'Email already exists');
+            return redirect()->back()->withInput();
         }
 
-        $request->validate([
+        // Validate the request
+        $validated = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
             'phoneNumber' => 'required|string',
             'password' => 'required|string|min:8|regex:/[0-9]/',
             'confirmPassword' => 'required|string|same:password',
         ], [
-            'confirmPassword.same' => 'The confirm password must match the password.',
-            'password.min' => 'The password must be at least 8 characters.',
-            'password.regex' => 'The password must contain at least one number.'
+            'name.required' => 'Name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Please provide a valid email address.',
+            'phoneNumber.required' => 'Phone number is required.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 8 characters.',
+            'password.regex' => 'Password must contain at least one number.',
+            'confirmPassword.same' => 'Confirm Password must match Password.',
         ]);
 
+        // Create the user
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phoneNumber' => $request->phoneNumber,
-            'password' => Hash::make($request->password),
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phoneNumber' => $validated['phoneNumber'],
+            'password' => Hash::make($validated['password']),
             'role' => 'user',
         ]);
 
-        return redirect()->route('user-login')->with('success', 'User created successfully');
+        // Success SweetAlert
+        alert()->success('Registration Successful', 'Your account has been created successfully.');
+        return redirect()->route('user-login');
     }
+
 
     public function userLogin(Request $request)
     {
+        // Validate the input
         $validated = $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
+        // Check if user exists
         $user = User::where('email', $request->email)->first();
 
         if (!$user) {
-            return redirect()->back()->with('error', 'Invalid email or password')->withInput();
+            // SweetAlert for invalid email
+            alert()->error('Login Failed', 'Invalid email or password');
+            return redirect()->back()->withInput();
         }
 
+        // Check the password
         if (Hash::check($validated['password'], $user->password)) {
+            // SweetAlert for successful login
             Auth::login($user);
+            alert()->success('Login Successful', 'Welcome back!');
             return redirect()->route('index');
         } else {
-            return redirect()->back()->with('error', 'Invalid email or password')->withInput();
+            // SweetAlert for invalid password
+            alert()->error('Login Failed', 'Invalid email or password');
+            return redirect()->back()->withInput();
         }
     }
 }
