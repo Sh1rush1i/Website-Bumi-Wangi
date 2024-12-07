@@ -44,19 +44,24 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="{{ $media->facebook ?? 'javascript:void(0);' }}"
+                            onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="{{ $media->twitter ?? 'javascript:void(0);' }}"
+                            onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
+                            onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="{{ $media->instagram ?? 'javascript:void(0);' }}"
+                            onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-primary pl-3" href="">
+                        <a class="text-primary pl-3" href="{{ $media->youtube ?? 'javascript:void(0);' }}"
+                            onclick="if(!'{{ $media->youtube }}') alert('Belum tersedia');">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -207,21 +212,33 @@
                 <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                    <a class="btn btn-outline-primary btn-square mr-2"
+                        href="{{ $media->twitter ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                    <a class="btn btn-outline-primary btn-square mr-2"
+                        href="{{ $media->facebook ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');"><i
                             class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i
+                    <a class="btn btn-outline-primary btn-square mr-2"
+                        href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');"><i
                             class="fab fa-tiktok"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square"
+                        href="{{ $media->instagram ?? 'javascript:void(0);' }}"
+                        onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 mb-5 order-lg-3 text-lg-right">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start align-items-lg-end">
-                    <a class="text-white-50 mb-2" href="{{ route('tentang') }}"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="{{ route('produk') }}"><i class="fa fa-angle-right mr-2"></i>Produk</a>
-                    <a class="text-white-50 mb-2" href="{{ route('wisata') }}"><i class="fa fa-angle-right mr-2"></i>Wisata</a>
+                    <a class="text-white-50 mb-2" href="{{ route('tentang') }}"><i
+                            class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="{{ route('produk') }}"><i
+                            class="fa fa-angle-right mr-2"></i>Produk</a>
+                    <a class="text-white-50 mb-2" href="{{ route('wisata') }}"><i
+                            class="fa fa-angle-right mr-2"></i>Wisata</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pesan</a>
                 </div>
             </div>
