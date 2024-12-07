@@ -455,33 +455,35 @@
 
                 <!-- Item Pembayaran -->
                 <div class="row mb-3">
-                    @foreach ($metode as $item)
-                        <!-- Card 1 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ $item->nama }}</h5>
-                                    <span class="card-text d-block">Atas Nama : {{ $item->pemilik }}</span>
-                                    <span class="card-text d-block">Nomor : {{ $item->no_rek }}</span>
-                                    <div class="mt-3">
-                                        <!-- Tombol Update -->
-                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
-                                            data-bs-target="#updateModalPembayaran" data-id="{{ $item->id }}"
-                                            data-name="{{ $item->nama }}" data-pemilik="{{ $item->pemilik }}"
-                                            data-no_rek="{{ $item->no_rek }}">Update</button>
-                                        <!-- Tombol Delete -->
-                                        <button class="btn btn-danger btn-sm" id="deletePembayaran">Delete</button>
-                                        <form id="deleteFormPembayaran"
-                                            action="{{ route('metode-delete', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                    </div>
-                                </div>
+                @foreach ($metode as $item)
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $item->nama }}</h5>
+                            <span class="card-text d-block">Atas Nama : {{ $item->pemilik }}</span>
+                            <span class="card-text d-block">Nomor : {{ $item->no_rek }}</span>
+                            <div class="mt-3">
+                                <!-- Tombol Update -->
+                                <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
+                                    data-bs-target="#updateModalPembayaran" data-id="{{ $item->id }}"
+                                    data-name="{{ $item->nama }}" data-pemilik="{{ $item->pemilik }}"
+                                    data-no_rek="{{ $item->no_rek }}">Update</button>
+                                <!-- Tombol Delete -->
+                                <button class="btn btn-danger btn-sm" id="deletePembayaran">Delete</button>
+                                <form id="deleteFormPembayaran"
+                                    action="{{ route('metode-delete', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </div>
-                    @endforeach
+                        </div>
+                    </div>
                 </div>
+                @endforeach
                 <!-- Card 2 -->
+                </div> 
+                
                 <form method="POST" action="{{ route('metode-post') }}">
                     @csrf
                     <!-- Dropdown Pilih Bank atau Wallet -->
@@ -519,7 +521,7 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
-        </div>
+            
             <!-- tabel Pembelian -->
             <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>

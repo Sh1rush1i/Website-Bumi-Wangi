@@ -151,7 +151,6 @@
                                 <img class="img-fluid" src="img/carousel-2.webp" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
