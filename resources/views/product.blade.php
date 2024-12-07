@@ -217,9 +217,9 @@
             </div>
             <div class="col-lg-2 col-md-6 mb-5 order-lg-4 text-lg-right">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>{{ $media->alamat }}</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->email }}</p>
-                <p><i class="fa fa-envelope mr-2"></i>{{ $media->telepon }}</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>{{ $media->alamat ?? 'Not Available' }}</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>{{ $media->email ?? 'Not Available' }}</p>
+                <p><i class="fa fa-envelope mr-2"></i>{{ $media->telepon ?? 'Not Available' }}</p>
             </div>
         </div>
     </div>
