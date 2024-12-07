@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <!-- Icon tab -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/thmb.svg') }}" />
@@ -513,6 +516,68 @@
             <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
                 <h3>Pembelian?</h3>
+                <table id="pesanan-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>No HP</th>
+                            <th>Jumlah</th>
+                            <th>Harga</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <script type="text/javascript">
+                    $(function() {
+                        var table = $("#pesanan-table").DataTable({
+                            processing: true,
+                            serverSide: true,
+                            ajax: "{{ route('dashboard') }}",
+                            columns: [{
+                                    data: "nama_produk",
+                                    name: "nama_produk"
+                                },
+                                {
+                                    data: "name",
+                                    name: "name"
+                                },
+                                {
+                                    data: "alamat",
+                                    name: "alamat"
+                                },
+                                {
+                                    data: "no_hp",
+                                    name: "no_hp"
+                                },
+                                {
+                                    data: "jumlah",
+                                    name: "jumlah"
+                                },
+                                {
+                                    data: "harga",
+                                    name: "harga",
+                                    render: function(data, type, row) {
+                                        return 'Rp. ' + new Intl.NumberFormat('id-ID').format(data);
+                                    }
+                                },
+                                {
+                                    data: 'action',
+                                    name: 'action',
+                                    orderable: false,
+                                    searchable: false,
+                                    render: function(data, type, row) {
+                                        var imageUrl = "{{ asset('storage') }}/" + row
+                                            .bukti_pembayaran; // Modify this as per your image path
+                                        return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="viewImage('${imageUrl}')">View Image</button>`;
+                                    }
+                                }
+                            ],
+                        });
+                    });
+                </script>
             </div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
                 View Image
@@ -539,6 +604,12 @@
                 </div>
             </div>
         </div>
+        <script>
+            function viewImage(imageUrl) {
+                // Set the image source in the modal
+                document.getElementById('modalImage').src = imageUrl;
+            }
+        </script>
     </div>
 
     <!-- Update data Wisata Produk pop up -->
