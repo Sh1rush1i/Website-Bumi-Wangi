@@ -395,7 +395,7 @@
                                 <label for="twitter" class="form-label ms-3">Twitter</label>
                             </div>
                             <input type="url" class="form-control" id="twitter" name="twitter"
-                                placeholder="Masukkan link Twitter">
+                                placeholder="Masukkan link Twitter" value="{{ $media->twitter ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -403,7 +403,7 @@
                                 <label for="instagram" class="form-label ms-3">Instagram</label>
                             </div>
                             <input type="url" class="form-control" id="instagram" name="instagram"
-                                placeholder="Masukkan link Instagram">
+                                placeholder="Masukkan link Instagram" value="{{ $media->instagram ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -411,7 +411,7 @@
                                 <label for="tiktok" class="form-label ms-3">TikTok</label>
                             </div>
                             <input type="url" class="form-control" id="tiktok" name="tiktok"
-                                placeholder="Masukkan link TikTok">
+                                placeholder="Masukkan link TikTok" value="{{ $media->tiktok ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -419,7 +419,7 @@
                                 <label for="youtube" class="form-label ms-3">Youtube</label>
                             </div>
                             <input type="url" class="form-control" id="youtube" name="youtube"
-                                placeholder="Masukkan link Youtube">
+                                placeholder="Masukkan link Youtube" value="{{ $media->youtube ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -427,7 +427,7 @@
                                 <label for="telpon" class="form-label ms-3">Telepon</label>
                             </div>
                             <input type="text" class="form-control" id="telepon" name="telepon"
-                                placeholder="Masukkan nomor telepon">
+                                placeholder="Masukkan nomor telepon" value="{{ $media->telepon ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -435,7 +435,7 @@
                                 <label for="email" class="form-label ms-3">Email</label>
                             </div>
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Masukkan email">
+                                placeholder="Masukkan email" value="{{ $media->email ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -443,7 +443,7 @@
                                 <label for="alamat" class="form-label ms-3">Alamat</label>
                             </div>
                             <input type="text" class="form-control" id="alamat" name="alamat"
-                                placeholder="Masukkan alamat">
+                                placeholder="Masukkan alamat" value="{{ $media->alamat ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">
@@ -451,7 +451,7 @@
                                 <label for="whatsapp" class="form-label ms-3">Link Chat Whatsapp</label>
                             </div>
                             <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                placeholder="Masukkan alamat">
+                                placeholder="Masukkan alamat" value="{{ $media->whatsapp ?? '' }}">
                         </div>
                         <button type="submit" class="btn btn-primary mb-5">Update Informasi</button>
                     </form>
