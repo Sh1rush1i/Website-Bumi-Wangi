@@ -514,9 +514,32 @@
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
                 <h3>Pembelian?</h3>
             </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
+                View Image
+            </button>
         </div>
     </div>
     <!--Container Main end-->
+
+
+    <!-- Image Bukti Pop up -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Dynamic Image -->
+                    <img id="modalImage" src="" alt="Preview" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Update data Wisata Produk pop up -->
     <div class="modal fade shadow p-3" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
