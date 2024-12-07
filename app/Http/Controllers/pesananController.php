@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\pesanan;
+use App\Models\payment_method;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,8 +23,9 @@ class pesananController extends Controller
             'gambar_produk' => $request->gambar_produk, // Match the input name
         ];
 
+        $method = payment_method::all();
         // Pass the data to the 'book' view
-        return view('book', compact('item'));
+        return view('book', compact('item', 'method'));
     }
 
     public function store(Request $request)

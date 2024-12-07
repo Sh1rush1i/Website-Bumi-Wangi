@@ -49,20 +49,18 @@
                         </p>
                         <div class="collapse p-3 pt-0" id="collapseExample">
                             <div class="row">
-                                <div class="col-8 mb-4">
-                                    <p class="h4 mb-0">Nama Bank</p>
-                                    <p class="mb-0"><span class="fw-bold">Atas Nama: </span><span class="c-green">Nama
-                                            Orang</span></p>
-                                    <!-- Norek -->
-                                    <p class="mb-0"><span class="fw-bold">69696969696969</span>
-                                </div>
-                                <div class="col-8 mb-4">
-                                    <p class="h4 mb-0">Nama Bank</p>
-                                    <p class="mb-0"><span class="fw-bold">Atas Nama: </span><span class="c-green">Nama
-                                            Orang</span></p>
-                                    <!-- Norek -->
-                                    <p class="mb-0"><span class="fw-bold">69696969696969</span>
-                                </div>
+                                @foreach ($method as $metode)
+                                    @if ($metode->jenis === 'bank')
+                                        <div class="col-8 mb-4">
+                                            <p class="h4 mb-0">{{ $metode->nama }}</p>
+                                            <p class="mb-0"><span class="fw-bold">Atas Nama:
+                                                </span><span class="c-green">{{ $metode->pemilik }}</span>
+                                            </p>
+                                            <!-- Norek -->
+                                            <p class="mb-0"><span class="fw-bold">{{ $metode->no_rek }}</span></p>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -77,13 +75,17 @@
                         </p>
                         <div class="collapse show p-3 pt-0" id="collapseExample">
                             <div class="row">
-                                <div class="col-8 mb-4">
-                                    <p class="h4 mb-0">Nama Wallet</p>
-                                    <p class="mb-0"><span class="fw-bold">Atas Nama: </span><span class="c-green">Nama
-                                            Orang</span></p>
-                                    <!-- Norek -->
-                                    <p class="mb-0"><span class="fw-bold">69696969696969</span>
-                                </div>
+                                @foreach ($method as $metode)
+                                    @if ($metode->jenis === 'wallet')
+                                        <div class="col-8 mb-4">
+                                            <p class="h4 mb-0">{{ $metode->nama }}</p>
+                                            <p class="mb-0"><span class="fw-bold">Atas Nama: </span><span
+                                                    class="c-green">{{ $metode->pemilik }}</span></p>
+                                            <!-- Norek -->
+                                            <p class="mb-0"><span class="fw-bold">{{ $metode->no_rek }}</span>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
