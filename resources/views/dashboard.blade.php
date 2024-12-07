@@ -63,7 +63,7 @@
                     </form>
                     <a href="#" class="nav_link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i
-                        class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> 
+                            class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span>
                     </a>
             </nav>
         </div>
@@ -483,41 +483,41 @@
                 </div>
                 <!-- Card 2 -->
                 <form method="POST" action="{{ route('metode-post') }}">
-                @csrf
-                <!-- Dropdown Pilih Bank atau Wallet -->
-                <div class="form-group mb-4">
-                    <label for="paymentType">Pilih Jenis Pembayaran</label>
-                    <select name="jenis" class="form-control mt-2" id="paymentType" required>
-                        <option value="" disabled selected>Pilih...</option>
-                        <option value="bank">Bank</option>
-                        <option value="wallet">Wallet</option>
-                    </select>
-                </div>
+                    @csrf
+                    <!-- Dropdown Pilih Bank atau Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="paymentType">Pilih Jenis Pembayaran</label>
+                        <select name="jenis" class="form-control mt-2" id="paymentType" required>
+                            <option value="" disabled selected>Pilih...</option>
+                            <option value="bank">Bank</option>
+                            <option value="wallet">Wallet</option>
+                        </select>
+                    </div>
 
-                <!-- Input Nama Bank/Wallet -->
-                <div class="form-group mb-4">
-                    <label for="paymentName">Nama Bank/Wallet</label>
-                    <input name="nama" type="text" class="form-control mt-2" id="paymentName"
-                        placeholder="Masukkan Nama Bank atau Wallet" required>
-                </div>
+                    <!-- Input Nama Bank/Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="paymentName">Nama Bank/Wallet</label>
+                        <input name="nama" type="text" class="form-control mt-2" id="paymentName"
+                            placeholder="Masukkan Nama Bank atau Wallet" required>
+                    </div>
 
-                <!-- Input Atas Nama -->
-                <div class="form-group mb-4">
-                    <label for="accountName">Atas Nama</label>
-                    <input name="pemilik" type="text" class="form-control mt-2" id="accountName"
-                        placeholder="Masukkan Nama Pemilik" required>
-                </div>
+                    <!-- Input Atas Nama -->
+                    <div class="form-group mb-4">
+                        <label for="accountName">Atas Nama</label>
+                        <input name="pemilik" type="text" class="form-control mt-2" id="accountName"
+                            placeholder="Masukkan Nama Pemilik" required>
+                    </div>
 
-                <!-- Input Nomor Rekening/Wallet -->
-                <div class="form-group mb-4">
-                    <label for="accountNumber">Nomor Rekening/Wallet</label>
-                    <input name="no_rek" type="text" class="form-control mt-2" id="accountNumber"
-                        placeholder="Masukkan Nomor Rekening atau Wallet" required>
-                </div>
+                    <!-- Input Nomor Rekening/Wallet -->
+                    <div class="form-group mb-4">
+                        <label for="accountNumber">Nomor Rekening/Wallet</label>
+                        <input name="no_rek" type="text" class="form-control mt-2" id="accountNumber"
+                            placeholder="Masukkan Nomor Rekening atau Wallet" required>
+                    </div>
 
-                <!-- Tombol Submit -->
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </form>
+                    <!-- Tombol Submit -->
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
             </div>
             <!-- tabel Pembelian -->
             <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
@@ -528,7 +528,8 @@
                         <div class="col-12">
                             <div class="table-responsive">
                                 <div class="table-responsive">
-                                    <table id="pesanan-table" class="table table-striped table-bordered table-hover w-100 text-center align-middle">
+                                    <table id="pesanan-table"
+                                        class="table table-striped table-bordered table-hover w-100 text-center align-middle">
                                         <thead class="table-dark">
                                             <tr>
                                                 <th>Nama Produk</th>
@@ -595,74 +596,6 @@
                     });
                 </script>
             </div>
-        </div>
-
-        <!-- tabel Pembelian -->
-        <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
-            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>
-            <h3>Pembelian?</h3>
-            <table id="pesanan-table" class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Nama Produk</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>No HP</th>
-                        <th>Jumlah</th>
-                        <th>Harga</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-            </table>
-
-            <script type="text/javascript">
-                $(function() {
-                    var table = $("#pesanan-table").DataTable({
-                        processing: true,
-                        serverSide: true,
-                        ajax: "{{ route('dashboard') }}",
-                        columns: [{
-                                data: "nama_produk",
-                                name: "nama_produk"
-                            },
-                            {
-                                data: "name",
-                                name: "name"
-                            },
-                            {
-                                data: "alamat",
-                                name: "alamat"
-                            },
-                            {
-                                data: "no_hp",
-                                name: "no_hp"
-                            },
-                            {
-                                data: "jumlah",
-                                name: "jumlah"
-                            },
-                            {
-                                data: "harga",
-                                name: "harga",
-                                render: function(data, type, row) {
-                                    return 'Rp. ' + new Intl.NumberFormat('id-ID').format(data);
-                                }
-                            },
-                            {
-                                data: 'action',
-                                name: 'action',
-                                orderable: false,
-                                searchable: false,
-                                render: function(data, type, row) {
-                                    var imageUrl = "{{ asset('storage') }}/" + row
-                                        .bukti_pembayaran; // Modify this as per your image path
-                                    return `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="viewImage('${imageUrl}')">View Image</button>`;
-                                }
-                            }
-                        ],
-                    });
-                });
-            </script>
         </div>
     </div>
     </div>
