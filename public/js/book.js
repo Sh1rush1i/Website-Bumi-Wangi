@@ -30,11 +30,31 @@ document.getElementById("image").addEventListener("change", function (event) {
 function increaseQuantity(button) {
     const input = button.previousElementSibling; // Ambil input yang berada sebelum tombol +
     input.value = parseInt(input.value) + 1; // Tambah nilai
+    updateTotal(input); // Update total jika berhasil ditambah
 }
 
 function decreaseQuantity(button) {
     const input = button.nextElementSibling; // Ambil input yang berada setelah tombol -
-    if (parseInt(input.value) > 0) {
+    if (parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1; // Kurangi nilai jika lebih dari 0
+        updateTotal(input); // Update total jika berhasil dikurangi
     }
+}
+
+function updateTotal(input) {
+    // Get the price from the data attribute
+    const price = parseFloat(input.dataset.price);
+
+    // Calculate the total
+    const quantity = parseInt(input.value, 10);
+    const total = price * quantity;
+
+    // Update the total display
+    document.getElementById("total").textContent =
+        total.toLocaleString("id-ID");
+
+    const quantityInput = document.getElementById("quantity-input");
+    const totalHargaInput = document.getElementById("total-harga-input");
+    if (quantityInput) quantityInput.value = quantity;
+    if (totalHargaInput) totalHargaInput.value = total;
 }

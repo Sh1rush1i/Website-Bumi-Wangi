@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\pesananController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
     //Media
     Route::post('/postMedia', [DashboardController::class, 'media'])->name('media-post');
+
+    //Pesanan
+    Route::post('/booking/post', [pesananController::class, 'store'])->name('pesanan-post');
 });
 
 Route::post('/register', [AuthController::class, 'store']);

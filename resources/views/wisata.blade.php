@@ -148,7 +148,15 @@
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="m-0">IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
-                                        <button class="btn btn-primary btn-sm">Pesan</button>
+                                        <form action="{{ route('book') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id_produk" value="{{ $item->id }}">
+                                            <input type="hidden" name="type" value="wisata">
+                                            <input type="hidden" name="nama_produk" value="{{ $item->nama }}">
+                                            <input type="hidden" name="harga" value="{{ $item->harga }}">
+                                            <input type="hidden" name="gambar_produk" value="{{ $item->gambar }}">
+                                            <button class="btn btn-primary btn-sm">Pesan</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

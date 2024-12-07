@@ -4,6 +4,7 @@ use App\Models\Media;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/', [DashboardController::class, 'homepage'])->name('index');
@@ -21,9 +22,7 @@ Route::get('/contact', function () {
     return view('contact', compact('media'));
 })->name('contact');
 
-Route::get('/booking', function () {
-    return view('book');
-})->name('book');
+Route::post('/booking', [pesananController::class, 'index'])->name('book');
 
 Route::get('/login', function () {
     if (auth()->check() && auth()->user()->role === 'user') {
@@ -40,10 +39,6 @@ Route::get('/register', function () {
         return view('userregist');
     }
 })->name('regist');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
