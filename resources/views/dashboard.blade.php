@@ -95,8 +95,14 @@
                                         <i class="bx bx-edit"></i>
                                     </a>
                                     <!-- Delete data icon -->
-                                    <a href="#" class="text-danger mx-1" title="Delete"><i
-                                            class="bx bx-trash"></i></a>
+                                    <a href="#" class="text-danger mx-1 delete-produk" title="Delete"
+                                        data-id="{{ $item->id }}"><i class="bx bx-trash"></i></a>
+                                    <form action="{{ route('produk-delete', $item->id) }}"
+                                        method="POST"id="deleteFormProduk-{{ $item->id }}"
+                                        style="display:none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </div>
                                 <!-- Card Content -->
                                 <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
@@ -141,8 +147,14 @@
                                         <i class="bx bx-edit"></i>
                                     </a>
                                     <!-- Delete data icon -->
-                                    <a href="#" class="text-danger mx-1" title="Delete"><i
-                                            class="bx bx-trash"></i></a>
+                                    <a href="#" class="text-danger mx-1 delete-wisata" title="Delete"
+                                        data-id="{{ $item->id }}"><i class="bx bx-trash"></i></a>
+                                    <form action="{{ route('wisata-delete', $item->id) }}"
+                                        method="POST"id="deleteFormWisata-{{ $item->id }}"
+                                        style="display:none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </div>
                                 <!-- Card Content -->
                                 <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
@@ -455,35 +467,36 @@
 
                 <!-- Item Pembayaran -->
                 <div class="row mb-3">
-                @foreach ($metode as $item)
-                <!-- Card 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $item->nama }}</h5>
-                            <span class="card-text d-block">Atas Nama : {{ $item->pemilik }}</span>
-                            <span class="card-text d-block">Nomor : {{ $item->no_rek }}</span>
-                            <div class="mt-3">
-                                <!-- Tombol Update -->
-                                <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
-                                    data-bs-target="#updateModalPembayaran" data-id="{{ $item->id }}"
-                                    data-name="{{ $item->nama }}" data-pemilik="{{ $item->pemilik }}"
-                                    data-no_rek="{{ $item->no_rek }}">Update</button>
-                                <!-- Tombol Delete -->
-                                <button class="btn btn-danger btn-sm" id="deletePembayaran">Delete</button>
-                                <form id="deleteFormPembayaran"
-                                    action="{{ route('metode-delete', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
+                    @foreach ($metode as $item)
+                        <!-- Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $item->nama }}</h5>
+                                    <span class="card-text d-block">Atas Nama : {{ $item->pemilik }}</span>
+                                    <span class="card-text d-block">Nomor : {{ $item->no_rek }}</span>
+                                    <div class="mt-3">
+                                        <!-- Tombol Update -->
+                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
+                                            data-bs-target="#updateModalPembayaran" data-id="{{ $item->id }}"
+                                            data-name="{{ $item->nama }}" data-pemilik="{{ $item->pemilik }}"
+                                            data-no_rek="{{ $item->no_rek }}">Update</button>
+                                        <!-- Tombol Delete -->
+                                        <button class="btn btn-danger btn-sm delete-pembayaran"
+                                            data-id="{{ $item->id }}" id="deletePembayaran">Delete</button>
+                                        <form id="deleteFormPembayaran-{{ $item->id }}"
+                                            action="{{ route('metode-delete', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+                    <!-- Card 2 -->
                 </div>
-                @endforeach
-                <!-- Card 2 -->
-                </div> 
-                
+
                 <form method="POST" action="{{ route('metode-post') }}">
                     @csrf
                     <!-- Dropdown Pilih Bank atau Wallet -->
@@ -521,7 +534,7 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
-            
+
             <!-- tabel Pembelian -->
             <div id="pembelian" class="d-none mt-4 mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Beli</h6>

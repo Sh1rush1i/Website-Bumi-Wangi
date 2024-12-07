@@ -94,6 +94,12 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+        $produk->delete();
+
+        // Add SweetAlert success message
+        alert()->success('Success', 'Produk berhasil dihapus');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 }

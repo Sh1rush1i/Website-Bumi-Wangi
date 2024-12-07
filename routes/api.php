@@ -20,10 +20,12 @@ Route::middleware('auth')->group(function () {
     // Wisata
     Route::post('/postWisata', [WisataController::class, 'store'])->name('wisata-post');
     Route::put('/update-wisata/{wisata}', [WisataController::class, 'update'])->name('wisata-update');
+    Route::delete('/delete-wisata/{wisata}', [WisataController::class, 'destroy'])->name('wisata-delete');
 
     // Produk UMKM
     Route::post('/postProduk', [ProdukController::class, 'store'])->name('produk-post');
     Route::put('/update-produk/{produk}', [ProdukController::class, 'update'])->name('produk-update');
+    Route::delete('/delete-produk/{produk}', [ProdukController::class, 'destroy'])->name('produk-delete');
 
     // Auth
     Route::post('/logout', [AuthController::class, 'logout'])->name('admin-logout');

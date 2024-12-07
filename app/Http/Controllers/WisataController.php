@@ -94,6 +94,12 @@ class WisataController extends Controller
      */
     public function destroy(Wisata $wisata)
     {
-        //
+        $wisata->delete();
+
+        // Add SweetAlert success message
+        alert()->success('Success', 'Wisata berhasil dihapus');
+
+        // Redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 }

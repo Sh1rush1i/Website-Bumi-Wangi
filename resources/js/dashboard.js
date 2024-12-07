@@ -164,3 +164,96 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const updateModal = document.getElementById("updateModalPembayaran");
+    const updateForm = document.getElementById("updateFormPembayaran");
+
+    updateModal.addEventListener("show.bs.modal", function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract data attributes
+        const id = button.getAttribute("data-id");
+        const nama = button.getAttribute("data-name");
+        const pemilik = button.getAttribute("data-pemilik");
+        const no_rek = button.getAttribute("data-no_rek");
+
+        // Populate the form fields
+        document.getElementById("update-id").value = id;
+        document.getElementById("update-nama").value = nama;
+        document.getElementById("update-pemilik").value = pemilik;
+        document.getElementById("update-no_rek").value = no_rek;
+
+        updateForm.action = `/api/metode/update/${id}`;
+    });
+});
+
+$(document).ready(function () {
+    $(".delete-produk").on("click", function (e) {
+        e.preventDefault();
+
+        var id = $(this).data("id");
+
+        Swal.fire({
+            title: "Apakah Anda Yakin?",
+            text: "Data akan dihapus secara permanen!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Hapus!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the corresponding form
+                $(`#deleteFormProduk-${id}`).submit();
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $(".delete-wisata").on("click", function (e) {
+        e.preventDefault();
+
+        var id = $(this).data("id");
+
+        Swal.fire({
+            title: "Apakah Anda Yakin?",
+            text: "Data akan dihapus secara permanen!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Hapus!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the corresponding form
+                $(`#deleteFormWisata-${id}`).submit();
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $(".delete-pembayaran").on("click", function (e) {
+        e.preventDefault();
+
+        var id = $(this).data("id");
+
+        Swal.fire({
+            title: "Apakah Anda Yakin?",
+            text: "Data akan dihapus secara permanen!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Hapus!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the corresponding form
+                $(`#deleteFormPembayaran-${id}`).submit();
+            }
+        });
+    });
+});
