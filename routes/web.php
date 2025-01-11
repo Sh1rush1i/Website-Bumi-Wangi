@@ -59,3 +59,7 @@ Route::get('/about', function () {
 Route::get('/product', [ProdukController::class, 'index'])->name('produk');
 
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
+
+Route::get('/details', function () {
+    return view('details');
+});
