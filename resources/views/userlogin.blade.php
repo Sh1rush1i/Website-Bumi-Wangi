@@ -59,8 +59,7 @@
                                     <!-- Password Input -->
                                     <div class="form-group mb-3">
                                         <input id="password" name="password" type="password" placeholder="Password"
-                                            required
-                                            class="form-control rounded-pill border-0 shadow-sm px-4">
+                                            required class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
                                     <!-- Submit Button -->

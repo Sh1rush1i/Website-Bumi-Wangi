@@ -23,7 +23,7 @@ Route::get('/contact', function () {
     return view('contact', compact('media'));
 })->name('contact');
 
-Route::post('/booking', [pesananController::class, 'index'])->name('book');
+Route::post('/bookingw', [pesananController::class, 'index'])->name('book');
 
 Route::get('/login', function () {
     if (auth()->check() && auth()->user()->role === 'user') {

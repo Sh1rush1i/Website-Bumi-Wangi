@@ -25,7 +25,7 @@
     <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @vite(['public/css/style.css'])
 
 </head>
 
@@ -45,23 +45,23 @@
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
                         <a class="text-primary px-3" href="{{ $media->facebook ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->facebook ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->twitter ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->twitter ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->tiktok ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-tiktok"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->instagram ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->instagram ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a class="text-primary pl-3" href="{{ $media->youtube ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->youtube }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->youtube ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -93,7 +93,7 @@
                         @if (Auth::check())
                             <div class="nav-item nav-link dropdown">
                                 <span class="dropdown-toggle" data-toggle="dropdown">Halo,
-                                    {{ Auth::user()->name }}</span>
+                                    {{ Auth::user()->name ?? Auth::user()->username }}</span>
                                 <div class="dropdown-menu">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -138,10 +138,10 @@
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
                         <h1 class="mb-3">Kami menyediakan pengalaman wisata asri</h1>
-                        <p>{{ $about->text ??
-                            'Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore
-                                                                            sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
-                                                                            erat sed diam duo' }}
+                        <p>
+                            {{ $about->text ??
+                                'Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
+                                                        erat sed diam duo' }}
                         </p>
                         <div class="row mb-4">
                             <div class="col-6">
@@ -215,19 +215,19 @@
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->twitter ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->twitter ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->facebook ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->facebook ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->tiktok ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square"
                         href="{{ $media->instagram ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->instagram ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-instagram"></i></a>
                 </div>
             </div>

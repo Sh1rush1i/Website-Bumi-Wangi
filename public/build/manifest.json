@@ -1,0 +1,54 @@
+{
+  "_bootstrap-z8A_VDJZ.js": {
+    "file": "assets/bootstrap-z8A_VDJZ.js",
+    "name": "bootstrap"
+  },
+  "node_modules/owl.carousel/dist/assets/owl.video.play.png": {
+    "file": "assets/owl.video.play-BJo37keB.png",
+    "src": "node_modules/owl.carousel/dist/assets/owl.video.play.png"
+  },
+  "resources/css/book.css": {
+    "file": "assets/book-DYAovL5R.css",
+    "src": "resources/css/book.css",
+    "isEntry": true
+  },
+  "resources/css/login.css": {
+    "file": "assets/login-Chy50Et4.css",
+    "src": "resources/css/login.css",
+    "isEntry": true
+  },
+  "resources/css/style.css": {
+    "file": "assets/style-CxhVYcG-.css",
+    "src": "resources/css/style.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Ef4OS--P.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap-z8A_VDJZ.js"
+    ],
+    "css": [
+      "assets/app-Dge_3wCe.css"
+    ],
+    "assets": [
+      "assets/owl.video.play-BJo37keB.png"
+    ]
+  },
+  "resources/js/dashboard.js": {
+    "file": "assets/dashboard-DhZcLPs6.js",
+    "name": "dashboard",
+    "src": "resources/js/dashboard.js",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap-z8A_VDJZ.js"
+    ]
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-C0w0PGIz.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}

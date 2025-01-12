@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Media;
 use App\Models\Wisata;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWisataRequest;
 use App\Http\Requests\UpdateWisataRequest;
 
@@ -94,6 +95,13 @@ class WisataController extends Controller
      */
     public function destroy(Wisata $wisata)
     {
+
+        $image_path = public_path($wisata->gambar);
+
+        if (file_exists($image_path)) {
+            unlink($image_path);
+        }
+
         $wisata->delete();
 
         // Add SweetAlert success message

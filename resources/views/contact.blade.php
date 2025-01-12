@@ -45,23 +45,23 @@
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
                         <a class="text-primary px-3" href="{{ $media->facebook ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->facebook ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->twitter ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->twitter ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->tiktok ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-tiktok"></i>
                         </a>
                         <a class="text-primary px-3" href="{{ $media->instagram ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->instagram ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a class="text-primary pl-3" href="{{ $media->youtube ?? 'javascript:void(0);' }}"
-                            onclick="if(!'{{ $media->youtube }}') alert('Belum tersedia');">
+                            onclick="if(!'{{ $media->youtube ?? '' }}') alert('Belum tersedia');">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -92,7 +92,7 @@
                         @if (Auth::check())
                             <div class="nav-item nav-link dropdown">
                                 <span class="dropdown-toggle" data-toggle="dropdown">Halo,
-                                    {{ Auth::user()->name }}</span>
+                                    {{ Auth::user()->name ?? Auth::user()->username }}</span>
                                 <div class="dropdown-menu">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -129,7 +129,7 @@
             <!-- Facebook -->
             <div class="col-md-4 social-card">
                 <a href="{{ $media->facebook ?? 'javascript:void(0);' }}"
-                    onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');" target="_blank"
+                    onclick="if(!'{{ $media->facebook ?? '' }}') alert('Belum tersedia');" target="_blank"
                     class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-facebook"></i>
@@ -140,7 +140,7 @@
             <!-- Twitter -->
             <div class="col-md-4 social-card">
                 <a href="{{ $media->twitter ?? 'javascript:void(0);' }}"
-                    onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');" target="_blank"
+                    onclick="if(!'{{ $media->twitter ?? '' }}') alert('Belum tersedia');" target="_blank"
                     class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-twitter"></i>
@@ -151,7 +151,7 @@
             <!-- Instagram -->
             <div class="col-md-4 social-card">
                 <a href="{{ $media->instagram ?? 'javascript:void(0);' }}"
-                    onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');" target="_blank"
+                    onclick="if(!'{{ $media->instagram ?? '' }}') alert('Belum tersedia');" target="_blank"
                     class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-instagram"></i>
@@ -164,7 +164,7 @@
             <!-- TikTok -->
             <div class="col-md-4 social-card">
                 <a href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
-                    onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');" target="_blank"
+                    onclick="if(!'{{ $media->tiktok ?? '' }}') alert('Belum tersedia');" target="_blank"
                     class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-tiktok"></i>
@@ -175,7 +175,7 @@
             <!-- YouTube -->
             <div class="col-md-4 social-card">
                 <a href="{{ $media->youtube ?? 'javascript:void(0);' }}"
-                    onclick="if(!'{{ $media->youtube }}') alert('Belum tersedia');" target="_blank"
+                    onclick="if(!'{{ $media->youtube ?? '' }}') alert('Belum tersedia');" target="_blank"
                     class="text-decoration-none text-dark">
                     <div class="icon-circle">
                         <i class="fab fa-youtube"></i>
@@ -200,7 +200,7 @@
                         <p>Hubungi kami langsung melalui WhatsApp</p>
                     </div>
                     <a href="{{ $media->whatsapp ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->whatsapp }}') alert('Belum tersedia');">
+                        onclick="if(!'{{ $media->whatsapp ?? '' }}') alert('Belum tersedia');">
                         <button class="btn btn-custom mt-auto">
                             <i class="fas fa-phone-alt"></i> Hubungi
                         </button>
@@ -218,7 +218,7 @@
                         <p>Butuh bantuan? Hubungi kami melalui dukungan email.</p>
                     </div>
                     <a href="mailto:{{ $media->email ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->email }}') alert('Belum tersedia');"><button
+                        onclick="if(!'{{ $media->email ?? '' }}') alert('Belum tersedia');"><button
                             class="btn btn-custom mt-auto">
                             <i class="fas fa-envelope-open-text"></i> Hubungi
                         </button>
@@ -241,19 +241,19 @@
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->twitter ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->twitter }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->twitter ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->facebook ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->facebook }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->facebook ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2"
                         href="{{ $media->tiktok ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->tiktok }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->tiktok ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-tiktok"></i></a>
                     <a class="btn btn-outline-primary btn-square"
                         href="{{ $media->instagram ?? 'javascript:void(0);' }}"
-                        onclick="if(!'{{ $media->instagram }}') alert('Belum tersedia');"><i
+                        onclick="if(!'{{ $media->instagram ?? '' }}') alert('Belum tersedia');"><i
                             class="fab fa-instagram"></i></a>
                 </div>
             </div>
