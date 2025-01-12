@@ -387,7 +387,7 @@
                                 <label for="facebook" class="form-label ms-3">Facebook</label>
                             </div>
                             <input type="url" class="form-control" id="facebook" name="facebook"
-                                placeholder="Masukkan link Facebook">
+                                placeholder="Masukkan link Facebook" value="{{ $media->facebook ?? '' }}">
                         </div>
                         <div class="mb-3">
                             <div class="d-flex">

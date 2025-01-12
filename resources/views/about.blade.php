@@ -250,16 +250,31 @@
             </div>
         </div>
     </div>
+    <!-- Footer prodi part -->
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
         style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
-            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+            <div class="col-lg-6 text-center text-md-left justify-content-end align-items-center">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
                 </p>
             </div>
-            <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50">Designed by <a href="">Telkom</a>
-                </p>
+            <div class="col-lg-6 text-center text-md-right d-flex justify-content-end align-items-center">
+                <p class="m-0 text-white-50">Designed by <a href="https://telkomuniversity.ac.id">Telkom</a></p>
+                <!-- New Images -->
+                <div class="d-flex ml-3">
+                    <a href="https://dsm.telkomuniversity.ac.id" target="_blank">
+                        <img src="img/d4trm.png" class="img-fluid mx-1 logo-prodi" alt="D4TRM">
+                    </a>
+                    <a href="https://dmm.telkomuniversity.ac.id" target="_blank">
+                        <img src="img/d3mp.webp" class="img-fluid mx-1 logo-prodi" alt="D3MP">
+                    </a>
+                    <a href="https://dho.telkomuniversity.ac.id/en/" target="_blank">
+                        <img src="img/d3ph.png" class="img-fluid mx-1 logo-prodi" alt="D3PH">
+                    </a>
+                    <a href="https://dte.telkomuniversity.ac.id" target="_blank">
+                        <img src="img/d3tt.png" class="img-fluid mx-1 logo-prodi" alt="D3TT">
+                    </a>
+                </div>
             </div>
         </div>
     </div>

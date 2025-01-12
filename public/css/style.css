@@ -10294,9 +10294,13 @@ h6,
     border: none;
     border-radius: 5px;
     display: flex;
-    align-items: center;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    text-align: center; /* Pastikan teks rata tengah */
     gap: 12px;
-    padding: 10px 20px;
+    padding: 15px 20px; /* Tinggi tombol ditingkatkan */
+    font-size: 16px; /* Ukuran teks */
+    cursor: pointer;
 }
 
 .btn-custom:hover {
@@ -10371,4 +10375,48 @@ h6,
 /* Contact margin container*/
 .con-ct {
     margin-top: 7em;
+}
+
+/* Footer Prodi*/
+.logo-prodi {
+    width: auto;
+    height: 40px;
+}
+
+.kontrol {
+    background-color: transparent; /* Makes the button transparent */
+    border: none; /* Removes border if any */
+}
+
+.k-icon {
+    filter: brightness(100%);
+    /* Ensures the icon is visible */
+    -webkit-filter: brightness(100%);
+}
+
+.kontrol:hover,
+.kontrol:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.prd-c {
+    color: var(--primary);
+}
+
+.three-container {
+    width: 100%; /* Full width */
+    height: 300px; /* Default height */
+    object-fit: cover; /* Ensure content scales properly */
+}
+
+@media (min-width: 768px) {
+    .three-container {
+        height: 400px; /* Larger height for tablets */
+    }
+}
+
+@media (min-width: 1200px) {
+    .three-container {
+        height: 500px; /* Larger height for desktops */
+    }
 }

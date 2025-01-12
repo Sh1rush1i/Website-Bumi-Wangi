@@ -8,6 +8,7 @@ export default defineConfig({
                 "resources/sass/app.scss",
                 "resources/js/dashboard.js",
                 "resources/js/app.js",
+                "resources/sass/style.scss",
                 "resources/css/style.css",
                 "resources/css/login.css",
                 "resources/css/book.css",
