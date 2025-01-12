@@ -128,7 +128,12 @@
             <div class="row">
                 <!-- Kolom untuk gambar -->
                 <div class="col-md-6 d-flex flex-column align-items-center text-center fade-in">
-                    <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
+                    <!-- Carousel view -->
+                    <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-images fa-2x"></i>
+                        <h4 class="ml-2 mb-0">Gallery</h4>
+                    </div>
+                    <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -154,18 +159,47 @@
                             <span class="sr-only">Next</span>
                         </button>
                     </div>
-                    <div id="three-container" class="mb-3" 
-                        style="width: 100%; height: 300px; object-fit: cover;" 
-                        data-image-src="" 
-                        data-video-src="./video/tri.mp4">
-                    </div> <!-- // ini aku kosongin Rel Bisa kamu coba pake ntar ke path storage -->
-                    <!-- Ini kamu loop aja ntar gambarnya-->
-                    <!-- Admin aku kerjain ntaran -->
-                    <img src="img/wisata.webp" alt="Image 2" class="mb-3" style="width: 100%; height: auto; object-fit: cover;">
+
+                    <!-- Video view -->
+                    <div class="mb-4" style="width:100%;">
+                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-video fa-2x"></i>
+                            <h4 class="ml-2 mb-0">Video</h4>
+                        </div>
+                        <!-- Video Player -->
+                            <video controls style="width: 100%; max-width: 800px; height: auto;">
+                                <source src="video/Strnv.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>                      
+                    </div>
+
+                    <!-- 360 view -->
+                    <div class="mb-4" style="width:100%;">
+                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-street-view fa-2x"></i>
+                            <h4 class="ml-2 mb-0">360° View </h4>
+                        </div>
+                        <div id="three-container"
+                                style="width: 100%; height: 300px; object-fit: cover;" 
+                                data-image-src="" 
+                                data-video-src="./video/tri.mp4">
+                        </div> <!-- // ini aku kosongin Rel Bisa kamu coba pake ntar ke path storage -->
+                    </div>
+
+                    <!-- Picture view -->
+                    <div class="mb-4" style="width:100%;">
+                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-images fa-2x"></i>
+                            <h4 class="ml-2 mb-0">Others</h4>
+                        </div>
+                        <!-- Ini kamu loop aja ntar gambarnya-->
+                        <!-- Admin aku kerjain ntaran -->
+                        <img src="img/wisata.webp" alt="Image 2" class="mb-3" style="width: 100%; height: auto; object-fit: cover;">
+                    </div>
                 </div>
                 <!-- Data -->
                 <div class="col-md-6 fade-in">
-                    <h3 class="mb-4 prd-c">Nama Di sini</h3>
+                    <h2 class="mb-4 prd-c">Nama Di sini</h2>
                     <p><strong>Deskripsi: <br></strong> <span></span></p>
                     <p><strong>Harga:</strong> <span>-</span></p>
                     <p><strong>Satuan:</strong> <span>-</span></p>
