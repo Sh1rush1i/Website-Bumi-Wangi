@@ -84,7 +84,7 @@
                     <div class="navbar-nav ml-auto py-0 fade-in">
                         <a href="{{ route('index') }}" class="nav-item nav-link">Beranda</a>
                         <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
-                        <a href="{{ route('produk') }}" class="nav-item nav-link active">Produk</a>
+                        <a href="{{ route('produk') }}" class="nav-item nav-link">Produk</a>
                         <a href="{{ route('wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
