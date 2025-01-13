@@ -220,31 +220,36 @@
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photos</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar[]" 
+                            <input type="file" class="form-control" id="gambar" name="gambar[]"
                                 accept=".jpeg, .jpg, .png" multiple required>
-                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png | Bisa pilih lebih dari satu</small>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
+                                Bisa pilih lebih dari satu</small>
                         </div>
 
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video Biasa</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
+                            <input type="file" class="form-control" id="video" name="video"
+                                accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                         </div>
 
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar"
-                                accept=".jpeg, .jpg, .png" required>
-                            <small class="form-text text-muted">Max size: ? MB | Format: jpeg, jpg, png, 360, etc | Optional</small>
+                            <input type="file" class="form-control" id="gambar" name="360gambar"
+                                accept=".jpeg, .jpg, .png">
+                            <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
+                                Optional</small>
                         </div>
-                        
+
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
-                            <small class="form-text text-muted">Max size: ? MB | Format: mp4, 360, etc | Optional</small>
+                            <input type="file" class="form-control" id="video" name="360video"
+                                accept=".mp4">
+                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |
+                                Optional</small>
                         </div>
 
                         <!-- Submit Button -->
@@ -293,15 +298,17 @@
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photos</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar[]" 
+                            <input type="file" class="form-control" id="gambar" name="gambar[]"
                                 accept=".jpeg, .jpg, .png" multiple required>
-                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png | Bisa pilih lebih dari satu</small>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
+                                Bisa pilih lebih dari satu</small>
                         </div>
 
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video Biasa</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
+                            <input type="file" class="form-control" id="video" name="video"
+                                accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                         </div>
 
@@ -309,15 +316,18 @@
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
                             <input type="file" class="form-control" id="gambar" name="gambar"
-                                accept=".jpeg, .jpg, .png" required>
-                            <small class="form-text text-muted">Max size: ? MB | Format: jpeg, jpg, png, 360, etc | Optional</small>
+                                accept=".jpeg, .jpg, .png">
+                            <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
+                                Optional</small>
                         </div>
-                        
+
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
-                            <small class="form-text text-muted">Max size: ? MB | Format: mp4, 360, etc | Optional</small>
+                            <input type="file" class="form-control" id="video" name="video"
+                                accept=".mp4">
+                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |
+                                Optional</small>
                         </div>
 
                         <!-- Submit Button -->
@@ -709,33 +719,38 @@
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photos</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar[]" 
+                            <input type="file" class="form-control" id="gambar" name="gambar[]"
                                 accept=".jpeg, .jpg, .png" multiple required>
-                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png | Bisa pilih lebih dari satu</small>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
+                                Bisa pilih lebih dari satu</small>
                         </div>
 
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video Biasa</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
+                            <input type="file" class="form-control" id="video" name="video"
+                                accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4 | Optional</small>
                         </div>
 
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar"
-                                accept=".jpeg, .jpg, .png" required>
-                            <small class="form-text text-muted">Max size: ? MB | Format: jpeg, jpg, png, 360, etc | Optional</small>
+                            <input type="file" class="form-control" id="gambar" name="360gambar"
+                                accept=".jpeg, .jpg, .png">
+                            <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
+                                Optional</small>
                         </div>
-                        
+
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="video" name="video" accept=".mp4">
-                            <small class="form-text text-muted">Max size: ? MB | Format: mp4, 360, etc | Optional</small>
+                            <input type="file" class="form-control" id="video" name="360video"
+                                accept=".mp4">
+                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |
+                                Optional</small>
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
