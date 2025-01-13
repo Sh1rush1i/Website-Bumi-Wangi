@@ -27,8 +27,10 @@ class UpdateProdukRequest extends FormRequest
             'deskripsi' => 'required|string|max:500',
             'harga' => 'required|integer|min:1', // Ensure harga is a positive integer
             'satuan' => 'required|string|max:50',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:10240', // Max 10MB image, optional
+            'gambar.*' => 'nullable|image|mimes:jpg,jpeg,png|max:10240', // Max 10MB image, optional
             'video' => 'nullable|mimes:mp4,mov,avi,mkv|max:51200', // Max 50MB video, optional
+            '360gambar.360' => 'nullable|image|mimes:jpg,jpeg,png|max:20480', // Max size: 20MB, optional
+            '360video.360' => 'nullable|mimes:mp4|max:51200', // Max size: 50MB, optional
         ];
     }
 
