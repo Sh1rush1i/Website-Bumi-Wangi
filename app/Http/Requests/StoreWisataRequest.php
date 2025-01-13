@@ -26,8 +26,10 @@ class StoreWisataRequest extends FormRequest
             'deskripsi' => 'required|string',
             'harga' => 'required|integer|min:0',
             'satuan' => 'required|string|max:100',
-            'gambar' => 'required|image|mimes:jpg,jpeg,png|max:10240', // Max size: 2MB
+            'gambar.*' => 'required|image|mimes:jpg,jpeg,png|max:10240', // Max size: 10MB
             'video' => 'nullable|mimes:mp4|max:51200', // Max size: 50MB
+            '360gambar.360' => 'nullable|image|mimes:jpg,jpeg,png|max:20480', // Max size: 20MB
+            '360video.360' => 'nullable|mimes:mp4|max:51200', // Max size: 50MB
         ];
     }
 
