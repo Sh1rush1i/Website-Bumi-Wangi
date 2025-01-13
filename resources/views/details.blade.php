@@ -195,8 +195,8 @@
                         @foreach ($image as $item)
                             <img src="{{ asset('storage/' . $item->path) }}" alt="Image 2" class="mb-3"
                                 style="width: 100%; height: auto; object-fit: cover;">
-                        @endforeach
 
+                        @endforeach
                     </div>
                 </div>
                 <!-- Data -->
@@ -209,10 +209,12 @@
                     <div class="mt-4">
                         <table class="table table-borderless">
                             <tbody>
+                                <!-- Harga -->
                                 <tr>
                                     <td><strong>Harga</strong></td>
                                     <td>: {{ $detail->harga }}</td>
                                 </tr>
+                                <!-- Satuan -->
                                 <tr>
                                     <td><strong>Satuan</strong></td>
                                     <td>: {{ $detail->satuan }}</td>
