@@ -140,6 +140,7 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
+                            <!-- Gambar carousel di sini-->
                             <div class="carousel-item active">
                                 <img src="img/carousel-2.webp" class="d-block w-100" alt="...">
                             </div>
@@ -193,7 +194,6 @@
                             <h4 class="ml-2 mb-0">Others</h4>
                         </div>
                         <!-- Ini kamu loop aja ntar gambarnya-->
-                        <!-- Admin aku kerjain ntaran -->
                         <img src="img/wisata.webp" alt="Image 2" class="mb-3" style="width: 100%; height: auto; object-fit: cover;">
                     </div>
                 </div>
@@ -204,10 +204,12 @@
                     <div class="mt-4">
                         <table class="table table-borderless">
                             <tbody>
+                                <!-- Harga -->
                                 <tr>
                                     <td><strong>Harga</strong></td>
                                     <td>: 90909090909090</td>
                                 </tr>
+                                <!-- Satuan -->
                                 <tr>
                                     <td><strong>Satuan</strong></td>
                                     <td>: 1 Malam</td>
