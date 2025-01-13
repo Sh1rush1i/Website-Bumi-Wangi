@@ -10383,13 +10383,12 @@ h6,
 }
 
 .kontrol {
-    background-color: transparent; /* Makes the button transparent */
-    border: none; /* Removes border if any */
+    background-color: transparent;
+    border: none;
 }
 
 .k-icon {
     filter: brightness(100%);
-    /* Ensures the icon is visible */
     -webkit-filter: brightness(100%);
 }
 
@@ -10403,19 +10402,23 @@ h6,
 }
 
 .three-container {
-    width: 100%; /* Full width */
-    height: 300px; /* Default height */
-    object-fit: cover; /* Ensure content scales properly */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 @media (min-width: 768px) {
     .three-container {
-        height: 400px; /* Larger height for tablets */
+        height: 400px;
     }
 }
 
 @media (min-width: 1200px) {
     .three-container {
-        height: 500px; /* Larger height for desktops */
+        height: 500px;
     }
+}
+
+.table-borderless td {
+    padding-left: 0px;
 }

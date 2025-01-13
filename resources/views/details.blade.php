@@ -200,9 +200,21 @@
                 <!-- Data -->
                 <div class="col-md-6 fade-in">
                     <h2 class="mb-4 prd-c">Nama Di sini</h2>
-                    <p><strong>Deskripsi: <br></strong> <span></span></p>
-                    <p><strong>Harga:</strong> <span>-</span></p>
-                    <p><strong>Satuan:</strong> <span>-</span></p>
+                    <p style="text-align: justify;"><strong>Deskripsi: </strong><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <span></span></p>
+                    <div class="mt-4">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Harga</strong></td>
+                                    <td>: 90909090909090</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Satuan</strong></td>
+                                    <td>: 1 Malam</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <button id="order-button" class="btn btn-primary mt-4 btn-custom" style="width: 100%;">Pesan</button>
                 </div>
             </div>

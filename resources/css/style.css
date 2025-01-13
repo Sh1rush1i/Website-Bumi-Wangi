@@ -1,4 +1,3 @@
-
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -10371,4 +10370,51 @@ h6,
 /* Contact margin container*/
 .con-ct {
     margin-top: 7em;
+}
+
+/* Footer Prodi*/
+.logo-prodi {
+    width: auto;
+    height: 40px;
+}
+
+.kontrol {
+    background-color: transparent;
+    border: none;
+}
+
+.k-icon {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+.kontrol:hover,
+.kontrol:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.prd-c {
+    color: var(--primary);
+}
+
+.three-container {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .three-container {
+        height: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .three-container {
+        height: 500px;
+    }
+}
+
+.table-borderless td {
+    padding-left: 0px;
 }
