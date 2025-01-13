@@ -22,7 +22,8 @@ class WisataController extends Controller
     {
         $wisata = Wisata::all();
         $media = Media::first();
-        return view('wisata', compact('wisata', 'media'));
+        $image = Image::all();
+        return view('wisata', compact('wisata', 'media', 'image'));
     }
     /**
      * Store a newly created resource in storage.

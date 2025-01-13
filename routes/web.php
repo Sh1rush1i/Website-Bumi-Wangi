@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DetailsController;
 use App\Models\About;
 use App\Models\Media;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,4 @@ Route::get('/product', [ProdukController::class, 'index'])->name('produk');
 
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
 
-Route::get('/details', function () {
-    return view('details');
-});
+Route::get('/details/{type}/{id}', [DetailsController::class, 'show'])->name('detail');

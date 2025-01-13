@@ -272,7 +272,10 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
                                 <div class="d-flex justify-content-center align-items-center img-display">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                    @php
+                                        $firstImage = $image->where('wisata_id', $item->id)->first();
+                                    @endphp
+                                    <img class="img-fluid" src="{{ asset('storage/' . $firstImage->path) }}"
                                         alt="">
                                 </div>
                                 <a class="destination-overlay text-white text-decoration-none">
@@ -303,7 +306,10 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="destination-item position-relative overflow-hidden mb-2">
                                 <div class="d-flex justify-content-center align-items-center img-display">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                    @php
+                                        $firstImage = $image->where('produk_id', $item->id)->first();
+                                    @endphp
+                                    <img class="img-fluid" src="{{ asset('storage/' . $firstImage->path) }}"
                                         alt="">
                                 </div>
                                 <a class="destination-overlay text-white text-decoration-none">

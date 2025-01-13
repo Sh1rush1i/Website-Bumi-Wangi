@@ -132,41 +132,49 @@
             <!-- Ini item 1 wak -->
             <div class="row d-flex justify-content-center">
                 @foreach ($wisata as $item)
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="package-item bg-white mb-2">
-                            <div class="image-container"
-                                style="height: 200px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}" alt=""
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand New</small>
-                                    <small class="m-0"><i
-                                            class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
+                    <a href="{{ route('detail', ['type' => 'wisata', 'id' => $item->id]) }}">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <div class="image-container"
+                                    style="height: 200px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                                    @php
+                                        $firstImage = $image->where('wisata_id', $item->id)->first();
+                                    @endphp
+                                    <img class="img-fluid" src="{{ asset('storage/' . $firstImage->path) }}"
+                                        alt="" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
-                                <div class="product-item">
-                                    <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
-                                    <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2"
-                                        href="#">{{ $item->deskripsi }}</a>
-                                </div>
-                                <div class="border-top mt-4 pt-4">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="m-0">IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
-                                        <form action="{{ route('book') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id_produk" value="{{ $item->id }}">
-                                            <input type="hidden" name="type" value="wisata">
-                                            <input type="hidden" name="nama_produk" value="{{ $item->nama }}">
-                                            <input type="hidden" name="harga" value="{{ $item->harga }}">
-                                            <input type="hidden" name="gambar_produk" value="{{ $item->gambar }}">
-                                            <button class="btn btn-primary btn-sm">Pesan</button>
-                                        </form>
+                                <div class="p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <small class="m-0"><i class="fa fa-tag text-primary mr-2"></i>Brand
+                                            New</small>
+                                        <small class="m-0"><i
+                                                class="fa fa-box text-primary mr-2"></i>{{ $item->satuan }}</small>
+                                    </div>
+                                    <div class="product-item">
+                                        <a class="h5 text-decoration-none" href="#">{{ $item->nama }}</a>
+                                        <a class="h6 text-decoration-none d-block mt-2 text-muted text-truncate-2"
+                                            href="#">{{ $item->deskripsi }}</a>
+                                    </div>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="m-0">IDR {{ number_format($item->harga, 0, ',', '.') }}</h5>
+                                            <form action="{{ route('book') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id_produk" value="{{ $item->id }}">
+                                                <input type="hidden" name="type" value="wisata">
+                                                <input type="hidden" name="nama_produk"
+                                                    value="{{ $item->nama }}">
+                                                <input type="hidden" name="harga" value="{{ $item->harga }}">
+                                                <input type="hidden" name="gambar_produk"
+                                                    value="{{ $item->gambar }}">
+                                                <button class="btn btn-primary btn-sm">Pesan</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

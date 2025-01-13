@@ -24,7 +24,8 @@ class ProdukController extends Controller
     {
         $produk = Produk::all();
         $media = Media::first();
-        return view('product', compact('produk', 'media'));
+        $image = Image::all();
+        return view('product', compact('produk', 'media', 'image'));
     }
     /**
      * Store a newly created resource in storage.

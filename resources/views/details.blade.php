@@ -43,24 +43,19 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href=""
-                            onclick="">
+                        <a class="text-primary px-3" href="" onclick="">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="text-primary px-3" href=""
-                            onclick="">
+                        <a class="text-primary px-3" href="" onclick="">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="text-primary px-3" href=""
-                            onclick="">
+                        <a class="text-primary px-3" href="" onclick="">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a class="text-primary px-3" href=""
-                            onclick="">
+                        <a class="text-primary px-3" href="" onclick="">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-primary pl-3" href=""
-                            onclick="">
+                        <a class="text-primary pl-3" href="" onclick="">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -88,22 +83,22 @@
                         <a href="{{ route('wisata') }}" class="nav-item nav-link">Wisata</a>
                         <a href="{{ route(name: 'contact') }}" class="nav-item nav-link">Contact</a>
                         <span class="spacer-navbar"></span>
-                        
-                            <div class="nav-item nav-link dropdown">
-                                <span class="dropdown-toggle" data-toggle="dropdown">Halo,
-                                    </span>
-                                <div class="dropdown-menu">
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">Log out</button>
-                                    </form>
-                                </div>
+
+                        <div class="nav-item nav-link dropdown">
+                            <span class="dropdown-toggle" data-toggle="dropdown">Halo,
+                            </span>
+                            <div class="dropdown-menu">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Log out</button>
+                                </form>
                             </div>
-                        
-                            <div class="button-login">
-                                <a href="{{ route('user-login') }}">Login</a>
-                            </div>
-                        
+                        </div>
+
+                        <div class="button-login">
+                            <a href="{{ route('user-login') }}">Login</a>
+                        </div>
+
                     </div>
                 </div>
             </nav>
@@ -140,51 +135,55 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="img/carousel-2.webp" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/carousel-2.webp" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/carousel-2.webp" class="d-block w-100" alt="...">
-                            </div>
+                            @foreach ($image as $key => $item)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/' . $item->path) }}" class="d-block w-100"
+                                        alt="...">
+                                </div>
+                            @endforeach
                         </div>
-                        <button class="carousel-control-prev kontrol" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                        <button class="carousel-control-prev kontrol" type="button"
+                            data-target="#carouselExampleIndicators" data-slide="prev">
                             <span class="carousel-control-prev-icon k-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </button>
-                        <button class="carousel-control-next kontrol" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                        <button class="carousel-control-next kontrol" type="button"
+                            data-target="#carouselExampleIndicators" data-slide="next">
                             <span class="carousel-control-next-icon k-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </button>
                     </div>
 
-                    <!-- Video view -->
-                    <div class="mb-4" style="width:100%;">
-                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
-                            <i class="fas fa-video fa-2x"></i>
-                            <h4 class="ml-2 mb-0">Video</h4>
-                        </div>
-                        <!-- Video Player -->
+                    @if (isset($video))
+                        <!-- Video view -->
+                        <div class="mb-4" style="width:100%;">
+                            <div
+                                class="container-fluid d-flex align-items-center justify-content-center mb-3                        ">
+                                <i class="fas fa-video fa-2x"></i>
+                                <h4 class="ml-2 mb-0">Video</h4>
+                            </div>
+                            <!-- Video Player -->
                             <video controls style="width: 100%; max-width: 800px; height: auto;">
-                                <source src="video/Strnv.mp4" type="video/mp4">
+                                <source src="{{ asset('storage/' . $video->path) }}" type="video/mp4">
                                 Your browser does not support the video tag.
-                            </video>                      
-                    </div>
+                            </video>
+                        </div>
+                    @endif
 
                     <!-- 360 view -->
-                    <div class="mb-4" style="width:100%;">
-                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
-                            <i class="fas fa-street-view fa-2x"></i>
-                            <h4 class="ml-2 mb-0">360° View </h4>
+                    @if (isset($image360) || isset($video360))
+                        <div class="mb-4" style="width:100%;">
+                            <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                                <i class="fas fa-street-view fa-2x"></i>
+                                <h4 class="ml-2 mb-0">360° View </h4>
+                            </div>
+                            <div id="three-container" style="width: 100%; height: 300px; object-fit: cover;"
+                                data-image-src="{{ isset($image360) ? asset('storage/' . $image360->path) : '' }}"
+                                data-video-src="{{ isset($video360) ? asset('storage/' . $video360->path) : '' }}">
+                            </div>
                         </div>
-                        <div id="three-container"
-                                style="width: 100%; height: 300px; object-fit: cover;" 
-                                data-image-src="" 
-                                data-video-src="./video/tri.mp4">
-                        </div> <!-- // ini aku kosongin Rel Bisa kamu coba pake ntar ke path storage -->
-                    </div>
+                    @endif
+
 
                     <!-- Picture view -->
                     <div class="mb-4" style="width:100%;">
@@ -193,29 +192,36 @@
                             <h4 class="ml-2 mb-0">Others</h4>
                         </div>
                         <!-- Ini kamu loop aja ntar gambarnya-->
-                        <!-- Admin aku kerjain ntaran -->
-                        <img src="img/wisata.webp" alt="Image 2" class="mb-3" style="width: 100%; height: auto; object-fit: cover;">
+                        @foreach ($image as $item)
+                            <img src="{{ asset('storage/' . $item->path) }}" alt="Image 2" class="mb-3"
+                                style="width: 100%; height: auto; object-fit: cover;">
+                        @endforeach
+
                     </div>
                 </div>
                 <!-- Data -->
                 <div class="col-md-6 fade-in">
-                    <h2 class="mb-4 prd-c">Nama Di sini</h2>
-                    <p style="text-align: justify;"><strong>Deskripsi: </strong><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <span></span></p>
+                    <h2 class="mb-4 prd-c">{{ $detail->nama }}</h2>
+                    <p style="text-align: justify;"><strong>Deskripsi: </strong><br>
+                        {{ $detail->deskripsi }}
+                        <span></span>
+                    </p>
                     <div class="mt-4">
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
                                     <td><strong>Harga</strong></td>
-                                    <td>: 90909090909090</td>
+                                    <td>: {{ $detail->harga }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Satuan</strong></td>
-                                    <td>: 1 Malam</td>
+                                    <td>: {{ $detail->satuan }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <button id="order-button" class="btn btn-primary mt-4 btn-custom" style="width: 100%;">Pesan</button>
+                    <button id="order-button" class="btn btn-primary mt-4 btn-custom"
+                        style="width: 100%;">Pesan</button>
                 </div>
             </div>
         </div>
@@ -232,22 +238,13 @@
                 <p>Kami menawarkan pengalaman wisata lokal terbaik dan produk kerajinan asli Indonesia</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2"
-                        
-                        onclick=""><i
+                    <a class="btn btn-outline-primary btn-square mr-2" onclick=""><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2"
-                        
-                        onclick=""><i
+                    <a class="btn btn-outline-primary btn-square mr-2" onclick=""><i
                             class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2"
-                        
-                        onclick=""><i
+                    <a class="btn btn-outline-primary btn-square mr-2" onclick=""><i
                             class="fab fa-tiktok"></i></a>
-                    <a class="btn btn-outline-primary btn-square"
-                        
-                        onclick=""><i
-                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square" onclick=""><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 mb-5 order-lg-3 text-lg-right">

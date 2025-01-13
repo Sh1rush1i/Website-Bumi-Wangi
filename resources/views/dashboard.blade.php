@@ -105,7 +105,10 @@
                                     </form>
                                 </div>
                                 <!-- Card Content -->
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                @php
+                                    $firstImage = $image->where('produk_id', $item->id)->first();
+                                @endphp
+                                <img class="img-fluid" src="{{ asset('storage/' . $firstImage->path) }}"
                                     alt="Product Image">
                                 <div class="p-4">
                                     <div class="d-flex justify-content-between mb-3">
@@ -157,7 +160,10 @@
                                     </form>
                                 </div>
                                 <!-- Card Content -->
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->gambar) }}"
+                                @php
+                                    $firstImage = $image->where('wisata_id', $item->id)->first();
+                                @endphp
+                                <img class="img-fluid" src="{{ asset('storage/' . $firstImage->path) }}"
                                     alt="Product Image">
                                 <div class="p-4">
                                     <div class="d-flex justify-content-between mb-3">
@@ -315,7 +321,7 @@
                         <!-- Upload Photo -->
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar"
+                            <input type="file" class="form-control" id="gambar" name="360gambar"
                                 accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
                                 Optional</small>
@@ -324,7 +330,7 @@
                         <!-- Upload Video -->
                         <div class="mb-4">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="video" name="video"
+                            <input type="file" class="form-control" id="video" name="360video"
                                 accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |
                                 Optional</small>

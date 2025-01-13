@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Image;
 use App\Models\Media;
-use App\Models\payment_method;
+use App\Models\Video;
 use App\Models\Produk;
 use App\Models\Wisata;
 use App\Models\pesanan;
+use App\Models\Image360;
+use App\Models\Video360;
 use Illuminate\Http\Request;
+use App\Models\payment_method;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
-use Yajra\DataTables\DataTables;
 
 class DashboardController extends Controller
 {
@@ -23,6 +27,10 @@ class DashboardController extends Controller
         $media = Media::first();
         $pesanan = pesanan::all();
         $metode = payment_method::all();
+        $image = Image::all();
+        $image360 = Image360::all();
+        $video = Video::all();
+        $video360 = Video360::all();
 
         if (request()->ajax()) {
             return DataTables::of($pesanan)
@@ -53,7 +61,11 @@ class DashboardController extends Controller
             'about',
             'media',
             'pesanan',
-            'metode'
+            'metode',
+            'image',
+            'image360',
+            'video',
+            'video360'
         ));
     }
 
@@ -62,7 +74,19 @@ class DashboardController extends Controller
         $wisata = Wisata::all();
         $produk = Produk::all();
         $media = Media::first();
-        return view('index', compact('wisata', 'produk', 'media'));
+        $image = Image::all();
+        $image360 = Image360::all();
+        $video = Video::all();
+        $video360 = Video360::all();
+        return view('index', compact(
+            'wisata',
+            'produk',
+            'media',
+            'image',
+            'image360',
+            'video',
+            'video360'
+        ));
     }
 
     public function about(Request $request)
