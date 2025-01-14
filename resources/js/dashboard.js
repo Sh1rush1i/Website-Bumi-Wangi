@@ -187,6 +187,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateForm.action = `/api/metode/update/${id}`;
     });
+
+    // Generic function to handle file input change
+    function handleFileInputChange(fileInput, inputToHide, inputToShow) {
+        fileInput.addEventListener("change", function () {
+            if (fileInput.files.length > 0) {
+                inputToHide.classList.add("d-none");
+            } else {
+                inputToHide.classList.remove("d-none");
+            }
+            inputToShow.classList.remove("d-none");
+        });
+    }
+
+    // Generic function for clear button functionality
+    function handleClearButton(clearButton, fileInputs, inputsToShow) {
+        clearButton.addEventListener("click", function () {
+            // Reset file inputs
+            fileInputs.forEach((input) => (input.value = ""));
+            // Show all inputs
+            inputsToShow.forEach((input) => input.classList.remove("d-none"));
+        });
+    }
+
+    // Get elements for P and W groups
+    const groups = [
+        {
+            fileInputGambar: document.getElementById("gambarP"),
+            fileInputVideo: document.getElementById("videoP"),
+            inputG360: document.getElementById("inputG360P"),
+            inputV360: document.getElementById("inputV360P"),
+            clearButton: document.getElementById("clearButtonP"),
+        },
+        {
+            fileInputGambar: document.getElementById("gambarW"),
+            fileInputVideo: document.getElementById("videoW"),
+            inputG360: document.getElementById("inputG360W"),
+            inputV360: document.getElementById("inputV360W"),
+            clearButton: document.getElementById("clearButtonW"),
+        },
+    ];
+
+    // Attach event listeners for each group
+    groups.forEach(
+        ({
+            fileInputGambar,
+            fileInputVideo,
+            inputG360,
+            inputV360,
+            clearButton,
+        }) => {
+            handleFileInputChange(fileInputGambar, inputV360, inputG360);
+            handleFileInputChange(fileInputVideo, inputG360, inputV360);
+            handleClearButton(
+                clearButton,
+                [fileInputGambar, fileInputVideo],
+                [inputG360, inputV360]
+            );
+        }
+    );
 });
 
 $(document).ready(function () {

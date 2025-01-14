@@ -108,10 +108,10 @@
 
     <!-- Header Start -->
     <div class="container-fluid page-header"
-        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.webp), no-repeat center center;">
+        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('img/carousel-2.webp') }}'), no-repeat center center;">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center fade-in" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Produk</h3>
+                <h3 class="display-4 text-white text-uppercase">Detail</h3>
             </div>
         </div>
     </div>
@@ -281,16 +281,16 @@
                 <!-- New Images -->
                 <div class="d-flex ml-3">
                     <a href="https://dsm.telkomuniversity.ac.id" target="_blank">
-                        <img src="img/d4trm.png" class="img-fluid mx-1 logo-prodi" alt="D4TRM">
+                        <img src="{{ asset('img/d4trm.png') }}" class="img-fluid mx-1 logo-prodi" alt="D4TRM">
                     </a>
                     <a href="https://dmm.telkomuniversity.ac.id" target="_blank">
-                        <img src="img/d3mp.webp" class="img-fluid mx-1 logo-prodi" alt="D3MP">
+                        <img src="{{ asset('img/d3mp.webp') }}" class="img-fluid mx-1 logo-prodi" alt="D3MP">
                     </a>
                     <a href="https://dho.telkomuniversity.ac.id/en/" target="_blank">
-                        <img src="img/d3ph.png" class="img-fluid mx-1 logo-prodi" alt="D3PH">
+                        <img src="{{ asset('img/d3ph.png') }}" class="img-fluid mx-1 logo-prodi" alt="D3PH">
                     </a>
                     <a href="https://dte.telkomuniversity.ac.id" target="_blank">
-                        <img src="img/d3tt.png" class="img-fluid mx-1 logo-prodi" alt="D3TT">
+                        <img src="{{ asset('img/d3tt.png') }}" class="img-fluid mx-1 logo-prodi" alt="D3TT">
                     </a>
                 </div>
             </div>
