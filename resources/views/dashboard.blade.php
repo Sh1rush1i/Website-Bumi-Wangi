@@ -38,13 +38,17 @@
                     </a>
                     <div class="nav_list">
                         <a href="" id="menu-dashboard" class="nav_link active"> <i
-                                class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span></a>
+                                class='bx bx-grid-alt nav_icon'></i> 
+                            <span class="nav_name">Dashboard</span></a>
                         <a href="" id="menu-input-produk" class="nav_link"> <i
-                                class='bx bxs-purchase-tag nav_icon'></i></i> <span class="nav_name">Input Produk</span>
-                        </a>
+                                class='bx bxs-purchase-tag nav_icon'></i></i> 
+                            <span class="nav_name">Input Produk</span></a>
                         <a href="" id="menu-input-wisata" class="nav_link"> <i
                                 class='bx bx-leaf nav_icon'></i></i>
                             <span class="nav_name">Input Wisata</span> </a>
+                        <a href="" id="menu-input-beranda" class="nav_link"> <i
+                            class='bx bxs-home nav_icon'></i></i> 
+                        <span class="nav_name">Input Beranda</span></a>
                         <a href="" id="menu-input-tentang" class="nav_link"> <i
                                 class='bx bx-info-circle nav_icon'></i></i>
                             <span class="nav_name">Input About</span> </a>
@@ -350,6 +354,27 @@
                             <button type="submit" class="btn btn-primary me-3 mb-4">Submit</button>
                             <button type="reset" class="btn btn-secondary mb-4" id="clearButtonW">Clear</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Home Content -->
+            <div id="beranda-content" class="d-none">
+                <div class="mb-3 pb-3">
+                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Home</h6>
+                    <h3>Display Teks Halaman Beranda</h3>
+                </div>
+                <div class="container-fluid">
+
+                    <!-- Update About Text Form -->
+                    <form action="{{ route('about-post') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="about-text" class="form-label">Update About Text</label>
+                            <textarea class="form-control" id="text" name="text" rows="5"
+                                placeholder="Masukkan teks baru untuk halaman About"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>

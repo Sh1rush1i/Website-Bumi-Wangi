@@ -20,39 +20,27 @@ document.querySelector("form").addEventListener("submit", function (e) {
 });
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    // Select all menu links
-    const menuDashboard = document.getElementById("menu-dashboard");
-    const menuInputProduk = document.getElementById("menu-input-produk");
-    const menuInputWisata = document.getElementById("menu-input-wisata");
-    const menuPembelian = document.getElementById("menu-pembelian");
-    const menuInputTentang = document.getElementById("menu-input-tentang");
-    const menuInputBayar = document.getElementById("menu-input-bayar");
-    const menuInfo = document.getElementById("menu-input-info");
+    // Mapping between menu IDs and content sections
+    const menuToContentMap = {
+        "menu-dashboard": "dashboard-content",
+        "menu-input-produk": "produk-content",
+        "menu-input-wisata": "wisata-content",
+        "menu-input-beranda": "beranda-content",
+        "menu-input-tentang": "about-content",
+        "menu-input-info": "info-content",
+        "menu-input-bayar": "info-bayar",
+        "menu-pembelian": "pembelian",
+    };
 
     // Select all content sections
-    const dashboardContent = document.getElementById("dashboard-content");
-    const produkContent = document.getElementById("produk-content");
-    const wisataContent = document.getElementById("wisata-content");
-    const aboutContent = document.getElementById("about-content");
-    const infoContent = document.getElementById("info-content");
-    const infoAlamatPembayaran = document.getElementById("info-bayar");
-    const pembelianContent = document.getElementById("pembelian");
-
-    // Group all content sections in an array
-    const allSections = [
-        dashboardContent,
-        produkContent,
-        wisataContent,
-        aboutContent,
-        pembelianContent,
-        infoAlamatPembayaran,
-        infoContent,
-    ];
+    const allSections = Object.values(menuToContentMap).map((id) =>
+        document.getElementById(id)
+    );
 
     // Function to handle visibility
     const showContent = (contentToShow) => {
         allSections.forEach((section) => {
-            if (section === contentToShow) {
+            if (section.id === contentToShow) {
                 section.classList.remove("d-none"); // Show the selected section
             } else {
                 section.classList.add("d-none"); // Hide the other sections
@@ -60,40 +48,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     };
 
-    // Add event listeners for menu items
-    menuDashboard.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(dashboardContent);
-    });
+    // Add event listeners for menu items dynamically
+    Object.keys(menuToContentMap).forEach((menuId) => {
+        const menuElement = document.getElementById(menuId);
+        const contentId = menuToContentMap[menuId];
 
-    menuInputProduk.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(produkContent);
-    });
-
-    menuInputWisata.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(wisataContent);
-    });
-
-    menuInputTentang.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(aboutContent);
-    });
-
-    menuInfo.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(infoContent);
-    });
-
-    menuInputBayar.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(infoAlamatPembayaran);
-    });
-
-    menuPembelian.addEventListener("click", (event) => {
-        event.preventDefault();
-        showContent(pembelianContent);
+        if (menuElement) {
+            menuElement.addEventListener("click", (event) => {
+                event.preventDefault();
+                showContent(contentId);
+            });
+        }
     });
 
     const showNavbar = (toggleId, navId, bodyId, headerId) => {
@@ -187,65 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateForm.action = `/api/metode/update/${id}`;
     });
-
-    // Generic function to handle file input change
-    function handleFileInputChange(fileInput, inputToHide, inputToShow) {
-        fileInput.addEventListener("change", function () {
-            if (fileInput.files.length > 0) {
-                inputToHide.classList.add("d-none");
-            } else {
-                inputToHide.classList.remove("d-none");
-            }
-            inputToShow.classList.remove("d-none");
-        });
-    }
-
-    // Generic function for clear button functionality
-    function handleClearButton(clearButton, fileInputs, inputsToShow) {
-        clearButton.addEventListener("click", function () {
-            // Reset file inputs
-            fileInputs.forEach((input) => (input.value = ""));
-            // Show all inputs
-            inputsToShow.forEach((input) => input.classList.remove("d-none"));
-        });
-    }
-
-    // Get elements for P and W groups
-    const groups = [
-        {
-            fileInputGambar: document.getElementById("gambarP"),
-            fileInputVideo: document.getElementById("videoP"),
-            inputG360: document.getElementById("inputG360P"),
-            inputV360: document.getElementById("inputV360P"),
-            clearButton: document.getElementById("clearButtonP"),
-        },
-        {
-            fileInputGambar: document.getElementById("gambarW"),
-            fileInputVideo: document.getElementById("videoW"),
-            inputG360: document.getElementById("inputG360W"),
-            inputV360: document.getElementById("inputV360W"),
-            clearButton: document.getElementById("clearButtonW"),
-        },
-    ];
-
-    // Attach event listeners for each group
-    groups.forEach(
-        ({
-            fileInputGambar,
-            fileInputVideo,
-            inputG360,
-            inputV360,
-            clearButton,
-        }) => {
-            handleFileInputChange(fileInputGambar, inputV360, inputG360);
-            handleFileInputChange(fileInputVideo, inputG360, inputV360);
-            handleClearButton(
-                clearButton,
-                [fileInputGambar, fileInputVideo],
-                [inputG360, inputV360]
-            );
-        }
-    );
 });
 
 $(document).ready(function () {
