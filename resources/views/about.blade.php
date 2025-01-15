@@ -126,12 +126,12 @@
     <!-- Header End -->
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 fade-in">
-            <div class="row">
+    <div class="container-fluid mt-5">
+        <div class="container py-5 fade-in">
+            <div class="row py-5">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="img/carousel-1.webp" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
@@ -143,14 +143,6 @@
                                 'Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
                                                         erat sed diam duo' }}
                         </p>
-                        <div class="row mb-4">
-                            <div class="col-6">
-                                <img class="img-fluid" src="img/carousel-1.webp" alt="">
-                            </div>
-                            <div class="col-6">
-                                <img class="img-fluid" src="img/carousel-2.webp" alt="">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -159,7 +151,7 @@
     <!-- About End -->
 
     <!-- Feature Start -->
-    <div class="container-fluid pb-5">
+    <div class="container-fluid pb-5 mt-5">
         <div class="container pb-5">
             <div class="row">
                 <div class="col-md-4">
