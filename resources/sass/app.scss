@@ -330,3 +330,15 @@ a {
         margin-top: 2rem;
     }
 }
+
+.img-display {
+    width: 450px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}

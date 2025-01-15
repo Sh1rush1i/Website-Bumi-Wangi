@@ -231,7 +231,7 @@
                         <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photos</label>
                             <input type="file" class="form-control" id="gambar" name="gambar[]"
-                                accept=".jpeg, .jpg, .png" multiple required>
+                                accept=".jpeg, .jpg, .png .webp" multiple required>
                             <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
                                 Bisa pilih lebih dari satu</small>
                         </div>
@@ -249,18 +249,18 @@
                         </div>
 
                         <!-- Upload Photo 360 -->
-                        <div class="mb-4" id="inputG360P">
+                        <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
-                            <input type="file" class="form-control" id="gambarP" name="360gambar"
+                            <input type="file" class="form-control" id="gambar" name="360gambar"
                                 accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
                                 Optional</small>
                         </div>
 
                         <!-- Upload Video 360 -->
-                        <div class="mb-4" id="inputV360P">
+                        <div class="mb-4">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="videoP" name="360video"
+                            <input type="file" class="form-control" id="video" name="360video"
                                 accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |Optional</small>
                         </div>
@@ -312,16 +312,16 @@
                         </div>
 
                         <!-- Upload Photo -->
-                        <div class="mb-4" id="inputG360">
+                        <div class="mb-4">
                             <label for="gambar" class="form-label">Upload Photos</label>
                             <input type="file" class="form-control" id="gambar" name="gambar[]"
-                                accept=".jpeg, .jpg, .png" multiple required>
+                                accept=".jpeg, .jpg, .png .webp" multiple required>
                             <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
                                 Bisa pilih lebih dari satu</small>
                         </div>
 
                         <!-- Upload Video -->
-                        <div class="mb-4" id="inputV360">
+                        <div class="mb-4">
                             <label for="video" class="form-label">Upload Video Biasa</label>
                             <input type="file" class="form-control" id="video" name="video"
                                 accept=".mp4">
@@ -335,7 +335,7 @@
                         <!-- Upload Photo 360 -->
                         <div class="mb-4" id="inputG360W">
                             <label for="gambar" class="form-label">Upload Photo 360°</label>
-                            <input type="file" class="form-control" id="gambarW" name="360gambar"
+                            <input type="file" class="form-control" id="gambar" name="360gambar"
                                 accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png, 360, etc |
                                 Optional</small>
@@ -344,7 +344,7 @@
                         <!-- Upload Video 360 -->
                         <div class="mb-4" id="inputV360W">
                             <label for="video" class="form-label">Upload Video 360°</label>
-                            <input type="file" class="form-control" id="videoW" name="360video"
+                            <input type="file" class="form-control" id="video" name="360video"
                                 accept=".mp4">
                             <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc | Optional</small>
                         </div>
@@ -362,20 +362,56 @@
             <div id="beranda-content" class="d-none">
                 <div class="mb-3 pb-3">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Home</h6>
-                    <h3>Display Teks Halaman Beranda</h3>
+                    <h3>Display Halaman Beranda</h3>
                 </div>
                 <div class="container-fluid">
 
                     <!-- Update About Text Form -->
-                    <form action="{{ route('about-post') }}" method="POST">
-                        @csrf
+                    <form class="mb-4" action="" method="POST">
+                        <!-- Upload Photo -->
+                        <div class="mb-4" id="inputG360">
+                            <label for="gambar" class="form-label">Upload Photo Carousel</label>
+                            <input type="file" class="form-control" id="gambar" name="gambar[]"
+                                accept=".jpeg, .jpg, .png .webp" multiple required>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
+                                Bisa pilih lebih dari satu</small>
+                        </div>
+                        <!-- Caption -->
                         <div class="mb-3">
-                            <label for="about-text" class="form-label">Update About Text</label>
-                            <textarea class="form-control" id="text" name="text" rows="5"
-                                placeholder="Masukkan teks baru untuk halaman About"></textarea>
+                            <label for="caption" class="form-label">Caption Carousel</label>
+                            <textarea class="form-control" id="caption" name="caption" rows="2"
+                                placeholder="Masukkan caption untuk carousel" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
+                    
+                    <div class="row">
+                        <!-- Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <div class="container-fluid" >
+                                        <img class="img-display" src="img/carousel-1.webp">
+                                    </div>
+                                    
+                                    <span class="card-text d-block mt-2">Caption :<br> asasasasasasasa</span>
+                                    <div class="mt-3">
+                                        <!-- Tombol Update -->
+                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
+                                            data-bs-target="#updateModalCarousel" data-id="">Update</button>
+                                        <!-- Tombol Delete -->
+                                        <button class="btn btn-danger btn-sm"
+                                            data-id="" id="">Delete</button>
+                                        <form id=""
+                                            action="" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -383,9 +419,24 @@
             <div id="about-content" class="d-none">
                 <div class="mb-3 pb-3">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About</h6>
-                    <h3>Display Teks Halaman About</h3>
+                    <h3>Display Halaman About</h3>
                 </div>
                 <div class="container-fluid">
+                    <!-- Display current image -->
+                    <div class="mb-4">
+                        <h5>About Image Sekarang:</h5>
+                        <img class="img-display mt-2" src="img/about.jpg" id="current-about-text" 
+                        class="bg-light p-3" style="object-fit:contain;">
+                    </div>
+
+                    <!-- Upload Photo About Page -->
+                        <div class="mb-4" class="">
+                            <label for="gambar" class="form-label">Upload Photo About</label>
+                            <input type="file" class="form-control" id="gambar" name=""
+                                accept=".jpeg, .jpg, .png">
+                            <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png etc</small>
+                        </div>
+
                     <!-- Display Current About Text -->
                     <div class="mb-4">
                         <h5>About Text Sekarang:</h5>
@@ -719,6 +770,42 @@
                 document.getElementById('modalImage').src = imageUrl;
             }
         </script>
+    </div>
+
+    <!-- Update data Carousel pop up -->
+    <div class="modal fade shadow p-3" id="updateModalCarousel" tabindex="-1" aria-labelledby="updateModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="updateForm" action="" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <!-- ID (Hidden) -->
+                        <input type="hidden" id="update-id" name="id">
+                        <div class="mb-4" id="inputG360">
+                            <label for="gambar" class="form-label">Upload Photo Carousel</label>
+                            <input type="file" class="form-control" id="gambar" name="gambar[]"
+                                accept=".jpeg, .jpg, .png .webp" multiple required>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
+                                Bisa pilih lebih dari satu</small>
+                        </div>
+                        <!-- Caption -->
+                        <div class="mb-3">
+                            <label for="caption" class="form-label">Caption Carousel</label>
+                            <textarea class="form-control" id="caption" name="caption" rows="2"
+                                placeholder="Masukkan caption untuk carousel" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Update data Wisata Produk pop up -->
