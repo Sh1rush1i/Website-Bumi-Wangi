@@ -124,11 +124,11 @@
                 <!-- Kolom untuk gambar -->
                 <div class="col-md-6 d-flex flex-column align-items-center text-center fade-in">
                     <!-- Carousel view -->
-                    <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
+                    <div class="container-fluid d-flex align-items-center justify-content-center mb-4">
                         <i class="fas fa-images fa-2x"></i>
                         <h4 class="ml-2 mb-0">Gallery</h4>
                     </div>
-                    <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide mb-4 w-100" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -138,7 +138,7 @@
                             @foreach ($image as $key => $item)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                     <img src="{{ asset('storage/' . $item->path) }}" class="d-block w-100"
-                                        alt="...">
+                                        alt="..." style="height: 600px; object-fit: cover; object-position:center;">
                                 </div>
                             @endforeach
                         </div>
@@ -153,52 +153,8 @@
                             <span class="sr-only">Next</span>
                         </button>
                     </div>
-
-                    @if (isset($video))
-                        <!-- Video view -->
-                        <div class="mb-4" style="width:100%;">
-                            <div
-                                class="container-fluid d-flex align-items-center justify-content-center mb-3                        ">
-                                <i class="fas fa-video fa-2x"></i>
-                                <h4 class="ml-2 mb-0">Video</h4>
-                            </div>
-                            <!-- Video Player -->
-                            <video controls style="width: 100%; max-width: 800px; height: auto;">
-                                <source src="{{ asset('storage/' . $video->path) }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    @endif
-
-                    <!-- 360 view -->
-                    @if (isset($image360) || isset($video360))
-                        <div class="mb-4" style="width:100%;">
-                            <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
-                                <i class="fas fa-street-view fa-2x"></i>
-                                <h4 class="ml-2 mb-0">360° View </h4>
-                            </div>
-                            <div id="three-container" style="width: 100%; height: 300px; object-fit: cover;"
-                                data-image-src="{{ isset($image360) ? asset('storage/' . $image360->path) : '' }}"
-                                data-video-src="{{ isset($video360) ? asset('storage/' . $video360->path) : '' }}">
-                            </div>
-                        </div>
-                    @endif
-
-
-                    <!-- Picture view -->
-                    <div class="mb-4" style="width:100%;">
-                        <div class="container-fluid d-flex align-items-center justify-content-center mb-3">
-                            <i class="fas fa-images fa-2x"></i>
-                            <h4 class="ml-2 mb-0">Others</h4>
-                        </div>
-                        <!-- Ini kamu loop aja ntar gambarnya-->
-                        @foreach ($image as $item)
-                            <img src="{{ asset('storage/' . $item->path) }}" alt="Image 2" class="mb-3"
-                                style="width: 100%; height: auto; object-fit: cover;">
-
-                        @endforeach
-                    </div>
                 </div>
+
                 <!-- Data -->
                 <div class="col-md-6 fade-in">
                     <h2 class="mb-4 prd-c">{{ $detail->nama }}</h2>
@@ -225,6 +181,51 @@
                     <button id="order-button" class="btn btn-primary mt-4 btn-custom"
                         style="width: 100%;">Pesan</button>
                 </div>
+                
+                <div class="container-fluid mt-5">
+
+
+                    @if (isset($video))
+                        <!-- Video view -->
+                        <div class="mb-4" style="width:100%;">
+                            <div
+                                class="container-fluid d-flex align-items-center justify-content-center mb-3                        ">
+                                <i class="fas fa-video fa-2x"></i>
+                                <h4 class="ml-2 mb-0">Video</h4>
+                            </div>
+                            <!-- Video Player -->
+                            <video controls style="width: 100%; height: auto;">
+                                <source src="{{ asset('storage/' . $video->path) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    @endif
+                    
+                    @if (isset($image360) || isset($video360))
+                    <div class="container-fluid d-flex align-items-center justify-content-center mt-5 mb-3">
+                        <i class="fas fa-street-view fa-2x"></i>
+                        <h4 class="ml-2 mb-0">360° View </h4>
+                    </div>
+                    @endif
+
+                    <!-- 360 image view -->
+                    @if (isset($image360))
+                        <div class="mb-4 w-100">
+                            <div id="three-container" class="360view w-100" style="width: 100%; height: 500px; object-fit: cover;"
+                                data-image-src="{{ isset($image360) ? asset('storage/' . $image360->path) : '' }}">
+                            </div>
+                        </div>
+                    @endif
+
+                    <!-- 360 video view  -->
+                    @if (isset ($video360))
+                        <div class="mb-4" style="width:100%;">
+                            <div id="three-container"  class="360view w-100" style="width: 100%; height: 500px; object-fit: cover;"
+                                data-video-src="{{ isset($video360) ? asset('storage/' . $video360->path) : '' }}">
+                            </div>
+                        </div>
+                    @endif
+                </div>    
             </div>
         </div>
     </div>
