@@ -138,7 +138,8 @@
                             @foreach ($image as $key => $item)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                     <img src="{{ asset('storage/' . $item->path) }}" class="d-block w-100"
-                                        alt="..." style="height: 600px; object-fit: cover; object-position:center;">
+                                        alt="..."
+                                        style="height: 600px; object-fit: cover; object-position:center;">
                                 </div>
                             @endforeach
                         </div>
@@ -156,6 +157,7 @@
                 </div>
 
                 <!-- Data -->
+
                 <div class="col-md-6 fade-in">
                     <h2 class="mb-4 prd-c">{{ $detail->nama }}</h2>
                     <p style="text-align: justify;"><strong>Deskripsi: </strong><br>
@@ -178,10 +180,18 @@
                             </tbody>
                         </table>
                     </div>
-                    <button id="order-button" class="btn btn-primary mt-4 btn-custom"
-                        style="width: 100%;">Pesan</button>
+                    <form action="{{ route('book') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_produk" value="{{ $detail->id }}">
+                        <input type="hidden" name="type" value="{{ request()->segment(2) }}">
+                        <input type="hidden" name="nama_produk" value="{{ $detail->nama }}">
+                        <input type="hidden" name="harga" value="{{ $detail->harga }}">
+                        <input type="hidden" name="gambar_produk" value="{{ $image[0]->path }}">
+                        <button id="order-button" class="btn btn-primary mt-4 btn-custom"
+                            style="width: 100%;">Pesan</button>
+                    </form>
                 </div>
-                
+
                 <div class="container-fluid mt-5">
 
 
@@ -200,32 +210,34 @@
                             </video>
                         </div>
                     @endif
-                    
+
                     @if (isset($image360) || isset($video360))
-                    <div class="container-fluid d-flex align-items-center justify-content-center mt-5 mb-3">
-                        <i class="fas fa-street-view fa-2x"></i>
-                        <h4 class="ml-2 mb-0">360° View </h4>
-                    </div>
+                        <div class="container-fluid d-flex align-items-center justify-content-center mt-5 mb-3">
+                            <i class="fas fa-street-view fa-2x"></i>
+                            <h4 class="ml-2 mb-0">360° View </h4>
+                        </div>
                     @endif
 
                     <!-- 360 image view -->
                     @if (isset($image360))
                         <div class="mb-4 w-100">
-                            <div id="three-container" class="360view w-100" style="width: 100%; height: 500px; object-fit: cover;"
+                            <div id="three-container" class="360view w-100"
+                                style="width: 100%; height: 500px; object-fit: cover;"
                                 data-image-src="{{ isset($image360) ? asset('storage/' . $image360->path) : '' }}">
                             </div>
                         </div>
                     @endif
 
                     <!-- 360 video view  -->
-                    @if (isset ($video360))
+                    @if (isset($video360))
                         <div class="mb-4" style="width:100%;">
-                            <div id="three-container"  class="360view w-100" style="width: 100%; height: 500px; object-fit: cover;"
+                            <div id="three-container" class="360view w-100"
+                                style="width: 100%; height: 500px; object-fit: cover;"
                                 data-video-src="{{ isset($video360) ? asset('storage/' . $video360->path) : '' }}">
                             </div>
                         </div>
                     @endif
-                </div>    
+                </div>
             </div>
         </div>
     </div>

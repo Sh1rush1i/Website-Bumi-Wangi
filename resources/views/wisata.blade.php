@@ -166,7 +166,7 @@
                                                     value="{{ $item->nama }}">
                                                 <input type="hidden" name="harga" value="{{ $item->harga }}">
                                                 <input type="hidden" name="gambar_produk"
-                                                    value="{{ $item->gambar }}">
+                                                    value="{{ $firstImage->path }}">
                                                 <button class="btn btn-primary btn-sm">Pesan</button>
                                             </form>
                                         </div>
