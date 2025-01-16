@@ -38,17 +38,17 @@
                     </a>
                     <div class="nav_list">
                         <a href="" id="menu-dashboard" class="nav_link active"> <i
-                                class='bx bx-grid-alt nav_icon'></i> 
+                                class='bx bx-grid-alt nav_icon'></i>
                             <span class="nav_name">Dashboard</span></a>
                         <a href="" id="menu-input-produk" class="nav_link"> <i
-                                class='bx bxs-purchase-tag nav_icon'></i></i> 
+                                class='bx bxs-purchase-tag nav_icon'></i></i>
                             <span class="nav_name">Input Produk</span></a>
                         <a href="" id="menu-input-wisata" class="nav_link"> <i
                                 class='bx bx-leaf nav_icon'></i></i>
                             <span class="nav_name">Input Wisata</span> </a>
                         <a href="" id="menu-input-beranda" class="nav_link"> <i
-                            class='bx bxs-home nav_icon'></i></i> 
-                        <span class="nav_name">Input Beranda</span></a>
+                                class='bx bxs-home nav_icon'></i></i>
+                            <span class="nav_name">Input Beranda</span></a>
                         <a href="" id="menu-input-tentang" class="nav_link"> <i
                                 class='bx bx-info-circle nav_icon'></i></i>
                             <span class="nav_name">Input About</span> </a>
@@ -262,7 +262,8 @@
                             <label for="video" class="form-label">Upload Video 360°</label>
                             <input type="file" class="form-control" id="video" name="360video"
                                 accept=".mp4">
-                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |Optional</small>
+                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc
+                                |Optional</small>
                         </div>
 
                         <!-- Submit Button -->
@@ -346,7 +347,8 @@
                             <label for="video" class="form-label">Upload Video 360°</label>
                             <input type="file" class="form-control" id="video" name="360video"
                                 accept=".mp4">
-                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc | Optional</small>
+                            <small class="form-text text-muted">Max size: 50 MB | Format: mp4, 360, etc |
+                                Optional</small>
                         </div>
 
                         <!-- Submit Button -->
@@ -384,26 +386,25 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
-                    
+
                     <div class="row">
                         <!-- Card 1 -->
                         <div class="col-md-4 mb-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <div class="container-fluid" >
+                                    <div class="container-fluid">
                                         <img class="img-display" src="img/carousel-1.webp">
                                     </div>
-                                    
+
                                     <span class="card-text d-block mt-2">Caption :<br> asasasasasasasa</span>
                                     <div class="mt-3">
                                         <!-- Tombol Update -->
                                         <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
                                             data-bs-target="#updateModalCarousel" data-id="">Update</button>
                                         <!-- Tombol Delete -->
-                                        <button class="btn btn-danger btn-sm"
-                                            data-id="" id="">Delete</button>
-                                        <form id=""
-                                            action="" method="POST">
+                                        <button class="btn btn-danger btn-sm" data-id=""
+                                            id="">Delete</button>
+                                        <form id="" action="" method="POST">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -425,29 +426,29 @@
                     <!-- Display current image -->
                     <div class="mb-4">
                         <h5>About Image Sekarang:</h5>
-                        <img class="img-display mt-2" src="img/about.jpg" id="current-about-text" 
-                        class="bg-light p-3" style="object-fit:contain;">
+                        <img class="img-display mt-2"
+                            src="{{ isset($about) && $about->image ? asset('storage/' . $about->image) : asset('img/carousel-1.webp') }}"
+                            id="current-about-text" class="bg-light p-3" style="object-fit:contain;">
                     </div>
-
-                    <!-- Upload Photo About Page -->
+                    <form action="{{ route('about-post') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <!-- Upload Photo About Page -->
                         <div class="mb-4" class="">
                             <label for="gambar" class="form-label">Upload Photo About</label>
-                            <input type="file" class="form-control" id="gambar" name=""
+                            <input type="file" class="form-control" id="image" name="image"
                                 accept=".jpeg, .jpg, .png">
                             <small class="form-text text-muted">Max size: 20 MB | Format: jpeg, jpg, png etc</small>
                         </div>
 
-                    <!-- Display Current About Text -->
-                    <div class="mb-4">
-                        <h5>About Text Sekarang:</h5>
-                        <p id="current-about-text" class="bg-light p-3 border rounded">
-                            {{ $about->text ?? 'No data available' }}
-                        </p>
-                    </div>
+                        <!-- Display Current About Text -->
+                        <div class="mb-4">
+                            <h5>About Text Sekarang:</h5>
+                            <p id="current-about-text" class="bg-light p-3 border rounded">
+                                {{ $about->text ?? 'No data available' }}
+                            </p>
+                        </div>
 
-                    <!-- Update About Text Form -->
-                    <form action="{{ route('about-post') }}" method="POST">
-                        @csrf
+                        <!-- Update About Text Form -->
                         <div class="mb-3">
                             <label for="about-text" class="form-label">Update About Text</label>
                             <textarea class="form-control" id="text" name="text" rows="5"

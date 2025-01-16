@@ -131,7 +131,8 @@
             <div class="row py-5">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/carousel-1.webp" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100"
+                            src="{{ isset($about) && $about->image ? asset('storage/' . $about->image) : asset('img/carousel-1.webp') }}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
@@ -141,7 +142,7 @@
                         <p>
                             {{ $about->text ??
                                 'Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
-                                                        erat sed diam duo' }}
+                                                                                                                                                                        erat sed diam duo' }}
                         </p>
                     </div>
                 </div>

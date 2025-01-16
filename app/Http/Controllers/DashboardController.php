@@ -16,6 +16,7 @@ use App\Models\payment_method;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -94,33 +95,57 @@ class DashboardController extends Controller
         try {
             // Validate the input
             $validated = $request->validate([
-                'text' => 'required',
-            ], [
-                'text.required' => 'Field "text" harus diisi.', // Custom error message
+            'text' => 'nullable|string',
+            'image' => 'nullable|image|max:10240',
             ]);
 
             // Check if an 'About' record already exists
             $about = About::first();
 
             if ($about) {
-                // Update the existing record
-                $about->update($validated);
 
-                // SweetAlert success message for update
-                alert()->success('Success', 'About berhasil diupdate');
+            if ($request->hasFile('image')) {
+                if ($about->image) {
+                // Delete the existing image
+                Storage::disk('public')->delete($about->image);
+                }
+
+                // Store the new image
+                $validated['image'] = $request->file('image')->store('images/about', 'public');
+            }
+
+            // Update the existing record, only if 'text' is not empty
+            if (!empty($validated['text'])) {
+                $about->text = $validated['text'];
+            }
+
+            // Update the image if it exists in the request
+            if (isset($validated['image'])) {
+                $about->image = $validated['image'];
+            }
+
+            $about->save();
+
+            // SweetAlert success message for update
+            alert()->success('Success', 'About berhasil diupdate');
             } else {
-                // Create a new record
-                About::create($validated);
 
-                // SweetAlert success message for creation
-                alert()->success('Success', 'About berhasil ditambahkan');
+            if ($request->hasFile('image')) {
+                $validated['image'] = $request->file('image')->store('images/about', 'public');
+            }
+
+            // Create a new record
+            About::create($validated);
+
+            // SweetAlert success message for creation
+            alert()->success('Success', 'About berhasil ditambahkan');
             }
 
             // Redirect to the dashboard
             return redirect()->route('dashboard');
         } catch (\Illuminate\Validation\ValidationException $e) {
             // SweetAlert error for validation failure
-            alert()->error('Error', 'Field "text" harus diisi.');
+            alert()->error('Error', 'Validation error: ' . $e->getMessage());
 
             // Redirect back with input and validation errors
             return redirect()->back()->withErrors($e->validator)->withInput();
