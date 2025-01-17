@@ -368,15 +368,17 @@
                 </div>
                 <div class="container-fluid">
 
-                    <!-- Update About Text Form -->
-                    <form class="mb-4" action="" method="POST">
+                    <!-- Upload Gambar dan Caption Carousel -->
+                    <form class="mb-4" action="{{ route('carousel-post') }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
                         <!-- Upload Photo -->
                         <div class="mb-4" id="inputG360">
                             <label for="gambar" class="form-label">Upload Photo Carousel</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar[]"
-                                accept=".jpeg, .jpg, .png .webp" multiple required>
-                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
-                                Bisa pilih lebih dari satu</small>
+                            <input type="file" class="form-control" id="gambar" name="image"
+                                accept=".jpeg, .jpg, .png .webp" required>
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png
+                            </small>
                         </div>
                         <!-- Caption -->
                         <div class="mb-3">
@@ -389,29 +391,34 @@
 
                     <div class="row">
                         <!-- Card 1 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="container-fluid">
-                                        <img class="img-display" src="img/carousel-1.webp">
-                                    </div>
+                        @foreach ($carousel as $item)
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <div class="container-fluid">
+                                            <img class="img-display" src="{{ asset('storage/' . $item->image) }}"
+                                                alt="Carousel Image" style="object-fit:contain;">
+                                        </div>
 
-                                    <span class="card-text d-block mt-2">Caption :<br> asasasasasasasa</span>
-                                    <div class="mt-3">
-                                        <!-- Tombol Update -->
-                                        <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
-                                            data-bs-target="#updateModalCarousel" data-id="">Update</button>
-                                        <!-- Tombol Delete -->
-                                        <button class="btn btn-danger btn-sm" data-id=""
-                                            id="">Delete</button>
-                                        <form id="" action="" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
+                                        <span class="card-text d-block mt-2">Caption :<br> {{ $item->caption }}</span>
+                                        <div class="mt-3">
+                                            <!-- Tombol Update -->
+                                            <button class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal"
+                                                data-bs-target="#updateModalCarousel" data-id="{{ $item->id }}"
+                                                data-caption="{{ $item->caption }}">Update</button>
+                                            <!-- Tombol Delete -->
+                                            <button class="btn btn-danger btn-sm delete-carousel"
+                                                data-id="{{ $item->id }}">Delete</button>
+                                            <form id="deleteFormCarousel-{{ $item->id }}"
+                                                action="{{ route('carousel-delete', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -782,22 +789,24 @@
                     <h5 class="modal-title" id="updateModalLabel">Update Item</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="updateForm" action="" method="POST" enctype="multipart/form-data">
+                <form id="updateFormCarousel" action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="modal-body">
                         <!-- ID (Hidden) -->
                         <input type="hidden" id="update-id" name="id">
                         <div class="mb-4" id="inputG360">
                             <label for="gambar" class="form-label">Upload Photo Carousel</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar[]"
-                                accept=".jpeg, .jpg, .png .webp" multiple required>
-                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg, png |
-                                Bisa pilih lebih dari satu</small>
+                            <input type="file" class="form-control" id="gambar" name="image"
+                                accept=".jpeg, .jpg, .png .webp">
+                            <small class="form-text text-muted">Max size: 10 MB per file | Format: jpeg, jpg,
+                                png</small>
                         </div>
                         <!-- Caption -->
                         <div class="mb-3">
                             <label for="caption" class="form-label">Caption Carousel</label>
-                            <textarea class="form-control" id="caption" name="caption" rows="2"
-                                placeholder="Masukkan caption untuk carousel" required></textarea>
+                            <textarea class="form-control" id="update-caption" name="caption" rows="2"
+                                placeholder="Masukkan caption untuk carousel"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

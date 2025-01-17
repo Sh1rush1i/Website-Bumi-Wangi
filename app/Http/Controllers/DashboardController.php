@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\CarouselImages;
 use App\Models\Image;
 use App\Models\Media;
 use App\Models\Video;
@@ -32,6 +33,7 @@ class DashboardController extends Controller
         $image360 = Image360::all();
         $video = Video::all();
         $video360 = Video360::all();
+        $carousel = CarouselImages::all();
 
         if (request()->ajax()) {
             return DataTables::of($pesanan)
@@ -66,7 +68,8 @@ class DashboardController extends Controller
             'image',
             'image360',
             'video',
-            'video360'
+            'video360',
+            'carousel'
         ));
     }
 
@@ -79,6 +82,7 @@ class DashboardController extends Controller
         $image360 = Image360::all();
         $video = Video::all();
         $video360 = Video360::all();
+        $carousel = CarouselImages::all();
         return view('index', compact(
             'wisata',
             'produk',
@@ -86,7 +90,8 @@ class DashboardController extends Controller
             'image',
             'image360',
             'video',
-            'video360'
+            'video360',
+            'carousel'
         ));
     }
 
@@ -95,8 +100,8 @@ class DashboardController extends Controller
         try {
             // Validate the input
             $validated = $request->validate([
-            'text' => 'nullable|string',
-            'image' => 'nullable|image|max:10240',
+                'text' => 'nullable|string',
+                'image' => 'nullable|image|max:10240',
             ]);
 
             // Check if an 'About' record already exists
@@ -104,41 +109,41 @@ class DashboardController extends Controller
 
             if ($about) {
 
-            if ($request->hasFile('image')) {
-                if ($about->image) {
-                // Delete the existing image
-                Storage::disk('public')->delete($about->image);
+                if ($request->hasFile('image')) {
+                    if ($about->image) {
+                        // Delete the existing image
+                        Storage::disk('public')->delete($about->image);
+                    }
+
+                    // Store the new image
+                    $validated['image'] = $request->file('image')->store('images/about', 'public');
                 }
 
-                // Store the new image
-                $validated['image'] = $request->file('image')->store('images/about', 'public');
-            }
+                // Update the existing record, only if 'text' is not empty
+                if (!empty($validated['text'])) {
+                    $about->text = $validated['text'];
+                }
 
-            // Update the existing record, only if 'text' is not empty
-            if (!empty($validated['text'])) {
-                $about->text = $validated['text'];
-            }
+                // Update the image if it exists in the request
+                if (isset($validated['image'])) {
+                    $about->image = $validated['image'];
+                }
 
-            // Update the image if it exists in the request
-            if (isset($validated['image'])) {
-                $about->image = $validated['image'];
-            }
+                $about->save();
 
-            $about->save();
-
-            // SweetAlert success message for update
-            alert()->success('Success', 'About berhasil diupdate');
+                // SweetAlert success message for update
+                alert()->success('Success', 'About berhasil diupdate');
             } else {
 
-            if ($request->hasFile('image')) {
-                $validated['image'] = $request->file('image')->store('images/about', 'public');
-            }
+                if ($request->hasFile('image')) {
+                    $validated['image'] = $request->file('image')->store('images/about', 'public');
+                }
 
-            // Create a new record
-            About::create($validated);
+                // Create a new record
+                About::create($validated);
 
-            // SweetAlert success message for creation
-            alert()->success('Success', 'About berhasil ditambahkan');
+                // SweetAlert success message for creation
+                alert()->success('Success', 'About berhasil ditambahkan');
             }
 
             // Redirect to the dashboard
@@ -244,6 +249,83 @@ class DashboardController extends Controller
         $metode->delete();
 
         alert()->success('Success', 'Metode pembayaran berhasil dihapus');
+
+        return redirect()->route('dashboard');
+    }
+
+    public function storeCarousel(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'image' => 'required|image|max:10240',
+                'caption' => 'required|string|max:255',
+            ]);
+
+            if ($request->hasFile('image')) {
+                $validated['image'] = $request->file('image')->store('images/carousel', 'public');
+            }
+
+            // Check if there are already 3 images in the database
+            if (CarouselImages::count() >= 3) {
+                alert()->error('Error', 'Maksimal 3 gambar diperbolehkan');
+                return redirect()->back()->withInput();
+            }
+
+            CarouselImages::create($validated);
+
+            alert()->success('Success', 'Gambar berhasil ditambahkan');
+
+            return redirect()->route('dashboard');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            alert()->error('Error', 'Validation error: ' . $e->getMessage());
+
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        }
+    }
+
+    public function updateCarousel(Request $request, CarouselImages $carousel)
+    {
+        try {
+            $validated = $request->validate([
+                'image' => 'nullable|image|max:10240',
+                'caption' => 'nullable|string|max:255',
+            ]);
+
+            if ($request->hasFile('image')) {
+                if ($carousel->image) {
+                    Storage::disk('public')->delete($carousel->image);
+                }
+
+                $validated['image'] = $request->file('image')->store('images/carousel', 'public');
+                $carousel->image = $validated['image'];
+            }
+
+            if (isset($validated['caption'])) {
+                $carousel->caption = $validated['caption'];
+            }
+
+            $carousel->save();
+
+            alert()->success('Success', 'Gambar berhasil diupdate');
+
+            return redirect()->route('dashboard');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            alert()->error('Error', 'Validation error: ' . $e->getMessage());
+
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        }
+
+    }
+
+    public function deleteCarousel(CarouselImages $carousel)
+    {
+        if ($carousel->image) {
+            Storage::disk('public')->delete($carousel->image);
+        }
+
+        $carousel->delete();
+
+        alert()->success('Success', 'Gambar berhasil dihapus');
 
         return redirect()->route('dashboard');
     }

@@ -44,6 +44,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/metode/post', [DashboardController::class, 'storeMetode'])->name('metode-post');
     Route::put('/metode/update/{metode}', [DashboardController::class, 'updateMetode'])->name('metode-update');
     Route::delete('/metode/delete/{metode}', [DashboardController::class, 'deleteMetode'])->name('metode-delete');
+
+    //Carousel Image
+    Route::post('/carousel/post', [DashboardController::class, 'storeCarousel'])->name('carousel-post');
+    Route::put('/carousel/update/{carousel}', [DashboardController::class, 'updateCarousel'])->name('carousel-update');
+    Route::delete('/carousel/delete/{carousel}', [DashboardController::class, 'deleteCarousel'])->name('carousel-delete');
 });
 
 Route::post('/register', [AuthController::class, 'store']);

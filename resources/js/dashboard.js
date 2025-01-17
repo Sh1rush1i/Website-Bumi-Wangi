@@ -154,6 +154,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const updateModal = document.getElementById("updateModalCarousel");
+    const updateForm = document.getElementById("updateFormCarousel");
+
+    updateModal.addEventListener("show.bs.modal", function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract data attributes
+        const id = button.getAttribute("data-id");
+        const caption = button.getAttribute("data-caption");
+
+        // Populate the form fields
+        document.getElementById("update-id").value = id;
+        document.getElementById("update-caption").value = caption;
+
+        updateForm.action = `/api/carousel/update/${id}`;
+    });
+});
+
 $(document).ready(function () {
     $(".delete-produk").on("click", function (e) {
         e.preventDefault();
@@ -218,6 +238,29 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 // Submit the corresponding form
                 $(`#deleteFormPembayaran-${id}`).submit();
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $(".delete-carousel").on("click", function (e) {
+        e.preventDefault();
+
+        var id = $(this).data("id");
+
+        Swal.fire({
+            title: "Apakah Anda Yakin?",
+            text: "Data akan dihapus secara permanen!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Hapus!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the corresponding form
+                $(`#deleteFormCarousel-${id}`).submit();
             }
         });
     });
