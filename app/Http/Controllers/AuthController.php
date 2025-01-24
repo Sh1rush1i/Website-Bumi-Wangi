@@ -141,6 +141,12 @@ class AuthController extends Controller
             alert()->error('Login Failed', 'Invalid email or password');
             return redirect()->back()->withInput();
         }
+
+        $response = LaravelTurnstile::validate();
+
+        if (! $response['success']) {
+            return redirect()->back()->withInput();
+        }
     }
 
     public function userLogout(Request $request)

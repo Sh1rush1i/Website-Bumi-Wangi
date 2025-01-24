@@ -62,6 +62,18 @@
                                             required class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
+                                    
+                                    <!-- Captcha -->
+                                    <div class="form-group mb-3">
+                                        <x-turnstile-widget 
+                                            theme="dark"
+                                            language="en-US"
+                                            size="normal"
+                                            callback="callbackFunction"
+                                            errorCallback="errorCallbackFunction"
+                                        />
+                                        <br>
+                                    </div>
                                     <!-- Submit Button -->
                                     <button type="submit" class="btn  text-uppercase mb-2 rounded-pill shadow-sm">
                                         Login</button>
@@ -86,6 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
