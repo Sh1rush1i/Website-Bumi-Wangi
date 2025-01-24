@@ -73,6 +73,12 @@
                                             class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
+                                    <!-- Captcha -->
+                                    <div class="form-group text-center">
+                                        <x-turnstile-widget theme="dark" language="en-US" size="normal"
+                                            callback="callbackFunction" errorCallback="errorCallbackFunction" />
+                                        <br>
+                                    </div>
                                     <button type="submit" class="btn text-uppercase mb-2 rounded-pill shadow-sm">
                                         Sign Up
                                     </button>

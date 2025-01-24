@@ -62,16 +62,11 @@
                                             required class="form-control rounded-pill border-0 shadow-sm px-4">
                                         <br>
                                     </div>
-                                    
+
                                     <!-- Captcha -->
-                                    <div class="form-group mb-3">
-                                        <x-turnstile-widget 
-                                            theme="dark"
-                                            language="en-US"
-                                            size="normal"
-                                            callback="callbackFunction"
-                                            errorCallback="errorCallbackFunction"
-                                        />
+                                    <div class="form-group text-center">
+                                        <x-turnstile-widget theme="dark" language="en-US" size="normal"
+                                            callback="callbackFunction" errorCallback="errorCallbackFunction" />
                                         <br>
                                     </div>
                                     <!-- Submit Button -->

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use Coderflex\LaravelTurnstile\Facades\LaravelTurnstile;
 
 class AuthController extends Controller
 {
@@ -98,6 +99,13 @@ class AuthController extends Controller
             'confirmPassword.same' => 'Confirm Password must match Password.',
         ]);
 
+        // Validate the reCAPTCHA
+        $response = LaravelTurnstile::validate();
+
+        if (!$response['success']) {
+            return redirect()->back()->withInput();
+        }
+
         // Create the user
         User::create([
             'name' => $validated['name'],
@@ -121,6 +129,13 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
+        // Validate the reCAPTCHA
+        $response = LaravelTurnstile::validate();
+
+        if (!$response['success']) {
+            return redirect()->back()->withInput();
+        }
+
         // Check if user exists
         $user = User::where('email', $request->email)->first();
 
@@ -139,12 +154,6 @@ class AuthController extends Controller
         } else {
             // SweetAlert for invalid password
             alert()->error('Login Failed', 'Invalid email or password');
-            return redirect()->back()->withInput();
-        }
-
-        $response = LaravelTurnstile::validate();
-
-        if (! $response['success']) {
             return redirect()->back()->withInput();
         }
     }
